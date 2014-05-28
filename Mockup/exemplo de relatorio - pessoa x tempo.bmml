@@ -1,0 +1,65 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="842" measuredH="516" mockupW="803" mockupH="477">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Title" x="39" y="39" w="-1" h="-1" measuredW="692" measuredH="43" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Relat%F3rio%20-%20Pessoa%20X%20Tempo%20-%20STAEPE</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::DateChooser" x="116" y="97" w="-1" h="-1" measuredW="90" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%20/%20%20/%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::DateChooser" x="141" y="135" w="-1" h="-1" measuredW="90" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%20/%20%20/%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::CheckBoxGroup" x="116" y="182" w="-1" h="-1" measuredW="108" measuredH="127" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%5Bx%5D%20Gradua%E7%E3o%0A%5Bx%5D%20Mestrado%0A%5B%20%5D%20Doutorado%0A%5B%20%5D%20P%F3s-Doutorado%0A%5B%20%5D%20Palestrante%0A%5B%20%5D%20Outros</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="39" y="330" w="108" h="32" measuredW="108" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Fazer%20relat%F3rio</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="206" y="330" w="119" h="32" measuredW="57" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Voltar</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="39" y="99" w="-1" h="-1" measuredW="62" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Data%20inicio</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="39" y="137" w="-1" h="-1" measuredW="91" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Data%20conclus%E3o</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="39" y="182" w="-1" h="-1" measuredW="60" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Visitantes</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::TextInput" x="181" y="289" w="166" h="-1" measuredW="79" measuredH="26" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::HRule" x="39" y="379" w="803" h="-1" measuredW="100" measuredH="10" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="18" controlTypeID="__group__" x="39" y="404" w="802" h="112" measuredW="802" measuredH="112" zOrder="11" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::DataGrid" x="0" y="0" w="802" h="112" measuredW="1163" measuredH="111" zOrder="0" locked="false" isInGroup="18">
+          <controlProperties>
+            <text>Nome%2C%20e-mail%2C%20RNE%2C%20Passaporte%2C%20Visitante%2C%20P%E1is%2C%20Institui%E7%E3o%2C%20Docente%2C%20e-mail%20do%20docente%2C%20departamento%2C%20inicio%2C%20termino%2C%20atividade%0AAlice%2C%20alice@abc.com%2C123%2C456%2CGradua%E7%E3o%2CIndia%2CFNI%2CDr.%20Jos%E9%20%2C%20jos%E9@ibilce.unesp.br%2CDCCE%2C05/01/2012%2C05/01/2015%2C%20pesquisas%20em%20vis%E3o%20computacional%0ABob%2C%20bob@abc.com%2C234%2C567%2CGradua%E7%E3o%2CEUA%2CFNEUA%2CDr.%20Alfredo%20%2C%20alfredo@ibilce.unesp.br%2CDMap%2C05/01/2012%2C05/01/2015%2C%20pesquisas%20em%20otimiza%E7%E3o%0A...</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
