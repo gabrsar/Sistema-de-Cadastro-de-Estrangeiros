@@ -1,0 +1,48 @@
+body {
+	margin:10px;
+	font-family:Calibri;
+}
+
+@page {
+	size: landscape
+}
+table {
+	font-size:20px;
+	width:100%;
+	border:1px #444 solid;
+	border-collapse: collapse;
+}
+tbody tr:nth-child(odd) {
+   background-color: #FAFAFA;
+}
+tr {
+	border:1px #000 solid;
+}
+
+th,td {
+	border:1px solid #CCC;
+	padding: 5px 8px;
+	
+}                                   
+
+span.imovel-endereco{
+	color:#666;
+}
+
+span.imovel-endereco-importante {
+	font-weight:bold;
+	color:#000;
+}
+
+p.titulo {
+	font-size:35px;
+	margin:0.5em 0 0.5em 0;
+	text-align:center;
+}
+
+.urgencia {
+	background-color:#F55 !important;
+	font-weight:bolder;
+	color:#FFF !important;
+}
+
