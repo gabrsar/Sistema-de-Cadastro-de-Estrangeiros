@@ -1,0 +1,19 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="643" measuredH="276" mockupW="584" mockupH="233">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Title" x="59" y="43" w="-1" h="-1" measuredW="571" measuredH="43" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Controle%20de%20Usu%E1rios%20-%20STAEPE</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::DataGrid" x="59" y="165" w="584" h="111" measuredW="339" measuredH="111" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nome%20%5E%2C%20e-mail%2CAutoriza%E7%E3o%0A%5BEliane%5D%2C%20eliane@staepe.ibilce.unesp.br%2C%20Administrador%0A%5BAndr%E9%5D%2C%20andre@staepe.ibilce.unesp.br%2C%20Administrador%0A%5BJos%E9%5D%2C%20jose@diretoria.ibilce.unesp.br%2C%20Espectador</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="59" y="123" w="154" h="27" measuredW="98" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Novo%20usu%E1rio</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
