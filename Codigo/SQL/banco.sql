@@ -2,13 +2,11 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuario`
+-- Table `erapi`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
+CREATE TABLE IF NOT EXISTS `erapi`.`usuario` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
   `nome_usuario` VARCHAR(256) NOT NULL,
   `login_usuario` VARCHAR(16) NOT NULL,
@@ -22,9 +20,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`departamento`
+-- Table `erapi`.`departamento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`departamento` (
+CREATE TABLE IF NOT EXISTS `erapi`.`departamento` (
   `id_departamento` INT NOT NULL AUTO_INCREMENT,
   `nome_ departamento` VARCHAR(256) NOT NULL,
   PRIMARY KEY (`id_departamento`))
@@ -32,9 +30,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`curso`
+-- Table `erapi`.`curso`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`curso` (
+CREATE TABLE IF NOT EXISTS `erapi`.`curso` (
   `id_curso` INT NOT NULL AUTO_INCREMENT,
   `nome_curso` VARCHAR(256) NOT NULL,
   `tipo_curso` INT NOT NULL,
@@ -43,9 +41,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`estrangeiro`
+-- Table `erapi`.`estrangeiro`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`estrangeiro` (
+CREATE TABLE IF NOT EXISTS `erapi`.`estrangeiro` (
   `id_estrangeiro` INT NOT NULL,
   `nome_estrangeiro` VARCHAR(256) NOT NULL,
   `email_estrangeiro` VARCHAR(64) NOT NULL,
@@ -71,27 +69,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`estrangeiro` (
   INDEX `fk_estrangeiro_curso1_idx` (`curso_estrangeiro` ASC),
   CONSTRAINT `fk_estrangeiro_usuario`
     FOREIGN KEY (`usuario_validador_estrangeiro`)
-    REFERENCES `mydb`.`usuario` (`id_usuario`)
+    REFERENCES `erapi`.`usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_estrangeiro_departamento1`
     FOREIGN KEY (`departamento_estrangeiro`)
-    REFERENCES `mydb`.`departamento` (`id_departamento`)
+    REFERENCES `erapi`.`departamento` (`id_departamento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_estrangeiro_curso1`
     FOREIGN KEY (`curso_estrangeiro`)
-    REFERENCES `mydb`.`curso` (`id_curso`)
+    REFERENCES `erapi`.`curso` (`id_curso`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`table1`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`table1` (
-)
 ENGINE = InnoDB;
 
 
