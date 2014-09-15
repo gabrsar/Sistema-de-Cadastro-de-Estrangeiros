@@ -1,6 +1,149 @@
+/* Autor: Gabriel Saraiva
+ * Arquivo de tema para o sistema. Apenas páginas de exibição na tela.
+ * Temas para impressão devem ficar em outro arquivo.
+ */
+
+
+
+*{
+	margin:0px;
+	padding:0px;
+	font-family:"Arial";
+}
+
+#topo {
+	margin:0;
+	padding:10px 20px;
+	background-color: #DDD;
+	border-bottom: #AAA 1px solid;
+	
+}
+#topo h1{
+	font-size:2em;
+	color:#FFF;
+	text-shadow: #666 0px 1px 2px;
+}
+
+#corpo{
+	padding:2em;
+}
+
+.painel{
+	border:#FFA 1px solid;
+	background-color: #FFC;
+	padding:1em;
+	margin-bottom: 1em;
+}
+
+.formulario{
+	
+	background-color: #FFF;
+	padding:1em;
+	margin-bottom: 1em;
+}
+
+.listagem{
+	border:#AAC 1px solid;
+	background-color: #CFF;
+	padding:1em;
+	margin-bottom: 1em;
+}
+p.titulo{
+	font-weight: bolder;
+	font-size:20px;
+	padding: 0 0 0.5em 0;
+}
+
+highlight{
+	border-color:#F00;
+}
+
+input[type="text"]
+{
+	
+	font-size:100%;
+	padding:5px;
+	border-radius:2px;
+	border:#666 1px solid;
+}
+
+table{
+	width:100%;
+	background-color:#FFF;
+	border:#666 1px solid;
+}
+
+thead,tfoot{
+	background-color:#AAA;
+}
+
+td{
+	padding:2px 5px;
+}
+
+
 tbody tr:nth-child(odd){
-	background-color: #CCC;
+	background-color: #FFF;
 }
 tbody tr:nth-child(even){
-	background-color: #AAA;
+	background-color: #DDD;
+}
+
+
+
+.barraBotoes{
+	margin: 20px 0px 0px 0px;
+}
+
+
+
+button{
+	background-color:#00F;
+	color:#FFF;
+	font-weight:bold;
+	text-shadow:#000 0px 1px 1px;
+	padding:10px 15px;
+	border-radius: 3px;
+	border:#00A 1px solid;
+	box-shadow:	 #666 0px 1px 2px 0px;
+	margin:0px 1em 0px 0px;
+}
+
+button,button a{
+		text-decoration: none;
+		color:#FFF;
+}
+
+button:hover,button:hover a{
+		text-decoration: none;
+		color:#000;
+	text-shadow:#DDD 0px 1px 1px;
+}
+
+
+label{
+	padding:0 10px 0 0;
+}
+button:hover{
+	background-color:#FFF;
+	color:#000;
+}
+.invisivel{
+	display: none;
+}
+
+
+#sucesso .mensagem ,#erro .mensagem{
+	margin:2em 0;
+	padding:2em;
+	font-size:130%;
+}
+
+#sucesso .mensagem{
+	background-color:#AFA;
+	border:#0A0 1px solid;
+}
+#erro .mensagem{
+	background-color:#FAA;
+	border:#A00 1px solid;
 }
