@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-require("rb/db.php");
-rbSetup();
+require("simplex/scriptMaster.php");
 
 require_once ("./simplex/redirect.php");
 $pagina = obterPagina();
@@ -13,6 +12,9 @@ $pagina = obterPagina();
 		<?php
 			include ("simplex/head.php");
 		?>
+
+		<script src="js/jquery-latest.js"></script>
+		
 	</head>
 	<body>
    	<div id="pagina">
@@ -21,7 +23,14 @@ $pagina = obterPagina();
 			?>
 			<div id="corpo">
 				<?php
-					require ($pagina);
+					if(file_exists($pagina))
+					{
+						require ($pagina);
+					}
+					else
+					{
+						echo "Não foi possivel abrir o arquivo $pagina";
+					}
 				?>
 	    	</div>
 			<?php
