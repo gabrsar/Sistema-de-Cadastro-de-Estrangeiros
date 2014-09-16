@@ -14,14 +14,14 @@
 #topo {
 	margin:0;
 	padding:10px 20px;
-	background-color: #DDD;
+	background-color: #DDF;
 	border-bottom: #AAA 1px solid;
 	
 }
 #topo h1{
 	font-size:2em;
-	color:#FFF;
-	text-shadow: #666 0px 1px 2px;
+	color:#33F;
+	text-shadow: #666 0px 1px 1px;
 }
 
 #corpo{
@@ -77,10 +77,10 @@ thead,tfoot{
 	background-color:#AAA;
 }
 
-td{
-	padding:2px 5px;
-}
 
+td{
+	padding:10px 5px;
+}
 
 tbody tr:nth-child(odd){
 	background-color: #FFF;
