@@ -27,10 +27,13 @@
 			"configuracoesCursos" 				=> 		"formularioCursos.php",
 			"configuracoesUsuarios" 			=> 		"formularioUsuarios.php",
 
-
 			// Departamentos
 			"scriptManipularDepartamento"		=>		"scriptManipularDepartamento.php",
-			"manipularDepartamento"				=>		"formularioManipularDepartamento.php"
+			"manipularDepartamento"				=>		"formularioManipularDepartamento.php",
+
+			// Cursos
+			"scriptManipularCurso"				=>		"scriptManipularCurso.php",
+			"manipularCurso"					=>		"formularioManipularCurso.php"
 		);
 
 		$ret="";

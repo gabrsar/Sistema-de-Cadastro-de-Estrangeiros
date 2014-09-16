@@ -3,6 +3,7 @@
 	session_start();
 
 	require("rb/db.php");
+	require("sanitize.php");
 	rbSetup();
 
 	function erro($mensagem, $encaminhar)
