@@ -15,42 +15,33 @@
  *		id
  *			Utilizado para editar e excluir
  */
+
 require("curso.php");
-
-$listaCursos=obterListaDeCursos();
-
 
 // Detecta o modo de execução
 
-$modo="";
-if(isset($_GET['modo']))
-{
-	$modo=$_GET['modo'];
-	
-	switch ($modo) {
 
-		// Modos aceitos =====
-		case 'cadastrar': 	cadastrarCurso();			break;
-		case 'editar': 		editarCurso();				break;
-		case 'excluir': 	excluirCurso();				break;
-		// ====================
-		default:			erro("Erro de endereço!", $paginaRetorno);	break;
-	}
-}
-else
-{
-	erro("Erro de endereço!","inicio");
+switch (sanitizeString($_GET['modo'])) {
+
+	// Modos aceitos =====
+	case 'cadastrar': 	cadastrarCurso();			break;
+	case 'editar': 		editarCurso();				break;
+	case 'excluir': 	excluirCurso();				break;
+	// ====================
+	default:			erro("Erro de endereço!", $paginaRetorno);	break;
 }
 
 
+/* Função que preenche um objeto R::curso apartir de um $_POST */
 function montarCursoPOST($curso)
 {
-
 	$curso->nome=sanitizeString($_POST['nome']);
 	$curso->tipo=sanitizeInt($_POST['tipo']);
 	$curso->excluido=0;
 
-	if($curso->nome && trim($curso->nome) < 1)
+
+
+	if(!$curso->nome && trim($curso->nome) < 1)
 	{
 		erro("Nenhum nome foi fornecido para o curso!", $paginaRetorno);
 	}
@@ -63,13 +54,15 @@ function montarCursoPOST($curso)
 	return $curso;
 }
 
+
+
 function cadastrarCurso()
 {
 	$paginaRetorno="index.php?page=configuracoesCursos";
 
 	$curso = montarCursoPOST(R::dispense('curso'));	
 
-	$id = R::store($curso);
+	R::store($curso);
 
 	sucesso("Curso $curso->nome foi cadastrado com sucesso!", $paginaRetorno);
 }
@@ -78,18 +71,18 @@ function cadastrarCurso()
 function editarCurso()
 {
 	$paginaRetorno="index.php?page=configuracoesCursos";
-
 	$id = sanitizeInt($_GET['id']);
 	if(!$id)
 	{
 		erro("Parâmetros incorretos!",$paginaRetorno);
 	}
+	$curso = R::load('curso',$id);
+	$cursoMontado = montarCursoPOST($curso);
 
-	$curso = montarCursoPOST(R::load('curso',$id));
 
-	R::store($curso);
+	R::store($cursoMontado);
 
-	sucesso("O curso",$paginaRetorno);	
+	sucesso("O curso $cursoMontado->nome foi atualizado com sucesso!",$paginaRetorno);	
 }
 
 function excluirCurso()
@@ -97,13 +90,13 @@ function excluirCurso()
 	$paginaRetorno="index.php?page=configuracoesCursos";
 
 	
-	$id=sanitizeInt($_GET['id']);
+	$id=sanitizeInt((int)$_GET['id']);
 	if(!$id || ((int) $id) < 0)
 	{	
 		erro("Parâmetros incorretos!",$paginaRetorno);
 	}
 
-	$curso = R::load('curso',$id);
+	$curso = R::load("curso",$id);
 	$curso->excluido=true;
 
 	R::store($curso);

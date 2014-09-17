@@ -9,17 +9,15 @@
 	 * 
 	 * Parâmetros:
 	 *		id (opcional)
-	 *			Caso fornecido exibe o registro referente ao ID com opção para alterar e excluir.
-	 *			Caso seja omitido o formulário entra no módo de cadastro de um novo formulário.
+	 *			Caso fornecido exibe o registro referente ao ID com opção para 
+	 *			alterar e excluir.
+	 *			Caso seja omitido o formulário entra no módo de cadastro de um 
+	 *			novo registro.
 	 */
 
 	require("curso.php");
-	$listaTipos = obterListaDeCursos();
 	
-
 	$id=-1;
-
-	
 
 	if(isset($_GET['id']))
 	{
@@ -30,12 +28,12 @@
 			erro("Parâmetro inválido!","index.php?page=configuracoesCursos");
 		}
 	}
-
 	
 	if($id == -1)
 	{
-		// No caso de cadastro essa variavel é "inútil", mas ela simplifica a programação,
-		// pois o conteúdo dela é vazio. Assim evita um monte de ifs no meio dos html.
+		// No caso de cadastro essa variavel é "inútil", mas ela simplifica a 
+		// programação, pois o conteúdo dela é vazio. Assim evita um monte de 
+		// ifs no meio dos htmls.
 		$curso = R::dispense('curso');	
 	}
 	else
@@ -44,19 +42,23 @@
 	}
 
 ?>
+<div id="titulo">
+	<a href="index.php?page=configuracoesCursos" class="voltar">&lt&lt</a>
 
-<div class="formulario">
 
-	<p class="titulo">
-		<?php
-			if($id==-1){
-				echo ("Cadastrar novo curso");
-			}else
-			{
-				echo ("Editar '$curso->nome'");
-			}
-		?>
-	</p>
+  	<p class="titulo">
+<?php
+	if($id==-1){
+		echo ("Cadastrar novo curso");
+	}else
+	{
+		echo ("Editar '$curso->nome'");
+	}
+?>
+	</p> 
+</div> 
+
+  
 
 	<?php
 
@@ -73,14 +75,25 @@
 	?>
 
 	<form action="<?php echo($action);?>" method="post" id="register-form">
-		<label>Nome do curso </label>
-		<input type="text" name="nome" value="<?php echo ($curso->nome); ?>" size="64" required></p>
+		
+		<p>
+			<label>Nome do curso </label>
+			<input type="text" name="nome" value="<?php echo ($curso->nome); ?>" size="64" required>
+		</p>
 
-		<label>Tipo</label>
-		<select name="tipo" required>
+		<p>
+			<label>Tipo</label>
+			<select name="tipo" required>
+		</p>
 		<?php			
-			foreach ($listaTipos as $tipo) {
-				echo ('<option value="'.$tipo[1].'">'.$tipo[0].'</option>');
+
+
+			$selected="";
+			foreach (TipoDeCurso::getListaTipoCursos() as $tipo) {
+				
+				$selected = $curso->tipo == $tipo[0] ? "selected" : "";
+				echo ('<option value="'.$tipo[0].'" '. $selected.'>'.$tipo[1].'</option>');
+
 			}
 		?>
 

@@ -1,14 +1,19 @@
+ <div id="titulo">
+	<a href="index.php?page=configuracoes" class="voltar">&lt&lt</a>
+	<p class="titulo">Cursos</p>
+</div>
+
 <div class="painel">
+	<p> Opções: </p>
 	<a href="index.php?page=manipularCurso">Cadastrar novo curso</a>
 </div>
 
 <div class="listagem">
-	<p class="titulo">Cursos cadastrados</p>
 	<table>
 		<thead>
-			<tr><td>Curso</td><td>Tipo</td></tr>
+			<tr><td>Nome</td><td>Nível</td></tr>
 		</thead>
-		<tbody>
+		<tbody>           
 			<?php
 
 			require("curso.php");
@@ -18,7 +23,7 @@
 
 				$id=$curso->id;
 				$nome=$curso->nome;
-				$tipo=obterTipoDoCursoPeloCodigo($curso->tipo);
+				$tipo=TipoDeCurso::getNomeTipoCurso($curso->tipo);
 
 				$link="confirmarRemoverCurso(\"$nome\",$id)";
 
@@ -31,7 +36,6 @@
 				<?php echo (R::count('curso','excluido=0')); ?>
 			registros</td></tr>
 		</tfoot>
-	</table>
-</div>
-
+  	</table>
+</div>  
 
