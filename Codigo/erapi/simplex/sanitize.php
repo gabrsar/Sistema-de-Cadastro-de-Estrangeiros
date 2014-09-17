@@ -17,7 +17,7 @@
 			return False;
 		}
 
-		if(!is_int($int))
+		if(!is_int((int)$int))
 		{
 			return False;
 		}
@@ -41,6 +41,6 @@
 			return False;
 		}
 
-		return strip_tags(htmlentities($string));
+		return strip_tags($string);
 	}
 ?>
