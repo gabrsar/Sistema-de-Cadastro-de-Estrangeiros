@@ -1,9 +1,14 @@
+<div id="titulo">
+	<a href="index.php?page=configuracoes" class="voltar">&lt&lt</a>
+	<p class="titulo">Departamentos</p>
+</div>
+
 <div class="painel">
+	<p> Opções: </p>
 	<a href="index.php?page=manipularDepartamento">Cadastrar novo departamento</a>
 </div>
 
 <div class="listagem">
-	<p class="titulo">Departamentos cadastrados</p>
 	<table>
 		<thead>
 			<tr><td>Nome</td></tr>

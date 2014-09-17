@@ -1,6 +1,22 @@
 <?php
 
-	$id=-1; // -1 - Cadastrar, >0 = editar
+   
+    /* Autor: Gabriel Henrique Martinez Saraiva
+	 * Formulário para manipular os departamentos.
+	 * Essa página faz:
+	 *		Cadastro,
+	 *		Edição,
+	 *		Exclusão.
+	 * 
+	 * Parâmetros:
+	 *		id (opcional)
+	 *			Caso fornecido exibe o registro referente ao ID com opção para 
+	 *			alterar e excluir.
+	 *			Caso seja omitido o formulário entra no módo de cadastro de um 
+	 *			novo registro.
+	 */                 
+
+	$id=-1;
 	
 
 	if(isset($_GET['id']))
@@ -15,7 +31,10 @@
 
 	
 	if($id == -1)
-	{
+	{                    
+		// No caso de cadastro essa variavel é "inútil", mas ela simplifica a 
+		// programação, pois o conteúdo dela é vazio. Assim evita um monte de 
+		// ifs no meio dos htmls.     
 		$departamento = R::dispense('departamento');	
 	}
 	else
@@ -25,20 +44,21 @@
 
 ?>
 
-<script src="js/validarDepartamento.js"></script>
+<div id="titulo">
+	<a href="index.php?page=configuracoesDepartamentos" class="voltar">&lt&lt</a>
 
-<div class="formulario">
 
-	<p class="titulo">
-		<?php
+  	<p class="titulo">
+	<?php
 		if($id==-1){
 			echo ("Cadastrar novo departamento");
 		}else
 		{
 			echo ("Editar '$departamento->nome'");
 		}
-		?>
-	</p>
+	?>
+	</p> 
+</div> 
 
 	<?php
 
@@ -55,8 +75,10 @@
 	?>
 
 	<form action="<?php echo($action);?>" method="post" id="register-form">
-		<label>Nome do departamento </label>
-		<input type="text" name="nome" value="<?php echo ($departamento->nome); ?>" size="64" required></p>
+		<p>
+			<label>Nome do departamento </label>
+			<input type="text" name="nome" value="<?php echo ($departamento->nome); ?>" size="64" required>
+		</p>
 
 		<div class="barraBotoes">
 			<button>Salvar</button>
@@ -70,4 +92,3 @@
 			>Excluir</button>
 		</div>
 	</form>
-</div>
