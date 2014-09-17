@@ -3,83 +3,140 @@
  * Temas para impressão devem ficar em outro arquivo.
  */
 
-
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,700,300);
 
 *{
 	margin:0px;
 	padding:0px;
-	font-family:"Arial";
+	font-family: 'Oxygen', sans-serif;
+}
+
+p,label{
+	color:#666;
+	font-weight:900;
+}
+a{
+	text-decoration: none;
+	color:#49D;
+	text-shadow: #DDD 0 1px 0px;
+}
+a:hover{
+	text-decoration: underline;
 }
 
 #topo {
 	margin:0;
 	padding:10px 20px;
-	background-color: #DDF;
-	border-bottom: #AAA 1px solid;
-	
+	background-color: #4C9ED9;
+	border-bottom: #297AB5 1px solid;
+	box-shadow: #55F 0px 0px 6px;
+	margin-bottom:2em;
 }
-#topo h1{
-	font-size:2em;
-	color:#33F;
-	text-shadow: #666 0px 1px 1px;
+
+#topo a{
+	text-decoration: none;
+	color:#FFF;
+	text-shadow:#00F 0 1px 1px;
+	text-align: center;
+	
 }
 
 #corpo{
-	padding:2em;
+	margin:0 1em;	
+}
+.painelHorizontal ul{
+	display: table;
+	width:100%;
 }
 
-.painel{
-	border:#FFA 1px solid;
-	background-color: #FFC;
-	padding:1em;
+.painelHorizontal ul li{
+	display:table-cell;
+}
+
+.painelHorizontal a {
+	display: block;
+	text-align: center;
+	font-weight: bolder;
+	font-size:150%;
+	text-decoration: none;
+
+	color:#49D;
+	padding:20px 5px;
+}
+
+.painelHorizontal a:hover{
+	text-decoration: underline;
+}
+
+#titulo{
+	font-size:2em;
 	margin-bottom: 1em;
 }
 
-.formulario{
+
+#titulo a{	
+	text-decoration: none;
+	font-weight: 900;
 	
-	background-color: #FFF;
-	padding:1em;
-	margin-bottom: 1em;
+}
+#titulo a:hover{
+	text-decoration: underline;	
 }
 
-.listagem{
-	border:#AAC 1px solid;
-	background-color: #CFF;
-	padding:1em;
-	margin-bottom: 1em;
-}
-p.titulo{
+#titulo p.titulo{
+	display:inline;
+	
 	font-weight: bolder;
 	font-size:20px;
 	padding: 0 0 0.5em 0;
+	text-shadow: #DDD 0 1px 0px;
+	font-size:1em;
 }
+
+
+.painel{
+	font-size:1.5em;
+	margin:1em 0;
+}
+.painel p{
+	display:inline;
+	
+	font-weight: bolder;
+}
+
 
 highlight{
 	border-color:#F00;
 }
 
-input[type="text"]
+input[type="text"], select
 {
-	
+	margin:5px;
 	font-size:100%;
 	padding:5px;
 	border-radius:2px;
 	border:#666 1px solid;
 }
 
+
 table{
+	border-collapse: collapse;
 	width:100%;
-	background-color:#FFF;
-	border:#666 1px solid;
+	border:1px solid #AAA;
+
+	padding:0;
 }
 
 thead,tfoot{
 	background-color:#AAA;
+	font-weight: 900;
+	color:#FFF;
+	text-shadow: #666 0 1px 1px;
+	
 }
 
-
 td{
-	padding:10px 5px;
+	padding:5px 15px;
 }
 
 tbody tr:nth-child(odd){
@@ -88,35 +145,35 @@ tbody tr:nth-child(odd){
 tbody tr:nth-child(even){
 	background-color: #DDD;
 }
-
-
+tbody tr:hover{
+	background-color: #CDF;
+}
 
 .barraBotoes{
 	margin: 20px 0px 0px 0px;
 }
 
-
-
 button{
-	background-color:#00F;
+	background-color:#49D;
 	color:#FFF;
 	font-weight:bold;
 	text-shadow:#000 0px 1px 1px;
 	padding:10px 15px;
 	border-radius: 3px;
-	border:#00A 1px solid;
-	box-shadow:	 #666 0px 1px 2px 0px;
+	border:#666 1px solid;
+	box-shadow:	 #AAA 0px 2px 5px;
 	margin:0px 1em 0px 0px;
 }
 
 button,button a{
 		text-decoration: none;
+		font-weight: 900;
 		color:#FFF;
 }
 
 button:hover,button:hover a{
-		text-decoration: none;
-		color:#000;
+	text-decoration: none;
+	background-color:#00F;	
 	text-shadow:#DDD 0px 1px 1px;
 }
 
@@ -124,10 +181,7 @@ button:hover,button:hover a{
 label{
 	padding:0 10px 0 0;
 }
-button:hover{
-	background-color:#FFF;
-	color:#000;
-}
+
 .invisivel{
 	display: none;
 }
