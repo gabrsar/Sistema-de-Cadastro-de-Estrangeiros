@@ -19,8 +19,14 @@
 
 			// Página Inicial
 			"fichas"		 					=> 		"formularioFichas.php",
-			"relatórios"	 					=> 		"formularioRelatorios.php",
+			"relatorios"	 					=> 		"formularioRelatorios.php",
 			"configuracoes" 					=> 		"formularioConfiguracoes.php",
+			
+			// Relatórios
+			"alunoTempo"		 				=> 		"relatorioAlunoTempo.php",
+			"pessoaDepartamento"	 				=> 		"relatorioPessoaDepartamento.php",
+			"pessoaPais" 						=> 		"relatorioPessoaPais.php",
+			"personalizado" 					=> 		"relatorioPersonalizados.php",
 
 			// Configurações
 			"configuracoesDepartamentos"		=> 		"formularioDepartamento.php",
