@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 -- Table `erapi`.`estrangeiro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `erapi`.`estrangeiro` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(256) NOT NULL,
   `email` VARCHAR(64) NOT NULL,
   `passaport` VARCHAR(16) NOT NULL,
