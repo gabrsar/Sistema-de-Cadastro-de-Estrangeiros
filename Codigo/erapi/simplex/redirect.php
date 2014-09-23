@@ -23,10 +23,10 @@
 			"configuracoes" 					=> 		"formularioConfiguracoes.php",
 			
 			// Relatórios
-			"alunoTempo"		 				=> 		"relatorioAlunoTempo.php",
-			"pessoaDepartamento"	 				=> 		"relatorioPessoaDepartamento.php",
-			"pessoaPais" 						=> 		"relatorioPessoaPais.php",
-			"personalizado" 					=> 		"relatorioPersonalizados.php",
+			"relatoriosAlunoTempo"		 				=> 		"relatorioAlunoTempo.php",
+			"relatoriosPessoaDepartamento"	 				=> 		"relatorioPessoaDepartamento.php",
+			"relatoriosPessoaPais" 						=> 		"relatorioPessoaPais.php",
+			"relatoriosPersonalizado" 					=> 		"relatorioPersonalizados.php",
 
 			// Configurações
 			"configuracoesDepartamentos"		=> 		"formularioDepartamento.php",

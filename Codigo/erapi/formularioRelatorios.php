@@ -4,10 +4,10 @@
 </div>
 <div id="menu" class="painel">
 	<ul>
-		<li> <a href="index.php?page=alunoTempo">Alunos <b>x</b> Tempo</a></li>
-		<li> <a href="index.php?page=pessoaDepartamento">Pessoas <b>x</b> Departamento</a> </li>
-		<li> <a href="index.php?page=pessoaPais">Pessoas <b>x</b> País</a> </li>
+		<li> <a href="index.php?page=relatoriosAlunoTempo">Alunos <b>x</b> Tempo</a></li>
+		<li> <a href="index.php?page=relatoriosPessoaDepartamento">Pessoas <b>x</b> Departamento</a> </li>
+		<li> <a href="index.php?page=relatoriosPessoaPais">Pessoas <b>x</b> País</a> </li>
 		<li><p></p></li>
-		<li> <a href="index.php?page=personalizado">Relatório personalizado</a> </li>
+		<li> <a href="index.php?page=relatoriosPersonalizado">Relatório personalizado</a> </li>
 	</ul>
 </div>
