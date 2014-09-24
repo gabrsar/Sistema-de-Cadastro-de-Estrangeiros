@@ -1,3 +1,10 @@
+<?php
+	/* Autor: Gabriel Henrique Martinez Saraiva
+ 	 * Página inicial que é exibida ao usuário após o login.
+ 	 * Fornece acesso a todo o sistema.
+ 	 */
+
+?>
 <div id="menu_principal" class="painelHorizontal">
 	<ul>
 		<li> <a href="index.php?page=novoCadastro">Estrangeiros</a></li>

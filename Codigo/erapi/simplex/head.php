@@ -1,3 +1,10 @@
+<?php
+
+/* Autor: Gabriel Henrique Martinez Saraiva
+ * 
+ * HEAD das páginas. Esse arquivo é incluido no index.php
+ */
+?>
 <!-- Head da Página - Metas, CSS, Scripts, Google -->
 
 <title>Sistema de Controle de Estrangeiros</title>
@@ -9,8 +16,5 @@
 <!-- Temas CSS -->
 <link href="temas/tema.css" rel="stylesheet" type="text/css" />
 
-
-<!-- Scripts -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 
 <!-- Fim do Head da Página - Metas, CSS, Scripts, Google -->

@@ -24,6 +24,14 @@ a:hover{
 	text-decoration: underline;
 }
 
+input[type="text"]:hover,input[type="password"]:hover,select:hover,textarea:hover{
+	border:#49D 1px solid;
+}
+input[type="text"]:active,input[type="password"]:active,select:active,textarea:active{
+	background-color: #DDF;
+}
+
+
 #topo {
 	margin:0;
 	padding:10px 20px;
@@ -85,7 +93,6 @@ a:hover{
 
 #titulo p.titulo{
 	display:inline;
-	
 	font-weight: bolder;
 	font-size:20px;
 	padding: 0 0 0.5em 0;
@@ -109,7 +116,29 @@ highlight{
 	border-color:#F00;
 }
 
-input[type="text"], select
+#login{
+	border:1px solid #AAA;
+	background-color: #EEE;
+	padding:3em;
+	margin:10% 20%;
+	text-align: center;
+	box-shadow:#AAA 0px 2px 8px;
+}
+
+#login input{
+	width:60%;
+}
+#login label{
+	width:20%;
+	display:inline-block;
+}
+
+#login .botoesLogin{
+	margin-top:1em;
+	
+}
+
+input[type="text"], input[type="password"],select
 {
 	margin:5px;
 	font-size:100%;
@@ -173,8 +202,8 @@ button,button a{
 
 button:hover,button:hover a{
 	text-decoration: none;
-	background-color:#00F;	
-	text-shadow:#DDD 0px 1px 1px;
+	background-color:#05D;	
+	
 }
 
 

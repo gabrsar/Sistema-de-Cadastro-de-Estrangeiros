@@ -1,26 +1,34 @@
 <?php
 
-	session_start();
+	/* Autor: Gabriel Henrique Martinez Saraiva
+ 	 * ScriptMaster - Script que carrega o banco de dados, utilidades  e faz a 
+ 	 * validação do login do usuários.
+ 	 */
 
 	require("rb/db.php");
+    require("utils.php");
 	require("sanitize.php");
+
+	// Configura e inicia o RedBean
 	rbSetup();
+	
+	session_start();
 
-	function erro($mensagem, $encaminhar)
+	/* Faz a validação se o usuário está logado ou não */
+
+	var_dump($_SESSION);
+
+
+	if(isset($_SESSION["usuarioLogado"]))
 	{
-
-		$_SESSION['erroMensagem']=$mensagem;
-		$_SESSION['erroGoto']=$encaminhar;
-
-		header("location:index.php?page=erro");
+                    $_SESSION['ACEITOU!']="ACEITOU!";
+	}
+	else
+	{
+		if($_SERVER["QUERY_STRING"] != "page=login")
+		{
+			header("location:index.php?page=login");
+		}
 	}
 
-	function sucesso($mensagem,$encaminhar)
-	{
-
-		$_SESSION['sucessoMensagem']=$mensagem;
-		$_SESSION['sucessoGoto']=$encaminhar;
-		
-		header("location:index.php?page=sucesso");
-	}
 ?>

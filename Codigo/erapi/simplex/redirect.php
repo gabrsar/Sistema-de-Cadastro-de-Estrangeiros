@@ -2,16 +2,20 @@
 
 /* Autor: Gabriel Henrique Martinez Saraiva
  * Data: 11/09/2014
+ *
  * Página de controle de links.
+ *
  * Com base na variavel $_GET['page'] retorna a página a ser importada na index com o conteúdo a ser exibido.
- * Também faz uma cópia da variavel $_GET em $GET para poder ser acessado de dentro da página carregada.]
  */	
    
 	function obterPagina() {
 
 
 		$links = array(
+			"fake"								=>		"fakeUsers.php",
 
+			"login"								=>		"login.php",
+			"scriptLogin"						=>		"scriptLogin.php",
 			"inicio" 							=> 		"inicio.php",
 
 			"erro"								=>		"erro.php",

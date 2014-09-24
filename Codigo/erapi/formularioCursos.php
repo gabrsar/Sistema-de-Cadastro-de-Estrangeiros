@@ -1,4 +1,10 @@
- <div id="titulo">
+<?php
+
+	/* Autor: Gabriel Henrique Martinez Saraiva
+ 	 * Página de listagem e acesso ao módulo de cursos
+ 	 */
+?>
+<div id="titulo">
 	<a href="index.php?page=configuracoes" class="voltar">&lt&lt</a>
 	<p class="titulo">Cursos</p>
 </div>
