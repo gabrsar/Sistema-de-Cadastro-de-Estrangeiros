@@ -27,10 +27,10 @@
 			"configuracoes" 					=> 		"formularioConfiguracoes.php",
 			
 			// Relatórios
-			"relatoriosAlunoTempo"		 				=> 		"relatorioAlunoTempo.php",
-			"relatoriosPessoaDepartamento"	 				=> 		"relatorioPessoaDepartamento.php",
-			"relatoriosPessoaPais" 						=> 		"relatorioPessoaPais.php",
-			"relatoriosPersonalizado" 					=> 		"relatorioPersonalizados.php",
+			"relatoriosAlunoTempo"		 		=> 		"relatorioAlunoTempo.php",
+			"relatoriosPessoaDepartamento"	 	=> 		"relatorioPessoaDepartamento.php",
+			"relatoriosPessoaPais" 				=> 		"relatorioPessoaPais.php",
+			"relatoriosPersonalizado" 			=> 		"relatorioPersonalizados.php",
 
 			// Configurações
 			"configuracoesDepartamentos"		=> 		"formularioDepartamento.php",
@@ -57,9 +57,6 @@
 				$page=$_GET['page'];	
 			}
 		}
-
-
-		
 		return $links[$page];
 	}
 ?>
