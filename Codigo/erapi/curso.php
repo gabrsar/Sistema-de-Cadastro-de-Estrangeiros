@@ -4,10 +4,6 @@
  * Esse arquivo armazena as configurações dos cursos (tipos)
  * deve ser utilizado essa função ao solicitar os tipos de cursos
  *
- *
- * Essa implementação não está me agradando. Logo irei mudá-la...Isso é meio que um STUB ou DRIVER, 
- * não lembro o nome certo...
- * POCOTÓ, POCOTÓ, POCOTÓ, POCOTÓ, POCOTÓ, POCOTÓ, ...
  */
 
 class TipoDeCurso{
