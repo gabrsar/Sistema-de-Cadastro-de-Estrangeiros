@@ -22,4 +22,17 @@
 		header("location:index.php?page=sucesso");
 	}
 
+	function getUsuarioLogado()
+	{
+		if(isset($_SESSION['usuarioLogado']))
+		{
+			return $_SESSION['usuarioLogado'];
+		}
+		else
+		{
+			erro("SEM USUÁRIO LOGADO","index.php");
+			return NULL;
+		}
+	}
+
 ?>
