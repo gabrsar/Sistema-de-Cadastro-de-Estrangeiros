@@ -147,6 +147,16 @@ input[type="text"], input[type="password"],select
 	border:#666 1px solid;
 }
 
+.listagem {
+	margin:3em 0;
+}
+
+
+.listagem .titulo{
+	font-size:120%;
+	margin:0.5em 0;
+}
+
 
 table{
 	border-collapse: collapse;
@@ -154,6 +164,14 @@ table{
 	border:1px solid #AAA;
 
 	padding:0;
+}
+
+
+#menu ul{
+	list-style: none;
+}
+#menu ul li{
+	padding:0.5em 0;
 }
 
 thead,tfoot{
