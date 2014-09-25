@@ -15,6 +15,7 @@
 </div>
 
 <div class="listagem">
+	<p class="titulo"> Lista dos cusrsos cadastrados </p>
 	<table>
 		<thead>
 			<tr><td>Nome</td><td>Nível</td></tr>

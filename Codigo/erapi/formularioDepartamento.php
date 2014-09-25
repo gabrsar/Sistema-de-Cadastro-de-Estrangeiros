@@ -16,6 +16,7 @@
 </div>
 
 <div class="listagem">
+	<p class="titulo"> Lista dos departamentos cadastrados </p>
 	<table>
 		<thead>
 			<tr><td>Nome</td></tr>
