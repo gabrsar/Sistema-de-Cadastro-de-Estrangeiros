@@ -25,7 +25,19 @@
 			?>
 			<div id="corpo">
 				<div id="login">
-					<form action="index.php?page=scriptLogin" method="post">
+					<form action="scriptLogin.php" method="post">
+
+						<?php
+
+							session_start();
+							
+							if(isset($_SESSION['erroDeLogin']))
+							{
+								echo ("<p class='erroDeLogin'>");
+								echo ($_SESSION['erroDeLogin']);
+								echo ("</p>");
+							}
+						?>
 						<p><label>Usuário</label><input type="text" name="login"></p>
 						<p><label>Senha</label><input type="password" name="senha"></p>
 						<div class="botoesLogin">

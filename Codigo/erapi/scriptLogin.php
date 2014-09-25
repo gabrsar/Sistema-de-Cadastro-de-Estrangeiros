@@ -4,14 +4,40 @@
  	 * Script de login.
  	 * Baseado em http://blog.erikfigueiredo.com.br/login-php-com-lembrar-de-mim-e-bcrypt/
  	 * 
- 	 * Recebe por POST o usuário, senha e opção de lembrar do usuário
+ 	 * Recebe por POST o usuário, senha
  	 */
 
 
+	// Função que valida o login, recebe duas strings, LOGIN e SENHA, 
+	// e retorna um booleano. VERDADEIRO = aceito. FALSO = incorreto.
+	function validarLogin($login,$senha)
+	{
+		$hash = md5($login.$senha);
+		$usuario = R::findOne('usuario','login = ?',[$login]);
 
-	$login=sanitizeString($_POST['login']);
+		if($usuario)
+		{
+			if($usuario->senha_hash == $hash)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
 
-	$senha="";
+
+
+	/* Início do script */
+	require("rb/db.php");
+	require("simplex/sanitize.php");
+	rbSetup();
+
+	$login = sanitizeString($_POST['login']);
+
+	$senha = "";
+
+	session_start();
 
 	if(isset($_POST['senha']))
 	{
@@ -19,47 +45,27 @@
 	}
 	else
 	{
-		erro("Senha não informada","index.php?page=login");
+		$_SESSION['erroDeLogin'] = "Senha não informada!";
+		echo 1;
+	//	header("location:login.php");
 	}
 
 	if(validarLogin($login,$senha))
 	{
-		$_SESSION['last'] = $_SESSION['last']+1;
-		$_SESSION['passFORM']="OK!";
-		$usuarioLogado=R::findOne('login','login = ?',[$login]);
-		$_SESSION['usuarioLogado'] = $usuarioLogado->senha_hash;
-
+		$usuarioLogado = R::findOne('usuario','login = ?',[$login]);
+		$_SESSION['usuarioLogado'] = $usuarioLogado;
+		
 		header("location:index.php?page=inicio");
 	}
 	else
 	{
-		erro("Usuário ou senha incorreto!","index.php?page=login");
+
+		$_SESSION['erroDeLogin'] = "Usuário e senha inválido!";
+
+		header("location:login.php");
+		echo 3;
 	}
+	echo 4;
 
 
-	function validarLogin($login,$senha)
-	{
-		
-		$hash = md5($login.$senha);
-		$usuario = R::findOne('usuario','login = ?',[$login]);
-		$_SESSION["passDB"]=$usuario->senha_hash;
-		$_SESSION["passFORM"]=$hash;
-
-		if(!$usuario)
-		{
-			return false;
-		}
-
-
-		if($usuario->senha_hash == $hash)
-		{
-			$_SESSION["passDB"]="OK!";
-			return true;
-		}
-		else
-		{
-			$_SESSION["passDB"]="FALSE";
-			return false;
-        }
-	}
 ?>

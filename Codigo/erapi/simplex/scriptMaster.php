@@ -15,20 +15,12 @@
 	session_start();
 
 	/* Faz a validação se o usuário está logado ou não */
-
-	var_dump($_SESSION);
-
-
-	if(isset($_SESSION["usuarioLogado"]))
+	if (!isset($_SESSION['usuarioLogado']))
 	{
-                    $_SESSION['ACEITOU!']="ACEITOU!";
+		
+		var_dump($_SESSION);
+		//header("location:login.php");
 	}
-	else
-	{
-		if($_SERVER["QUERY_STRING"] != "page=login")
-		{
-			header("location:index.php?page=login");
-		}
-	}
+			
 
 ?>
