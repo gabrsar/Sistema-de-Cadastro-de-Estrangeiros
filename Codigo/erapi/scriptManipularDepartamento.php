@@ -17,18 +17,31 @@
  */
 
 
-
+require("permissao.php");
 // Detecta o modo de execução
 
 
-switch (sanitizeString($_GET['modo'])) {
-	
+$usuario = getUsuarioLogado();
+
+
+
+
+if($usuario->permissao != $PERMISSOES["ADMINISTRADOR"])
+{
+	erro("Você não tem permissão para executar essa ação!",
+		"index.php?page=configuracoesDepartamentos");
+}
+else
+{
+	switch (sanitizeString($_GET['modo'])) {
+
 		// Modos aceitos =====
 		case 'cadastrar': 	cadastrarDepartamento();			break;
 		case 'editar': 		editarDepartamento();				break;
 		case 'excluir': 	excluirDepartamento();				break;
 		// ====================
 		default:			erro("Erro de endereco!", $paginaRetorno);	break;
+	}
 }
 
 
@@ -73,7 +86,8 @@ function editarDepartamento()
 	$departamentoMontado = montarDepartamentoPOST($departamento);
 	R::store($departamentoMontado);
 
-	sucesso("O departamento $departamentoMontado->nome foi atualizado com sucesso!",$paginaRetorno);	 
+	sucesso("O departamento $departamentoMontado->nome foi atualizado com sucesso!",$paginaRetorno);
+
 }
 
 function excluirDepartamento()
