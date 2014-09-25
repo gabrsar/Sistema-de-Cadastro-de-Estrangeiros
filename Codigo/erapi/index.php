@@ -25,11 +25,10 @@ $pagina = obterPagina();
 ?>
 <html lang="pt_BR">
 	<head>
+
 		<?php
 			include ("simplex/head.php");
 		?>
-
-		<script src="js/jquery-latest.js"></script>
 		
 	</head>
 	<body>

@@ -12,9 +12,10 @@
 <!-- Meta tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-
 <!-- Temas CSS -->
 <link href="temas/tema.css" rel="stylesheet" type="text/css" />
 
+<!-- JQUERY -->
+<script src="js/jquery-latest.js"></script>
 
 <!-- Fim do Head da Página - Metas, CSS, Scripts, Google -->
