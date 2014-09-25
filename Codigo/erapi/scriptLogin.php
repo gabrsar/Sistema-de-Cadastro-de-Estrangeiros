@@ -46,8 +46,7 @@
 	else
 	{
 		$_SESSION['erroDeLogin'] = "Senha não informada!";
-		echo 1;
-	//	header("location:login.php");
+		header("location:login.php");
 	}
 
 	if(validarLogin($login,$senha))
@@ -59,13 +58,8 @@
 	}
 	else
 	{
-
 		$_SESSION['erroDeLogin'] = "Usuário e senha inválido!";
-
 		header("location:login.php");
-		echo 3;
 	}
-	echo 4;
-
 
 ?>

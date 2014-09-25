@@ -10,6 +10,7 @@
 		<li> <a href="index.php?page=novoCadastro">Estrangeiros</a></li>
 		<li> <a href="index.php?page=relatorios">Relatórios</a></li>
 		<li> <a href="index.php?page=configuracoes">Configurações</a></li>
+		<li> <a href="index.php?page=scriptSair">Sair</a></li>
 	</ul>
 </div>
 <div id="pendentes">
