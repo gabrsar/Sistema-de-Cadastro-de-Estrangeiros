@@ -17,5 +17,6 @@
 
 <!-- JQUERY -->
 <script src="js/jquery-latest.js"></script>
+<script src="js/scriptRelatorios.js"></script>
 
 <!-- Fim do Head da Página - Metas, CSS, Scripts, Google -->
