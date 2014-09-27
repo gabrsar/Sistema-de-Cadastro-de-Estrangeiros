@@ -24,12 +24,6 @@ function obterPagina() {
 		"fichas"		 					=> 		"formularioFichas.php",
 		"relatorios"	 					=> 		"formularioRelatorios.php",
 		"configuracoes" 					=> 		"formularioConfiguracoes.php",
-		
-		// Relatórios
-		"relatoriosAlunoTempo"		 		=> 		"relatorioAlunoTempo.php",
-		"relatoriosPessoaDepartamento"	 	=> 		"relatorioPessoaDepartamento.php",
-		"relatoriosPessoaPais" 				=> 		"relatorioPessoaPais.php",
-		"relatoriosPersonalizado" 			=> 		"relatorioPersonalizados.php",
 
 		// Configurações
 		"configuracoesDepartamentos"		=> 		"formularioDepartamento.php",

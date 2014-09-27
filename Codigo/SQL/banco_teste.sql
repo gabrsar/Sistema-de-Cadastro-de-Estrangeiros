@@ -56,7 +56,7 @@ INSERT INTO `curso` (`id`, `nome`, `tipo`) VALUES
 
 CREATE TABLE IF NOT EXISTS `departamento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_ departamento` varchar(256) NOT NULL,
+  `nome` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `departamento` (
 -- Fazendo dump de dados para tabela `departamento`
 --
 
-INSERT INTO `departamento` (`id`, `nome_ departamento`) VALUES
+INSERT INTO `departamento` (`id`, `nome`) VALUES
 (1, 'Departamento de Biologia'),
 (2, 'Departamento de Ciência de Computação e Estatística'),
 (3, 'Departamento de Educação'),
