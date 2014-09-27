@@ -24,7 +24,10 @@ function obterPagina() {
 		"fichas"		 					=> 		"formularioFichas.php",
 		"relatorios"	 					=> 		"formularioRelatorios.php",
 		"configuracoes" 					=> 		"formularioConfiguracoes.php",
-
+		
+		//Relatórios
+		"formularioEstrangeiro"					=>	"formularioEstrangeiro.php",
+		
 		// Configurações
 		"configuracoesDepartamentos"		=> 		"formularioDepartamento.php",
 		"configuracoesCursos" 				=> 		"formularioCursos.php",
