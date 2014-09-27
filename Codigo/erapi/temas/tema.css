@@ -286,6 +286,13 @@ legend
 	margin: 0 auto;
 }
 
+legend h2
+{	
+	font-weight: bolder;
+	color: #49D;
+	text-shadow: #DDD 0 1px 0px;
+}
+
 td.data_tabela 
 {
 	padding-left: 0px;
