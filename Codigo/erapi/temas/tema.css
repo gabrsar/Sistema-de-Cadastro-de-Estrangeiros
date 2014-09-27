@@ -285,3 +285,14 @@ legend
 {	
 	margin: 0 auto;
 }
+
+td.data_tabela 
+{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+td.data_tabela_esquerda
+{
+	padding-left: 15px;
+}
