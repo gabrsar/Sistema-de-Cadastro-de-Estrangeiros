@@ -303,3 +303,40 @@ td.data_tabela_esquerda
 {
 	padding-left: 15px;
 }
+
+#container_formulario_estrangeiro table
+{
+	width: auto;
+	margin: 0 auto;
+	min-width: 600px;
+	max-width: 900px;
+	border: 4px solid #AAA;
+}
+
+td.coluna_1
+{
+	max-width: 215px;
+}
+
+td.tr_center
+{
+	text-align: center;
+}
+
+#container_formulario_estrangeiro
+{
+	margin-bottom: 50px;
+	margin-top: 20px;
+}
+
+#foto_form_estrangeiro
+{
+	background-color: #FFF !important;
+	text-align: center;
+}
+
+#foto_form_estrangeiro img
+{
+	max-height: 150px;
+	max-width: 215px;
+}
