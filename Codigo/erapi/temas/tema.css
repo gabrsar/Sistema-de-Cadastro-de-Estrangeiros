@@ -213,9 +213,9 @@ button, input[type=submit], input[type=reset]{
 }
 
 button,button a, input[type=submit], input[type=reset]{
-		text-decoration: none;
-		font-weight: 900;
-		color:#FFF;
+	text-decoration: none;
+	font-weight: 900;
+	color:#FFF;
 }
 
 button:hover,button:hover a, input[type=submit]:hover, input[type=reset]:hover{
@@ -286,7 +286,7 @@ legend
 	margin: 0 auto;
 }
 
-legend h2
+legend h2, #titulo .titulo_estrangeiro
 {	
 	font-weight: bolder;
 	color: #49D;
@@ -318,7 +318,7 @@ td.coluna_1
 	max-width: 215px;
 }
 
-td.tr_center
+td.tr_center, .center
 {
 	text-align: center;
 }

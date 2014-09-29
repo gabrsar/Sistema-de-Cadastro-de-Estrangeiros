@@ -70,9 +70,10 @@
 	$curso = $curso_aux->nome;
 ?>
 
-<div id="titulo">
-	<a href="index.php?page=relatorios" class="voltar">&lt&lt</a>
-	<p class="titulo">Dados: <?php echo $value->nome;?></p>
+<div id="titulo" class="center">
+	<!-- Vou deixar comentado aqui, vai que mudo de idéia depois, sei lá, mas por enquanto vai ficar sem botão de volta-->
+	<!--<a href="index.php?page=relatorios" class="voltar" id="back_button">&lt&lt</a>-->
+	<p class="titulo">Dados: <?php echo "<tag class=\"titulo_estrangeiro\">$value->nome</tag>"?></p>
 </div>
 
 <div id="container_formulario_estrangeiro">

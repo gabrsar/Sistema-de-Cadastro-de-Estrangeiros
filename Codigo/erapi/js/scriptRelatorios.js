@@ -5,6 +5,7 @@
  	 * 
  	 */
 
+
 $(document).ready(function() {
 	$('input#modalidade0').click(function() {
 		$('input#modalidade7').fadeToggle( "swing", "linear" );
@@ -32,6 +33,10 @@ $(document).ready(function() {
 			$("#container_relatorios").html(data);
 		});
 	});
+	$("#back_button").click(function() {
+		$('#container_formulario_relatorios').load(function(){
+			//event.preventDefault();
+			alert("Pagina carregada");
+		});
+	});
 });
-
-
