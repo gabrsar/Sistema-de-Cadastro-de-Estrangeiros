@@ -28,7 +28,6 @@ $(document).ready(function() {
 		var curso = $('#curso').prop("value");
 		var dep = $('#departamento').prop("value");
 		var ano = $('#ano').prop("value");
-		//alert("Curso: " + curso + "\nDepartamento: " + departamento + "\nAno: " + ano + "\nPós-Doutorado: " + mod4 + "\nPalestrante: " + mod5 + "\nOutro: " + mod0 + "\nTexto: " + outro);
 		$.post('relatoriosEnvio.php', {mod1:mod1, mod2:mod2, mod3:mod3, mod4:mod4, mod5:mod5, mod0:mod0, outro:outro, curso:curso, dep:dep, ano:ano}, function callback(data){
 			$("#container_relatorios").html(data);
 		});

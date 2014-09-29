@@ -47,7 +47,6 @@
 	if($sql_atuacao != '')
 		$sql_atuacao .= ')';
 	$sql_final .= $sql_atuacao;
-	//ARRUMAR CURSO, E DEP
 	$aux = 0;
 	if($dados['curso'] != '')
 	{
