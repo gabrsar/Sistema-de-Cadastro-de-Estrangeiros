@@ -39,7 +39,11 @@ function obterPagina() {
 
 		// Cursos
 		"scriptManipularCurso"				=>		"scriptManipularCurso.php",
-		"manipularCurso"					=>		"formularioManipularCurso.php"
+		"manipularCurso"					=>		"formularioManipularCurso.php",
+
+		// Usuários
+		"scriptManipularUsuario"			=>		"scriptManipularUsuario.php",
+		"manipularUsuario"					=>		"formularioManipularUsuario.php"
 	);
 
 	$ret="";
