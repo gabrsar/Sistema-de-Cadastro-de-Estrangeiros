@@ -58,6 +58,7 @@ INSERT INTO `curso` (`id`, `nome`, `tipo`, `excluido`) VALUES
 CREATE TABLE IF NOT EXISTS `departamento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(256) NOT NULL,
+  `excluido` tinyint(1),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
@@ -65,18 +66,18 @@ CREATE TABLE IF NOT EXISTS `departamento` (
 -- Fazendo dump de dados para tabela `departamento`
 --
 
-INSERT INTO `departamento` (`id`, `nome`) VALUES
-(1, 'Departamento de Biologia'),
-(2, 'Departamento de Ciência de Computação e Estatística'),
-(3, 'Departamento de Educação'),
-(4, 'Departamento de Engenharia e Tecnologia de Alimentos'),
-(5, 'Departamento de Estudos Linguísticos e Literários'),
-(6, 'Departamento de Física'),
-(7, 'Departamento de Letras Modernas'),
-(8, 'Departamento de Matemática'),
-(9, 'Departamento de Matemática Aplicada'),
-(10, 'Departamento de Química e Ciências Ambientais'),
-(11, 'Departamento de Zoologia e Botânica');
+INSERT INTO `departamento` (`id`, `nome`,`excluido`) VALUES
+(1, 'Departamento de Biologia',0),
+(2, 'Departamento de Ciência de Computação e Estatística',0),
+(3, 'Departamento de Educação',0),
+(4, 'Departamento de Engenharia e Tecnologia de Alimentos',0),
+(5, 'Departamento de Estudos Linguísticos e Literários',0),
+(6, 'Departamento de Física',0),
+(7, 'Departamento de Letras Modernas',0),
+(8, 'Departamento de Matemática',0),
+(9, 'Departamento de Matemática Aplicada',0),
+(10, 'Departamento de Química e Ciências Ambientais',0),
+(11, 'Departamento de Zoologia e Botânica',0);
 
 -- --------------------------------------------------------
 
