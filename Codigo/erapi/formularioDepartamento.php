@@ -10,10 +10,22 @@
 	<p class="titulo">Departamentos</p>
 </div>
 
-<div class="painel">
-	<p> Opções: </p>
-	<a href="index.php?page=manipularDepartamento">Cadastrar novo departamento</a>
-</div>
+<?php
+
+require("permissao.php");
+
+$usuario = getUsuarioLogado();
+
+if($usuario->permissao == $PERMISSOES["ADMINISTRADOR"])
+{
+	echo ('<div class="painel">');
+	echo ('<p> Opções: </p>');
+	echo ('<a href="index.php?page=manipularDepartamento">');
+	echo ('Cadastrar novo departamento</a>');
+	echo ('</div>');
+}
+?>
+
 
 <div class="listagem">
 	<p class="titulo"> Lista dos departamentos cadastrados </p>
@@ -29,7 +41,6 @@
 
 				$id=$dep->id;
 				$nome=$dep->nome;
-				$link="confirmarRemoverDepartamento(\"$nome\",$id)";
 
 				echo ("<tr><td><a href='index.php?page=manipularDepartamento&id=$id'>$nome</a></td></tr>\n");
 			}
