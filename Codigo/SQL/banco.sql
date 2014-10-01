@@ -27,6 +27,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `erapi`.`departamento` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(256) NOT NULL,
+  `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

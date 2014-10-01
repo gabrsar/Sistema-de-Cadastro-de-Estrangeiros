@@ -58,7 +58,7 @@ INSERT INTO `curso` (`id`, `nome`, `tipo`, `excluido`) VALUES
 CREATE TABLE IF NOT EXISTS `departamento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(256) NOT NULL,
-  `excluido` tinyint(1),
+  `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
