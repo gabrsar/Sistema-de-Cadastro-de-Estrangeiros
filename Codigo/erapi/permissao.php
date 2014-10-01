@@ -14,7 +14,7 @@ class Permissao{
 		array(2,"Espectador"),
 	);
 
-	static public function getListaTipoPermissao()
+	static public function getListaPermissao()
 	{
 		return self::$tipos;
 	}
