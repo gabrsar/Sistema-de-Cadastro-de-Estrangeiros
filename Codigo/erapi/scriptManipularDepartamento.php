@@ -18,21 +18,16 @@
 
 
 require("permissao.php");
-// Detecta o modo de execução
-
-
 $usuario = getUsuarioLogado();
 
-
-
-
-if($usuario->permissao != $PERMISSOES["ADMINISTRADOR"])
+if($usuario->permissao == Permissao::getIDPermissao("Administrador"))
 {
 	erro("Você não tem permissão para executar essa ação!",
 		"index.php?page=configuracoesDepartamentos");
 }
 else
 {
+	// Detecta o modo de execução
 	switch (sanitizeString($_GET['modo'])) {
 
 		// Modos aceitos =====

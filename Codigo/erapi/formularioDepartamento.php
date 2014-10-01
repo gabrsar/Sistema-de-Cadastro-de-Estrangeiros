@@ -16,7 +16,8 @@ require("permissao.php");
 
 $usuario = getUsuarioLogado();
 
-if($usuario->permissao == $PERMISSOES["ADMINISTRADOR"])
+
+if($usuario->permissao == Permissao::getIDPermissao("Administrador"))
 {
 	echo ('<div class="painel">');
 	echo ('<p> Opções: </p>');
@@ -24,6 +25,7 @@ if($usuario->permissao == $PERMISSOES["ADMINISTRADOR"])
 	echo ('Cadastrar novo departamento</a>');
 	echo ('</div>');
 }
+
 ?>
 
 
