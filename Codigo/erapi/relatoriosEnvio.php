@@ -5,6 +5,7 @@
  	 * 
  	 */
 
+	date_default_timezone_set('America/Sao_Paulo');
 	require("rb/db.php");
 	rbSetup();
 	$dados = array(
