@@ -8,105 +8,93 @@
 	date_default_timezone_set('America/Sao_Paulo');
 	require("rb/db.php");
 	rbSetup();
-	$dados = array(
-		1 => $_POST['mod1'],
-		2 => $_POST['mod2'],
-		3 => $_POST['mod3'],
-		4 => $_POST['mod4'],
-		5 => $_POST['mod5'],
-		0 => $_POST['mod0'],
-		'outro' => $_POST['outro'],
-		'curso' => $_POST['curso'],
-		'dep' => $_POST['dep'],
-		'ano' => $_POST['ano']
-	);
 	$sql_atuacao = '';
 	$sql_curso = '';
 	$sql_dep = '';
 	$sql_ano = '';
 	$sql_final = '';
-	$aux = 0;
-	for($i = 1; $i <=5; $i++)
+	$atuacao_alone = $_POST['atuacao_alone'];
+	$atuacao_outros = $_POST['atuacao_outros'];
+	$ano_inicio = (int) $_POST['inicio'];
+	$ano_fim = (int) $_POST['fim'];
+	if($_POST['atuacao'] != '')
+		$sql_atuacao .= '(';
+	$sql_atuacao .= preg_replace("/(atuacao=[0-5])(&)/", "$1 OR ", $_POST['atuacao']);
+	if($atuacao_alone == 'true')
 	{
-		if($dados[$i] == 'true')
+		if($atuacao_outros != '')
 		{
-			if($aux == 0)
-				$sql_atuacao .= "(atuacao=" . $i . ' ';
-			else
-				$sql_atuacao .= 'OR atuacao=' . $i . ' ';
-			$aux = 1;
+			if($sql_atuacao != '')
+				$sql_atuacao .= ' OR ';
+			$sql_atuacao .= "atuacao_outros LIKE '%" . $atuacao_outros . "%' OR atuacao_outros LIKE '%" . strtolower($atuacao_outros) . "%'";
 		}
-	}
-	if($dados[0] == 'true')
-	{
-		if($aux == 0)
-			$sql_atuacao .= "(atuacao_outros LIKE '%" . $dados['outro'] . "%' OR atuacao_outros LIKE '%" . strtolower($dados['outro']) . "%'";
 		else
-			$sql_atuacao .= " OR atuacao_outros LIKE '%" . $dados['outro'] . "%' OR atuacao_outros LIKE '%" . strtolower($dados['outro']) . "%'";
-		$aux = 1;
+		{
+			if($sql_atuacao != '')
+				$sql_atuacao .= ' OR ';
+			$sql_atuacao .= "atuacao=0";
+		}
 	}
 	if($sql_atuacao != '')
 		$sql_atuacao .= ')';
-	$sql_final .= $sql_atuacao;
-	$aux = 0;
-	if($dados['curso'] != '')
-	{
-		$sql_aux = "(nome LIKE '%" . $dados['curso'] . "%' OR nome LIKE '%" . strtolower($dados['curso']) . "%')";
-		$cursos_aux = R::find('curso', "$sql_aux");
-		foreach($cursos_aux as $value)
-		{
-			if($aux == 0)
-				$sql_curso .= "(curso=" . $value->id . ' ';
-			else
-				$sql_curso .= 'OR curso=' . $value->id . ' ';
-			$aux = 1;
-		}
-	}
+	if($sql_atuacao != '')
+		$sql_final .= $sql_atuacao;
+		
+	if($_POST['curso'] != '')
+		$sql_curso .= '(';
+	$sql_curso .= preg_replace("/(curso=[0-9]+)(&)/", "$1 OR ", $_POST['curso']);
+	if($sql_curso != '')
+		$sql_curso .= ')';
 	if($sql_curso != '')
 	{
-		$sql_curso .= ')';
 		if($sql_final == '')
 			$sql_final .= $sql_curso;
 		else
-			$sql_final .= ' AND ' . $sql_curso;
+			$sql_final .= " AND $sql_curso";
 	}
-	$aux = 0;
-	if($dados['dep'] != '')
-	{
-		$sql_aux = "(nome LIKE '%" . $dados['dep'] . "%' OR nome LIKE '%" . strtolower($dados['dep']) . "%')";
-		$dep_aux = R::find('departamento', "$sql_aux");
-		foreach($dep_aux as $value)
-		{
-			if($aux == 0)
-				$sql_dep .= "(departamento=" . $value->id . ' ';
-			else
-				$sql_dep .= 'OR departamento=' . $value->id . ' ';
-			$aux = 1;
-		}
-	}
+	
+	if($_POST['dep'] != '')
+		$sql_dep .= '(';
+	$sql_dep .= preg_replace("/(departamento=[0-9]+)(&)/", "$1 OR ", $_POST['dep']);
+	if($sql_dep != '')
+		$sql_dep .= ')';
 	if($sql_dep != '')
 	{
-		$sql_dep .= ')';
 		if($sql_final == '')
 			$sql_final .= $sql_dep;
 		else
-			$sql_final .= ' AND ' . $sql_dep;
+			$sql_final .= " AND $sql_dep";
 	}
-	$aux = 0;
-	if($dados['ano'] != '')
+	
+	if(($ano_inicio != 0) || ($ano_fim != 0))
 	{
-		if($aux == 0)
-			$sql_ano .= "data_chegada LIKE '" . $dados['ano'] . "%'";
-		else
-			$sql_ano .= " AND data_chegada LIKE '" . $dados['ano'] . "%'";
-		$aux = 1;
+		$sql_ano .= '(';
 	}
+	if(($ano_inicio > 0) && ($ano_fim > 0))
+	{
+		if($ano_inicio == $ano_fim)
+			$sql_ano .= "data_chegada = '$ano_inicio'";
+		else
+			$sql_ano .= "data_chegada >= '$ano_inicio' AND data_chegada <= '$ano_fim'";
+	}
+	else
+	{	
+		if($ano_inicio > 0)
+			$sql_ano .= "data_chegada >= '$ano_inicio'";
+		else
+		{
+			if($ano_fim > 0)
+				$sql_ano .= "data_chegada <= '$ano_fim'";
+		}
+	}
+	if($sql_ano != '')
+		$sql_ano .= ')';
 	if($sql_ano != '')
 	{
 		if($sql_final == '')
 			$sql_final .= $sql_ano;
 		else
-			$sql_final .= ' AND ' . $sql_ano;
+			$sql_final .= " AND $sql_ano";
 	}
 ?>
 <table>

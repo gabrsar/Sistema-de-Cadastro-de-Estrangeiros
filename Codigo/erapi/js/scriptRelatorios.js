@@ -7,29 +7,38 @@
 
 
 $(document).ready(function() {
-	$('input#modalidade0').click(function() {
-		$('input#modalidade7').fadeToggle( "swing", "linear" );
+	$('input#atuacao0').click(function() {
+		$('input#atuacao7').fadeToggle( "swing", "linear" );
+		var largura = parseInt($('#form_modalidade').css("height"));
+		if((largura > 120) && ($('input#atuacao0').is( ":checked" )))
+		{
+			$('#form_curso').css({"height" : largura + "px"});
+		}
+		else
+		{
+			$('#form_curso').css({"height": "116px"});
+		}
 	});
 	$('input[type=reset]').click(function() {
-		if ($('input#modalidade0').is( ":checked" ))
+		if ($('input#atuacao0').is( ":checked" ))
 		{
-			$('input#modalidade7').fadeToggle( "swing", "linear" );
+			$('input#atuacao7').fadeToggle( "swing", "linear" );
+			$('#form_curso').css({"height": "116px"});
 		}
 	});
 	$('input[type=submit]').click(function(event) {
 		event.preventDefault();
-		var mod1 = $('#modalidade1').prop("checked");
-		var mod2 = $('#modalidade2').prop("checked");
-		var mod3 = $('#modalidade3').prop("checked");
-		var mod4 = $('#modalidade4').prop("checked");
-		var mod5 = $('#modalidade5').prop("checked");
-		var mod0 = $('#modalidade0').prop("checked");
-		var outro = $('#modalidade7').prop("value");
-		var curso = $('#curso').prop("value");
-		var dep = $('#departamento').prop("value");
-		var ano = $('#ano').prop("value");
-		$.post('relatoriosEnvio.php', {mod1:mod1, mod2:mod2, mod3:mod3, mod4:mod4, mod5:mod5, mod0:mod0, outro:outro, curso:curso, dep:dep, ano:ano}, function callback(data){
+		var atuacao = $('#formulario_relatorios input[name=atuacao]').serialize();
+		var atuacao_alone = $('#atuacao0').prop("checked");
+		var atuacao_outros = $('#atuacao7').prop("value");
+		var curso = $('#formulario_relatorios input[name=curso]').serialize();
+		var dep = $('#formulario_relatorios input[name=departamento]').serialize();
+		var inicio = $('#inicio').prop("value");
+		var fim = $('#fim').prop("value");
+		//alert("Atuação = " + atuacao + "\nCurso = " + curso + "\nDepartamento = " + dep + "\nPeríodo = " + inicio + " - " + fim);
+		$.post('relatoriosEnvio.php', {atuacao:atuacao, atuacao_alone:atuacao_alone, atuacao_outros:atuacao_outros, curso:curso, dep:dep, inicio:inicio, fim:fim}, function callback(data){
 			$("#container_relatorios").html(data);
 		});
+		$('html, body').animate({scrollTop: $("#container_relatorios").offset().top}, 1500);
 	});
 });

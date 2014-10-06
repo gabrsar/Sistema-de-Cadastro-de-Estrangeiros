@@ -266,7 +266,8 @@ label{
 #container_formulario_relatorios 
 {
 	width: 100%;
-	height: 200px;
+	height: auto;
+	margin-top: -20px;
 }
 
 #formulario_relatorios 
@@ -277,8 +278,14 @@ label{
 
 #formulario_relatorios input[type="reset"] 
 {
-	margin-left: 12px;
-	margin-top: 0px;
+	margin: 0 auto;
+	margin-right: 5px;
+}
+
+#formulario_relatorios input[type="submit"] 
+{
+	margin: 0 auto;
+	margin-left: 5px;
 }
 
 legend
@@ -329,6 +336,40 @@ td.tr_center, .center
 	margin-top: 20px;
 }
 
+#formulario_superior
+{
+	display: inline-flex;
+	width: 100%;
+}
+
+#formulario_meio
+{
+	display: inline-block;
+	width: 100%;
+	margin-top: -20px;
+	margin-bottom: -25px;
+}
+
+#formulario_inferior
+{
+	display: inline-flex;
+	width: 100%;
+}
+
+.check-select-multiple 
+{ 
+	display: inline-block; 
+	padding: 0 5px; 
+	overflow-y: scroll; 
+	background: white;
+	height: 116px;
+}
+.check-select-multiple p 
+{ 
+	display: inline-block; 
+	width: 95%;
+}
+
 #foto_form_estrangeiro
 {
 	background-color: #FFF !important;
@@ -339,4 +380,25 @@ td.tr_center, .center
 {
 	max-height: 150px;
 	max-width: 215px;
+}
+
+#fildset_curso, #fildset_dep
+{
+	padding-right: 10px !important;
+}
+
+#fildset_dep
+{
+	max-width: 718px;
+}
+
+#fildset_periodo
+{
+	text-align: end;
+	height: 149px;
+}
+
+#periodo_first_child
+{
+	margin-top: 14px;
 }
