@@ -227,6 +227,8 @@ button:hover,button:hover a, input[type=submit]:hover, input[type=reset]:hover{
 
 label{
 	padding:0 10px 0 0;
+	display:inline-block;
+	min-width: 5em;
 }
 
 .invisivel{
