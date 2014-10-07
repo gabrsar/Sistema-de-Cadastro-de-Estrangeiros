@@ -35,7 +35,6 @@ $(document).ready(function() {
 		var dep = $('#formulario_relatorios input[name=departamento]').serialize();
 		var inicio = $('#inicio').prop("value");
 		var fim = $('#fim').prop("value");
-		//alert("Atuação = " + atuacao + "\nCurso = " + curso + "\nDepartamento = " + dep + "\nPeríodo = " + inicio + " - " + fim);
 		$.post('relatoriosEnvio.php', {atuacao:atuacao, atuacao_alone:atuacao_alone, atuacao_outros:atuacao_outros, curso:curso, dep:dep, inicio:inicio, fim:fim}, function callback(data){
 			$("#container_relatorios").html(data);
 		});
