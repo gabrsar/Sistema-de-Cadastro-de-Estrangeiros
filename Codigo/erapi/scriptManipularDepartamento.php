@@ -20,7 +20,7 @@
 require("permissao.php");
 $usuario = getUsuarioLogado();
 
-if($usuario->permissao == Permissao::getIDPermissao("Administrador"))
+if($usuario->permissao != Permissao::getIDPermissao("Administrador"))
 {
 	erro("Você não tem permissão para executar essa ação!",
 		"index.php?page=configuracoesDepartamentos");
