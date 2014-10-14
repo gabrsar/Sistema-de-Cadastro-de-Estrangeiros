@@ -72,15 +72,20 @@
 			{
 				echo ("Visualizar $departamento->nome");	
 			}
+
+
 		}
 	?>
 	</p> 
 </div> 
 
+
 <?php
 
 	$action="";
+	
 	if($usuario->permissao == Permissao::getIDPermissao("Administrador")){
+	
 		$action="index.php?page=scriptManipularDepartamento&";
 		if($id == -1)
 		{

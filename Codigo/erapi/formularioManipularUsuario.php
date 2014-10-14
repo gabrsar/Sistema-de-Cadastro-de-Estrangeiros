@@ -125,18 +125,26 @@
 		</p>
 
 		<div class="barraBotoes">
-			<button>Salvar</button>
+	<?php
+	
+		$botaoSalvar =<<<EOT
+		<button>Salvar</button>
+EOT;
+	
+		echo $botaoSalvar;
 
-			<!-- Recurso técnico provisório de longo prazo -->
-			<button 
-				onclick='
-					window.location="index.php?page=scriptManipularUsuario&modo=excluir&id=<?php echo($id);?>";
-					return false;
-				'
-				<?php if($id==-1) echo ("class='invisivel'"); ?>
-			>Excluir</button>
-			<!-- Fim do Recurso técnico provisório de longo prazo -->
-
-		</div>
+		if($usuario->permissao == Permissao::getIDPermissao("Administrador")){
+	
+			$botaoExcluir =<<<EOT
+			<button onclick='window.location="index.php?page=scriptManipularUsuario&modo=excluir&id=$id"; return false;'>Excluir</button>
+EOT;
+	
+			if($id != -1 )
+			{
+				echo $botaoExcluir;
+			}
+		}
+	?>
+	</div>
 	</form>
 </div>
