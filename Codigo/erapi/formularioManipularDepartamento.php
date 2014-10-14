@@ -16,14 +16,9 @@
 	 *			novo registro.
 	 */                 
 
-    require("permissao.php");
+ 	require("permissao.php");
 
 	$usuario = getUsuarioLogado();
-
-	if($usuario->permissao != Permissao::getIDPermissao("Administrador"))	{
-		erro("Você não tem permissão para executar essa ação!",
-			"index.php?page=configuracoesDepartamentos");
-	}
 
 	$id=-1;
 	
@@ -41,6 +36,15 @@
 	
 	if($id == -1)
 	{                    
+
+
+		// Apenas administrador pode cadastrar um novo departamento
+		if($usuario->permissao != Permissao::getIDPermissao("Administrador"))	{
+			erro("Você não tem permissão para executar essa ação!",
+				"index.php?page=configuracoesDepartamentos");
+		}
+
+
 		// No caso de cadastro essa variavel é "inútil", mas ela simplifica a 
 		// programação, pois o conteúdo dela é vazio. Assim evita um monte de 
 		// ifs no meio dos htmls.     
@@ -63,16 +67,23 @@
 			echo ("Cadastrar novo departamento");
 		}else
 		{
-			echo ("Editar '$departamento->nome'");
+			if($usuario->permissao == Permissao::getIDPermissao("Administrador")){
+				echo ("Editar '$departamento->nome'");
+			}
+			else
+			{
+				echo ("$departamento->nome");	
+			}
 		}
 	?>
 	</p> 
 </div> 
 
-	<?php
+<?php
 
+	$action="";
+	if($usuario->permissao == Permissao::getIDPermissao("Administrador")){
 		$action="index.php?page=scriptManipularDepartamento&";
-
 		if($id == -1)
 		{
 			$action.="modo=cadastrar";
@@ -81,23 +92,33 @@
 		{
 			$action.="modo=editar&id=$id";
 		}
-	?>
+	}
+	
+?>
 
-	<form action="<?php echo($action);?>" method="post" id="register-form">
-		<p>
-			<label>Nome do departamento </label>
-			<input type="text" name="nome" value="<?php echo ($departamento->nome); ?>" size="64" required>
-		</p>
+<form action="<?php echo($action);?>" method="post" id="register-form">
+	<p>
+		<label>Nome do departamento </label>
+		<input type="text" name="nome" value="<?php echo ($departamento->nome); ?>" size="64" required>
+	</p>
 
-		<div class="barraBotoes">
+	<div class="barraBotoes">
+	<?php
+			
+		if($usuario->permissao == Permissao::getIDPermissao("Administrador")){
+			$botaoSalvar =<<<EOT
 			<button>Salvar</button>
+EOT;
+			$botaoExcluir =<<<EOT
+			<button onclick='window.location="index.php?page=scriptManipularDepartamento&modo=excluir&id=$id"; return false;'>Excluir</button>
+EOT;
+			echo $botaoSalvar;
 
-			<button 
-				onclick='
-					window.location="index.php?page=scriptManipularDepartamento&modo=excluir&id=<?php echo($id);?>";
-					return false;
-				'
-				<?php if($id==-1) echo ("class='invisivel'"); ?>
-			>Excluir</button>
-		</div>
-	</form>
+			if($id != -1 )
+			{
+				echo $botaoExcluir;
+			}
+		}
+	?>
+	</div>
+</form>
