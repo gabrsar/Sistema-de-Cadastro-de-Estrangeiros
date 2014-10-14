@@ -1,5 +1,4 @@
 <?php
-
    
     /* Autor: Gabriel Henrique Martinez Saraiva
 	 * Formulário para manipular os departamentos.
@@ -22,7 +21,6 @@
 
 	$id=-1;
 	
-
 	if(isset($_GET['id']))
 	{
 		$id = intval($_GET['id']);
@@ -34,9 +32,9 @@
 	}
 
 	
+
 	if($id == -1)
 	{                    
-
 
 		// Apenas administrador pode cadastrar um novo departamento
 		if($usuario->permissao != Permissao::getIDPermissao("Administrador"))	{
@@ -72,7 +70,7 @@
 			}
 			else
 			{
-				echo ("$departamento->nome");	
+				echo ("Visualizar $departamento->nome");	
 			}
 		}
 	?>
