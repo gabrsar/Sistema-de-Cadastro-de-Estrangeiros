@@ -22,7 +22,7 @@
 		<tbody>
 			<?php
 
-			$departamentos = R::find('departamento','excluido=0');
+			$departamentos = R::find('estrangeiro');
 			foreach ($departamentos as $dep) {
 
 				$id=$dep->id;
@@ -65,7 +65,7 @@
 		<tbody>
 			<?php
 
-			$departamentos = R::find('departamento','excluido=0');
+			$departamentos = R::find('estrangeiro');
 			foreach ($departamentos as $dep) {
 
 				$id=$dep->id;

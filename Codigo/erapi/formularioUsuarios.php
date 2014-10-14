@@ -9,10 +9,26 @@
 	<p class="titulo">Usuários</p>
 </div>
 
-<div class="painel">
-	<p> Opções: </p>
-	<a href="index.php?page=manipularUsuario">Cadastrar novo usuário</a>
-</div>
+<?php
+	require("permissao.php");	
+
+
+
+	$usuario = getUsuarioLogado();
+	if($usuario->permissao == Permissao::getIDPermissao("Administrador"))
+	{
+		$painel = <<<EOT
+			<div class="painel">
+				<p> Opções: </p>
+				<a href="index.php?page=manipularUsuario">Cadastrar novo usuário</a>
+			</div>
+EOT;
+
+		echo $painel;
+	}
+
+?>
+
 
 <div class="listagem">
 	<p class="titulo"> Lista dos usuários cadastrados </p>
@@ -23,7 +39,7 @@
 		<tbody>           
 			<?php
 
-			require("permissao.php");
+	
 			
 			$usuarios=false; // qualquer coisa.
 			
@@ -35,20 +51,24 @@
 			}
 			else
 			{
-				$usuarios = R::findOne('usuario','login = ?',[$usuarioLogado->login]);
+				$usuario = R::findOne('usuario','login = ?',[$usuarioLogado->login]);
+				$usuarios = array($usuario);
 			}
 			
+			
+			$i=0;
 			foreach ($usuarios as $usuario) {
 				$id=$usuario->id;
 				$nome=$usuario->nome;
 				$permissao=Permissao::getNomePermissao($usuario->permissao);
 				echo ("<tr><td><a href='index.php?page=manipularUsuario&id=$id'>$nome</a></td><td>$permissao</td></tr>\n");
+				$i++;
 			}
 			?>
 		</tbody>
 		<tfoot>
 			<tr><td colspan="2">Foram encontrados 
-				<?php echo (R::count('usuario','excluido=0')); ?>
+				<?php echo ($i); ?>
 			registros</td></tr>
 		</tfoot>
   	</table>

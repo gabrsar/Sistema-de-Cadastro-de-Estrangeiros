@@ -9,6 +9,7 @@
     require("utils.php");
 	require("sanitize.php");
 
+
 	// Configura e inicia o RedBean
 	rbSetup();
 	

@@ -24,9 +24,13 @@
 
 	function getUsuarioLogado()
 	{
+
+
 		if(isset($_SESSION['usuarioLogado']))
 		{
-			return $_SESSION['usuarioLogado'];
+
+			return R::load('usuario',$_SESSION['usuarioLogado']->id);
+			
 		}
 		else
 		{

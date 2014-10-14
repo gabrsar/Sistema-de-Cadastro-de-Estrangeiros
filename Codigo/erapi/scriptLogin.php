@@ -12,7 +12,7 @@
 	// e retorna um booleano. VERDADEIRO = aceito. FALSO = incorreto.
 	function validarLogin($login,$senha)
 	{
-		$hash = md5($login.$senha);
+		$hash = md5($senha);
 		$usuario = R::findOne('usuario','login = ?',[$login]);
 
 		if($usuario)

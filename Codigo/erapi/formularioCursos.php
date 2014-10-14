@@ -8,11 +8,26 @@
 	<a href="index.php?page=configuracoes" class="voltar">&lt&lt</a>
 	<p class="titulo">Cursos</p>
 </div>
+<?php
+	require("permissao.php");	
 
-<div class="painel">
-	<p> Opções: </p>
-	<a href="index.php?page=manipularCurso">Cadastrar novo curso</a>
-</div>
+
+
+	$usuario = getUsuarioLogado();
+	if($usuario->permissao == Permissao::getIDPermissao("Administrador"))
+	{
+		$painel = <<<EOT
+			<div class="painel">
+				<p> Opções: </p>
+				<a href="index.php?page=manipularCurso">Cadastrar novo curso</a>
+			</div>
+EOT;
+
+		echo $painel;
+	}
+
+?>
+
 
 <div class="listagem">
 	<p class="titulo"> Lista dos cusrsos cadastrados </p>

@@ -3,7 +3,6 @@
 /* Autor: Gabriel Henrique Martinez Saraiva
  * Esse arquivo armazena os tipos de permissões dos usuários
  * devem ser utilizadas as funções dessa classe ao trabalhar com permissões.
- *
  */
 
 class Permissao{
@@ -47,9 +46,29 @@ class Permissao{
 		}
 		else
 		{
-			return "PERMISSÃO INVÁLIDA";
+			return False;
 		}
 	}
 
 
+
+	static public function usuarioPodeAcessarID($id)
+	{
+		// Função que retorna se o usuário LOGADO pode manipular o usuário com $id
+
+		$usuarioLogado=getUsuarioLogado();
+
+		if($usuarioLogado->permissao == Permissao::getIDPermissao("Administrador"))
+		{
+			return True;
+		}
+		else if($usuarioLogado->id == $id)
+		{
+			return True;
+		}
+		
+		return False;
+	}
 }
+
+?>

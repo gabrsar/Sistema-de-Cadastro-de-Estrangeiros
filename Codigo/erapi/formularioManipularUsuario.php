@@ -16,45 +16,38 @@
 	 */
 
 	require("permissao.php");
-	
-	$id=-1;
 
+
+	// COMEÇO DO SCRIPT	
+
+	$id="";
 	if(isset($_GET['id']))
 	{
-		$id = intval($_GET['id']);
-	
+		$id=sanitizeInt($_GET['id']);
 		if($id < 0)
 		{
-			erro("Parâmetro inválido!","index.php?page=configuracoesUsuarios");
+			erro("Parâmetros incorretos!","index.php?page=configuracoesUsuarios");
 		}
+	}
+	else
+	{
+		$id=-1;
 	}
 	
-
-	$usuarioLogado=getUsuarioLogado();
-	if($usuarioLogado->permissao == Permissao::getIDPermissao("Administrador"))
+	if(!Permissao::usuarioPodeAcessarID($id))
 	{
-
-		if($id == -1)
-		{
-			// No caso de cadastro essa variavel é "inútil", mas ela simplifica a 
-			// programação, pois o conteúdo dela é vazio. Assim evita um monte de 
-			// ifs no meio dos htmls.
-			$usuario = R::dispense('usuario');	
-		}
-		else
-		{
-			$usuario = R::load('usuario',$id);
-		}
-	}
-	else if($usuarioLogado->id != $id) // Usuário não é ADMIN e está tentando acessar outro usuário.
-	{
-		erro("Você não tem autorização para acessar esse usuário!","index.php?page=configuracoesUsuarios");
-	}
-	else // Usuário normal acessando seu registro
-	{
-		$usuario = R::load('usuario',$usuarioLogado->id);
+		erro("Você não pode executar essa ação!","index.php?page=configuracoesUsuarios");
 	}
 
+	$usuario=null;	
+	if($id == -1)
+	{
+		$usuario = R::dispense('usuario');	
+	}
+	else
+	{
+		$usuario = R::load('usuario',$id);
+	}
 ?>
 
 <div id="titulo">
@@ -95,32 +88,29 @@
 
 		<p>
 			<label>Login </label>
-			<input type="text" name="nome" value="<?php echo ($usuario->login); ?>" size="64" required>
+			<input type="text" name="login" value="<?php echo ($usuario->login); ?>" size="64" required>
 		</p>
 
 		<p>
 			<label>Senha </label>
-			<?php
-				$senha =str_repeat("*",strlen($usuario->senha_hash));
-			?>
-			<input type="text" name="nome" value="<?php echo $senha ?>" size="64" required>
+			<input type="password" name="senha" value="<?php echo ($usuario->senha_hash); ?>" size="64" required>
 		</p>
 
 		<p>
 			<label>E-mail </label>
-			<input type="text" name="nome" value="<?php echo ($usuario->email); ?>" size="64" required>
+			<input type="text" name="email" value="<?php echo ($usuario->email); ?>" size="64" required>
 		</p>
 
 		<p>
 			<label>Permissão</label>
-			<select name="tipo" required>
+			<select name="permissao" required>
 
 			<?php			
 
 				$selected="";
 				foreach (Permissao::getListaPermissao() as $tipo) {
-					
-					$selected = $usuario->tipo == $tipo[0] ? "selected" : "";
+				
+					$selected = $usuario->permissao == $tipo[0] ? "selected" : "";
 					echo ('<option value="'.$tipo[0].'" '. $selected.'>'.$tipo[1].'</option>');
 
 				}

@@ -11,22 +11,23 @@
 </div>
 
 <?php
+	require("permissao.php");	
 
-require("permissao.php");
+	$usuario = getUsuarioLogado();
+	if($usuario->permissao == Permissao::getIDPermissao("Administrador"))
+	{
+		$painel = <<<EOT
+			<div class="painel">
+				<p> Opções: </p>
+				<a href="index.php?page=manipularDepartamento">Cadastrar novo departamento</a>
+			</div>
+EOT;
 
-$usuario = getUsuarioLogado();
-
-
-if($usuario->permissao == Permissao::getIDPermissao("Administrador"))
-{
-	echo ('<div class="painel">');
-	echo ('<p> Opções: </p>');
-	echo ('<a href="index.php?page=manipularDepartamento">');
-	echo ('Cadastrar novo departamento</a>');
-	echo ('</div>');
-}
+		echo $painel;
+	}
 
 ?>
+
 
 
 <div class="listagem">

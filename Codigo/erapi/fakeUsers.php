@@ -6,24 +6,6 @@
  * dados.
  */
 
-require("rb/db.php");
-rbSetup();
-echo ("Criando usuários de teste!");
-
-
-$login="admin";
-$senha="sce";
-
-$usuario = R::dispense('usuario');
-
-$usuario->nome="Administrador";
-$usuario->login="admin";
-$usuario->senha_hash=md5($login.$senha);
-$usuario->email="amin@email.com.br";
-$usuario->permissao=0;
-$usuario->excluido=false;
-
-R::store($usuario);
-echo "Usuário criado:. <br>";
+echo md5("sce");
 
 ?>
