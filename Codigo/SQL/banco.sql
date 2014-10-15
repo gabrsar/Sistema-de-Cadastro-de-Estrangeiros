@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS `erapi`.`usuario` (
   `permissao` INT NOT NULL,
   `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
   `data_cadastro` TIMESTAMP NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `login_UNIQUE` (`login` ASC))
 ENGINE = InnoDB;
 
 
@@ -28,7 +29,8 @@ CREATE TABLE IF NOT EXISTS `erapi`.`departamento` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(256) NOT NULL,
   `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC))
 ENGINE = InnoDB;
 
 
@@ -39,7 +41,9 @@ CREATE TABLE IF NOT EXISTS `erapi`.`curso` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(256) NOT NULL,
   `tipo` INT NOT NULL,
-  PRIMARY KEY (`id`))
+  `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC))
 ENGINE = InnoDB;
 
 
@@ -63,9 +67,11 @@ CREATE TABLE IF NOT EXISTS `erapi`.`estrangeiro` (
   `data_saida` DATE NOT NULL,
   `foto` VARCHAR(512) NOT NULL,
   `validado` TINYINT(1) NOT NULL DEFAULT FALSE,
-  `usuario_validador` INT NOT NULL,
+  `usuario_validador` INT NULL,
   `departamento` INT NOT NULL,
   `curso` INT NOT NULL,
+  `data_cadastro` TIMESTAMP NOT NULL,
+  `data_validacao` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_estrangeiro_usuario_idx` (`usuario_validador` ASC),
   INDEX `fk_estrangeiro_departamento1_idx` (`departamento` ASC),
