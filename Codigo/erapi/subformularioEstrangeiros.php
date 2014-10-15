@@ -12,7 +12,7 @@
 	 * Se for passado, lista todos os estrangeiros
 	 * Se não for, adiciona restrições necessárias relacionadas à validação do cadastro
 	 */
-	function mostrarTabelaEstrangeiros($validado){
+	function mostrarTabelaEstrangeiros($validado = NULL){
 				echo("
 				<table>
 					<thead>
