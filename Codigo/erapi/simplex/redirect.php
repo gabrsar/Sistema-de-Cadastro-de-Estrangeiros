@@ -31,8 +31,7 @@ function obterPagina() {
 		"estrangeiros"						=>		"formularioEstrangeiros.php",
 		
 		//Relatórios
-		// Modificar nome do arquivo e parâmetro para seguir o padrão
-		"formularioEstrangeiro"					=>	"formularioEstrangeiro.php",
+		"formularioRelatoriosEstrangeiro"			=>	"formularioRelatoriosEstrangeiro.php",
 		
 		// Configurações
 		"configuracoesDepartamentos"		=> 		"formularioDepartamento.php",
