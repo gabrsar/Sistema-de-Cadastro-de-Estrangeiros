@@ -19,7 +19,7 @@
 		<script src="js/jquery-latest.js"></script>
 	</head>
 	<body>
-   	<div id="pagina">
+   		<div id="pagina">
 			<?php
 				include ("simplex/topo.php");
 			?>
