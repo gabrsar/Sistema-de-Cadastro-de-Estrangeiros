@@ -147,7 +147,7 @@
 				$status = "Finalizado";
 			else
 				$status = "Em andamento";
-			echo ("<tr><td><a href='index.php?page=formularioEstrangeiro&id=$id' target=\"_blank\">$nome</a></td><td>$pais</td><td>$modalidade</td><td>$nome_curso</td><td>$status</td><td class=\"data_tabela data_tabela_esquerda\">$data_chegada</td><td class=\"data_tabela\">-&emsp;</td><td class=\"data_tabela\">$data_saida</td></tr>\n");
+			echo ("<tr><td><a href='index.php?page=formularioRelatoriosEstrangeiro&id=$id' target=\"_blank\">$nome</a></td><td>$pais</td><td>$modalidade</td><td>$nome_curso</td><td>$status</td><td class=\"data_tabela data_tabela_esquerda\">$data_chegada</td><td class=\"data_tabela\">-&emsp;</td><td class=\"data_tabela\">$data_saida</td></tr>\n");
 		}		
 		?>
 	</tbody>
