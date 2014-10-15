@@ -4,7 +4,7 @@
  	 * Fornece acesso a todo o sistema.
  	 */
 
-	require("subformularioTabela.php");
+	require("subformularioEstrangeiros.php");
 ?>
 <div id="menu_principal" class="painelHorizontal">
 	<ul>

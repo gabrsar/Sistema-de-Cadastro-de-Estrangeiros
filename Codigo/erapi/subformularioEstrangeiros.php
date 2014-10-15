@@ -8,7 +8,6 @@
  	 *	-Estrangeiros não validados
  	 */
 
-
 	/* Parâmetro é opcional.
 	 * Se for passado, lista todos os estrangeiros
 	 * Se não for, adiciona restrições necessárias relacionadas à validação do cadastro

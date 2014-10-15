@@ -5,7 +5,7 @@
  	 * Permite realização de um novo cadastro de estrangeiro.
  	 */
 
-	require("subformularioTabela.php");
+	require("subformularioEstrangeiros.php");
 ?>
 
 
