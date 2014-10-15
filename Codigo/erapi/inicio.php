@@ -7,7 +7,7 @@
 ?>
 <div id="menu_principal" class="painelHorizontal">
 	<ul>
-		<li> <a href="index.php?page=novoCadastro">Estrangeiros</a></li>
+		<li> <a href="index.php?page=estrangeiros">Estrangeiros</a></li>
 		<li> <a href="index.php?page=relatorios">Relatórios</a></li>
 		<li> <a href="index.php?page=configuracoes">Configurações</a></li>
 		<li> <a href="index.php?page=scriptSair">Sair</a></li>
@@ -17,7 +17,7 @@
 	<p class="titulo"> Lista de cadastros pendentes </p>
 	<table>
 		<thead>
-			<tr><td>Data</td><td>Nome</td><td>Curso</td><td>Professor</td><td>Pais</td></tr>
+			<tr><td>Data</td><td>Nome</td><td>Curso</td><td>Docente</td><td>País</td></tr>
 		</thead>
 		<tbody>
 			<?php
@@ -37,13 +37,13 @@ EOT;
 				echo("<p>$a</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$e->curso</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$e->docente</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$e->pais</p>");
 				echo("</td>");
 			}
 			?>
@@ -60,7 +60,7 @@ EOT;
 	<p class="titulo"> Lista dos últimos cadastros confirmados </p>
 	<table>
 		<thead>
-			<tr><td>Data</td><td>Nome</td><td>Curso</td><td>Professor</td><td>Pais</td></tr>
+			<tr><td>Data</td><td>Nome</td><td>Curso</td><td>Docente</td><td>País</td></tr>
 		</thead>
 		<tbody>
 			<?php
@@ -80,13 +80,13 @@ EOT;
 				echo("<p>$a</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$e->curso</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$e->docente</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$e->pais</p>");
 				echo("</td>");
 			}
 			?>

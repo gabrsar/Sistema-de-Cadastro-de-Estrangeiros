@@ -28,8 +28,10 @@ function obterPagina() {
 		"fichas"		 					=> 		"formularioFichas.php",
 		"relatorios"	 					=> 		"formularioRelatorios.php",
 		"configuracoes" 					=> 		"formularioConfiguracoes.php",
+		"estrangeiros"						=>		"formularioEstrangeiros.php",
 		
 		//Relatórios
+		// Modificar nome do arquivo e parâmetro para seguir o padrão
 		"formularioEstrangeiro"					=>	"formularioEstrangeiro.php",
 		
 		// Configurações
@@ -48,6 +50,8 @@ function obterPagina() {
 		// Usuários
 		"scriptManipularUsuario"			=>		"scriptManipularUsuario.php",
 		"manipularUsuario"					=>		"formularioManipularUsuario.php"
+
+		// Estrangeiros
 	);
 
 	$pagina="inicio.php";
