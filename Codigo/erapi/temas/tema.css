@@ -26,32 +26,62 @@ a:hover{
 
 input[type="text"]:hover,input[type="password"]:hover,select:hover,textarea:hover{
 	border:#49D 1px solid;
+	
 }
 input[type="text"]:active,input[type="password"]:active,select:active,textarea:active{
-	background-color: #DDF;
+	background-color: #4C9ED9;
+	border:#88F 1px solid;
+	color:#FFF;
 }
 
+
+body{
+	background-color: #4C9ED9;
+}
 
 #topo {
 	margin:0;
-	padding:10px 20px;
+	padding:10px 0 15px 0;
 	background-color: #4C9ED9;
 	border-bottom: #297AB5 1px solid;
 	box-shadow: #55F 0px 0px 6px;
-	margin-bottom:2em;
+	
 }
 
 #topo a{
 	text-decoration: none;
 	color:#FFF;
-	text-shadow:#00F 0 1px 1px;
-	text-align: center;
-	
+	text-shadow: #333 0px 1px 1px;
+	text-align: center;	
+}
+
+#topo a:hover{
+	text-decoration: underline;
 }
 
 #corpo{
-	margin:0 1em;	
+	background-color: #FFF;
+	padding:2em;
+	
+	
 }
+
+#rodape{
+	
+	margin:0;
+	padding:10px 20px;
+	background-color: #4C9ED9;
+	border-top: #297AB5 1px solid;
+	
+}
+#rodape p{
+	text-align: center;
+	
+	color:#FFF;
+	text-shadow: #333 0px 1px 2px;
+}
+
+
 .painelHorizontal ul{
 	display: table;
 	width:100%;
@@ -192,9 +222,15 @@ tbody tr:nth-child(odd){
 tbody tr:nth-child(even){
 	background-color: #DDD;
 }
-tbody tr:hover{
-	background-color: #CDF;
+
+tbody tr:hover *{
+	background-color: #4C9ED9;
+	color:#FFF;
+	text-shadow: none;
+	
+	
 }
+
 
 .barraBotoes{
 	margin: 20px 0px 0px 0px;
@@ -237,17 +273,21 @@ label{
 
 
 #sucesso .mensagem ,#erro .mensagem{
-	margin:2em 0;
+	margin:0 0 1em 0;
 	padding:2em;
 	font-size:130%;
+	color:#FFF;
+	
 }
 
 #sucesso .mensagem{
+	text-shadow: #050 0px 1px 2px;
 	background-color:#AFA;
 	border:#0A0 1px solid;
 }
 #erro .mensagem{
-	background-color:#FAA;
+	text-shadow: #500 0px 1px 2px;
+	background-color:#F66;
 	border:#A00 1px solid;
 }
 
