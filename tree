@@ -1,0 +1,220 @@
+.
+├── Codigo
+│   ├── erapi
+│   │   ├── curso.php
+│   │   ├── erro.php
+│   │   ├── fakeUsers.php
+│   │   ├── formularioConfiguracoes.php
+│   │   ├── formularioCursos.php
+│   │   ├── formularioDepartamento.php
+│   │   ├── formularioEstrangeiro.php
+│   │   ├── formularioManipularCurso.php
+│   │   ├── formularioManipularDepartamento.php
+│   │   ├── formularioManipularUsuario.php
+│   │   ├── formularioRelatorios.php
+│   │   ├── formularioUsuarios.php
+│   │   ├── imagens
+│   │   │   ├── estrangeiro10.jpg
+│   │   │   ├── estrangeiro11.jpg
+│   │   │   ├── estrangeiro1.jpg
+│   │   │   ├── estrangeiro2.jpg
+│   │   │   ├── estrangeiro3.jpg
+│   │   │   ├── estrangeiro4.jpg
+│   │   │   ├── estrangeiro5.png
+│   │   │   ├── estrangeiro6.jpg
+│   │   │   ├── estrangeiro7.jpg
+│   │   │   ├── estrangeiro8.jpg
+│   │   │   └── estrangeiro9.jpg
+│   │   ├── index.php
+│   │   ├── inicio.php
+│   │   ├── js
+│   │   │   ├── jquery-latest.js
+│   │   │   └── scriptRelatorios.js
+│   │   ├── login.php
+│   │   ├── permissao.php
+│   │   ├── rb
+│   │   │   ├── db.php
+│   │   │   ├── license.txt
+│   │   │   └── rb.php
+│   │   ├── relatoriosEnvio.php
+│   │   ├── scriptLogin.php
+│   │   ├── scriptManipularCurso.php
+│   │   ├── scriptManipularDepartamento.php
+│   │   ├── scriptManipularUsuario.php
+│   │   ├── scriptSair.php
+│   │   ├── simplex
+│   │   │   ├── head.php
+│   │   │   ├── redirect.php
+│   │   │   ├── sanitize.php
+│   │   │   ├── scriptMaster.php
+│   │   │   ├── titulo.php
+│   │   │   ├── topo.php
+│   │   │   └── utils.php
+│   │   ├── sucesso.php
+│   │   ├── temas
+│   │   │   └── tema.css
+│   │   ├── teste
+│   │   │   ├── login-php
+│   │   │   │   ├── cadastrar.php
+│   │   │   │   ├── confirma-cadastro.html
+│   │   │   │   ├── css
+│   │   │   │   │   ├── bootstrap.css
+│   │   │   │   │   ├── bootstrap.min.css
+│   │   │   │   │   └── login.css
+│   │   │   │   ├── fonts
+│   │   │   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   │   │   └── glyphicons-halflings-regular.woff
+│   │   │   │   ├── index.html
+│   │   │   │   ├── js
+│   │   │   │   │   ├── bootstrap.js
+│   │   │   │   │   └── bootstrap.min.js
+│   │   │   │   ├── login.php
+│   │   │   │   ├── logout.php
+│   │   │   │   ├── pagina-protegida.php
+│   │   │   │   └── php
+│   │   │   │       └── Usuarios.php
+│   │   │   └── login-php.zip
+│   │   └── usuario.php
+│   └── SQL
+│       ├── banco.sql
+│       └── banco_teste.sql
+├── Documentação
+│   ├── Diagrama Banco
+│   │   ├── Banco.mwb
+│   │   ├── Banco.mwb.bak
+│   │   └── Esboço banco.pdf
+│   ├── Mapa de Posicao e Autorização
+│   │   └── Diagrama - Posição e Autorização.graphml
+│   ├── Primeira comunicação.pdf
+│   ├── relatórios solicitados.pdf
+│   └── SCE - Mapa do site.asta
+├── Exemplos
+│   └── ENGSOFT Chora Paixao
+│       ├── addon
+│       │   └── pagger
+│       │       ├── first.png
+│       │       ├── last.png
+│       │       ├── next.png
+│       │       └── prev.png
+│       ├── addons
+│       │   └── pager
+│       │       └── icons
+│       │           ├── first.png
+│       │           ├── last.png
+│       │           ├── next.png
+│       │           └── prev.png
+│       ├── anuncio.php
+│       ├── dados_eventos.php
+│       ├── dados_gab.php
+│       ├── dados_imoveis.php
+│       ├── dados.php
+│       ├── dados_servicos.php
+│       ├── dados_tools.php
+│       ├── dados_usuarios.php
+│       ├── erro.php
+│       ├── fail.log
+│       ├── formularioAlterarImovel.php
+│       ├── formularioAlterarServico.php
+│       ├── formularioAlterarUsuario.php
+│       ├── formularioBuscarEvento.php
+│       ├── formularioBuscarImovel.php
+│       ├── formularioBuscarServico.php
+│       ├── formularioBuscarUsuario.php
+│       ├── formularioCadastrarImovel.php
+│       ├── formularioCadastrarServico.php
+│       ├── formularioCadastrarUsuario.php
+│       ├── formularioGerarRelatorio.php
+│       ├── head.php
+│       ├── imagens
+│       │   ├── asc.gif
+│       │   ├── barraMenuLink.png
+│       │   ├── bg_login.png
+│       │   ├── bg_menu.png
+│       │   ├── bg_pagina.png
+│       │   ├── bg_titulo.png
+│       │   ├── borsari.png
+│       │   ├── buscaInteligenteGrande.png
+│       │   ├── buscaInteligentePequeno.png
+│       │   ├── buscar.png
+│       │   ├── colocacao.png
+│       │   ├── desc.gif
+│       │   ├── ff.png
+│       │   ├── foto.png
+│       │   ├── fundoBotao.png
+│       │   ├── fundoDicaFlutuante.png
+│       │   ├── fundoLinhaHover.png
+│       │   ├── imgOK.png
+│       │   ├── imprimir.png
+│       │   ├── logo.png
+│       │   ├── retirada.png
+│       │   └── vistoria.png
+│       ├── index.php
+│       ├── inicio.php
+│       ├── js
+│       │   ├── busca_magica.js
+│       │   ├── jquery-latest.js
+│       │   ├── jquery.tablesorter.js
+│       │   ├── menu-on.js
+│       │   ├── selecionar_checkbox.js
+│       │   ├── validador_formulario_imovel.js
+│       │   ├── validador_formulario_servicos.js
+│       │   ├── validador_formulario_usuario.js
+│       │   └── validador.js
+│       ├── menu.php
+│       ├── molde.php
+│       ├── nbproject
+│       │   ├── private
+│       │   │   ├── private.properties
+│       │   │   └── private.xml
+│       │   ├── project.properties
+│       │   └── project.xml
+│       ├── pqp.php
+│       ├── relatorioServicosPorTempo.php
+│       ├── scriptAlterarImovel.php
+│       ├── scriptAlterarServico.php
+│       ├── scriptAlterarUsuario.php
+│       ├── scriptAtalhos.php
+│       ├── scriptCadastrarImovel.php
+│       ├── scriptCadastrarServico.php
+│       ├── scriptCadastrarUsuario.php
+│       ├── scriptEnviarParaVistoriaOuVistoriado.php
+│       ├── scriptExcluirImovel.php
+│       ├── scriptExcluirServico.php
+│       ├── scriptExcluirUsuario.php
+│       ├── scriptImprimirOuConcluirServicos.php
+│       ├── scriptRealizarLogin.php
+│       ├── scriptRealizarLogoff.php
+│       ├── scriptRelatorioServicoPorTempo.php
+│       ├── scriptSaraiva.php
+│       ├── start.php
+│       ├── subFormularioBuscarImovelParaCadastroDeServico.php
+│       ├── sucesso.php
+│       ├── temas
+│       │   ├── tema1.css
+│       │   └── temaImprimir.css
+│       ├── teste.php
+│       ├── testes.php
+│       └── topo.php
+├── Mockup
+│   ├── cadastro.bmml
+│   ├── cadastro de usuário.bmml
+│   ├── cadastro de usuário.png
+│   ├── cadastro.png
+│   ├── confirmação.bmml
+│   ├── confirmação.png
+│   ├── controle de usuarios.bmml
+│   ├── controle de usuarios.png
+│   ├── exemplo de relatorio - pessoa x tempo.bmml
+│   ├── exemplo de relatorio - pessoa x tempo.png
+│   ├── login.bmml
+│   ├── login.png
+│   ├── relatorios.bmml
+│   ├── relatorios.png
+│   ├── SITE_MOCKUP.txt
+│   ├── validação.bmml
+│   └── validação.png
+└── README.md
+
+30 directories, 187 files

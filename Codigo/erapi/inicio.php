@@ -22,19 +22,19 @@
 		<tbody>
 			<?php
 
-			$departamentos = R::find('estrangeiro');
-			foreach ($departamentos as $dep) {
-
-				$id=$dep->id;
-				$nome=$dep->nome;
-				$link="confirmarRemoverDepartamento(\"$nome\",$id)";
-
-				echo ("<tr>");
+			$estrangeiros = R::find('estrangeiro','validado = ?',[false]);
+			foreach ($estrangeiros as $e) {
+			
+				$link="index.php?page=manipularEstrangeiro&id=$e->id";
+				$a = <<<EOT
+				<a href="$link">$e->nome</a>
+EOT;
+				echo("<tr>");
 				echo("<td>");
 				echo("<p>...</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$a</p>");
 				echo("</td>");
 				echo("<td>");
 				echo("<p>...</p>");
@@ -50,7 +50,7 @@
 		</tbody>
 		<tfoot>
 			<tr><td colspan="5">Foram encontrados 
-				<?php echo (R::count('departamento','excluido=0')); ?>
+				<?php echo (R::count('estrangeiro','validado=0')); ?>
 			registros</td></tr>
 		</tfoot>
 	</table>
@@ -65,19 +65,19 @@
 		<tbody>
 			<?php
 
-			$departamentos = R::find('estrangeiro');
-			foreach ($departamentos as $dep) {
-
-				$id=$dep->id;
-				$nome=$dep->nome;
-				$link="confirmarRemoverDepartamento(\"$nome\",$id)";
-
-				echo ("<tr>");
+			$estrangeiros = R::find('estrangeiro','validado = ?',[true]);
+			foreach ($estrangeiros as $e) {
+			
+				$link="index.php?page=manipularEstrangeiro&id=$e->id";
+				$a = <<<EOT
+				<a href="$link">$e->nome</a>
+EOT;
+				echo("<tr>");
 				echo("<td>");
 				echo("<p>...</p>");
 				echo("</td>");
 				echo("<td>");
-				echo("<p>...</p>");
+				echo("<p>$a</p>");
 				echo("</td>");
 				echo("<td>");
 				echo("<p>...</p>");
@@ -93,7 +93,7 @@
 		</tbody>
 		<tfoot>
 			<tr><td colspan="5">Foram encontrados 
-				<?php echo (R::count('departamento','excluido=0')); ?>
+				<?php echo (R::count('estrangeiro','validado=1')); ?>
 			registros</td></tr>
 		</tfoot>
 	</table>
