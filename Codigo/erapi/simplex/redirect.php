@@ -8,9 +8,13 @@
  * Com base na variavel $_GET['page'] retorna a página a ser importada na index com o conteúdo a ser exibido.
  */	
 
+
+/* Lista de todas as possiveis redireções*/
+
+
 function obterPagina() {
 
-	$links = array(
+	$LINKS = array(
 		"login"								=>		"login.php",
 		"scriptLogin"						=>		"scriptLogin.php",
 		"scriptSair"						=>		"scriptSair.php",
@@ -46,17 +50,21 @@ function obterPagina() {
 		"manipularUsuario"					=>		"formularioManipularUsuario.php"
 	);
 
-	$ret="";
-	$page="inicio";
+	$pagina="inicio.php";
 	
-	// Testa se a variavel de página está definida. Se não estiver abre a página de inicio.
 	if(isset($_GET['page']))
 	{
-		if(isset($links[$page]))
+		$paginaSolicitada = $_GET['page'];
+
+		if (isset($LINKS[ $paginaSolicitada ]))
 		{
-			$page=$_GET['page'];	
+			return $LINKS[$paginaSolicitada];
+		}
+		else
+		{
+			return "404.php";
 		}
 	}
-	return $links[$page];
+	return "inicio.php";
 }
 ?>
