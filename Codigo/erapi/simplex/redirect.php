@@ -48,10 +48,10 @@ function obterPagina() {
 
 		// Usuários
 		"scriptManipularUsuario"			=>		"scriptManipularUsuario.php",
-		"manipularUsuario"					=>		"formularioManipularUsuario.php"
+		"manipularUsuario"					=>		"formularioManipularUsuario.php",
 
 		// Estrangeiros
-		"scriptManipularEstrangeiro"		=>		"scriptManipularEstrangeiro.php"
+		"scriptManipularEstrangeiro"		=>		"scriptManipularEstrangeiro.php",
 		"manipularEstrangeiro"				=>		"formularioManipularEstrangeiro.php"
 	);
 
