@@ -6,6 +6,7 @@
  	 */
 
 	require("subformularioEstrangeiros.php");
+	require("permissao.php");
 ?>
 
 
@@ -13,8 +14,27 @@
 	<a href="index.php?page=inicio" class="voltar">&lt&lt</a>
 	<p class="titulo">Estrangeiros</p>
 </div>
+
+<?php
+	$usuario = getUsuarioLogado();
+	$admin 	 = $usuario->permissao == Permissao::getIDPermissao("Administrador");
+	$usuario = $usuario->permissao == Permissao::getIDPermissao("Usuário");
+
+	if($admin || $usuario)
+	{
+		$painel = <<<EOT
+			<div class="painel">
+				<p> Opções: </p>
+				<a href="index.php?page=manipularEstrangeiro">Cadastrar novo estrangeiro</a>
+			</div>
+EOT;
+
+		echo $painel;
+	}
+?>
+
 <div class="listagem">
-	<p class="titulo">Lista de estrangeiros cadastrados</p>
+	<p class="titulo">Lista de cadastros</p>
 		<?php
 			mostrarTabelaEstrangeiros();	
 		?>
