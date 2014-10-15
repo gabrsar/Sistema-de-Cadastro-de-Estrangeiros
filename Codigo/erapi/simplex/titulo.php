@@ -1,7 +1,5 @@
 <?php
-
-// Contratte Limpeza e Serviços - Autor: Gabriel Henrique Martinez Saraiva
-// Titulo da página
-
-echo ("Sistema de Controle de Estrangeiro");
+	// Sistema de Controle de Estrangeiro - Autor: Gabriel Henrique Martinez Saraiva
+	// Titulo da página
+	echo ("Sistema de Controle de Estrangeiro");
 ?>
