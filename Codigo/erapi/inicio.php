@@ -4,6 +4,7 @@
  	 * Fornece acesso a todo o sistema.
  	 */
 
+	require("subformularioTabela.php");
 ?>
 <div id="menu_principal" class="painelHorizontal">
 	<ul>
@@ -15,86 +16,14 @@
 </div>
 <div class="listagem">
 	<p class="titulo"> Lista de cadastros pendentes </p>
-	<table>
-		<thead>
-			<tr><td>Data</td><td>Nome</td><td>Curso</td><td>Docente</td><td>País</td></tr>
-		</thead>
-		<tbody>
-			<?php
-
-			$estrangeiros = R::find('estrangeiro','validado = ?',[false]);
-			foreach ($estrangeiros as $e) {
-			
-				$link="index.php?page=manipularEstrangeiro&id=$e->id";
-				$a = <<<EOT
-				<a href="$link">$e->nome</a>
-EOT;
-				echo("<tr>");
-				echo("<td>");
-				echo("<p>...</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$a</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$e->curso</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$e->docente</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$e->pais</p>");
-				echo("</td>");
-			}
-			?>
-		</tbody>
-		<tfoot>
-			<tr><td colspan="5">Foram encontrados 
-				<?php echo (R::count('estrangeiro','validado=0')); ?>
-			registros</td></tr>
-		</tfoot>
-	</table>
+	<?php
+		mostrarTabelaEstrangeiros(false);	
+	?>
 </div>
 
 <div class="listagem">
 	<p class="titulo"> Lista dos últimos cadastros confirmados </p>
-	<table>
-		<thead>
-			<tr><td>Data</td><td>Nome</td><td>Curso</td><td>Docente</td><td>País</td></tr>
-		</thead>
-		<tbody>
-			<?php
-
-			$estrangeiros = R::find('estrangeiro','validado = ?',[true]);
-			foreach ($estrangeiros as $e) {
-			
-				$link="index.php?page=manipularEstrangeiro&id=$e->id";
-				$a = <<<EOT
-				<a href="$link">$e->nome</a>
-EOT;
-				echo("<tr>");
-				echo("<td>");
-				echo("<p>...</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$a</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$e->curso</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$e->docente</p>");
-				echo("</td>");
-				echo("<td>");
-				echo("<p>$e->pais</p>");
-				echo("</td>");
-			}
-			?>
-		</tbody>
-		<tfoot>
-			<tr><td colspan="5">Foram encontrados 
-				<?php echo (R::count('estrangeiro','validado=1')); ?>
-			registros</td></tr>
-		</tfoot>
-	</table>
+	<?php
+		mostrarTabelaEstrangeiros(true);	
+	?>
 </div>
