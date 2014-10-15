@@ -31,7 +31,7 @@ function obterPagina() {
 		"estrangeiros"						=>		"formularioEstrangeiros.php",
 		
 		//Relatórios
-		"formularioRelatoriosEstrangeiro"			=>	"formularioRelatoriosEstrangeiro.php",
+		"formularioRelatoriosEstrangeiro"	=>		"formularioRelatoriosEstrangeiro.php",
 		
 		// Configurações
 		"configuracoesDepartamentos"		=> 		"formularioDepartamento.php",
@@ -51,6 +51,8 @@ function obterPagina() {
 		"manipularUsuario"					=>		"formularioManipularUsuario.php"
 
 		// Estrangeiros
+		"scriptManipularEstrangeiro"		=>		"scriptManipularEstrangeiro.php"
+		"manipularEstrangeiro"				=>		"formularioManipularEstrangeiro.php"
 	);
 
 	$pagina="inicio.php";
