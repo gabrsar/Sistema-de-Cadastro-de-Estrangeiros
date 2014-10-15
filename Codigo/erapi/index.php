@@ -49,7 +49,7 @@ $pagina = obterPagina();
 				?>
 	    	</div>
 			<?php
-				//include ("simplex/rodape.php");
+				include ("simplex/rodape.php");
 			?>
 		</div>
 	</body>
