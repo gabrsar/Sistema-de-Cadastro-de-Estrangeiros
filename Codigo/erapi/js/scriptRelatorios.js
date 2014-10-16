@@ -32,6 +32,10 @@ $(document).ready(function() {
 		{
 			$('input#atuacao7').fadeToggle( "swing", "linear" );
 			$('#form_curso').css({"height": "116px"});
+			if($.browser.mozilla)
+			{
+				$('#fieldset_modalidade').css({"min-width" : "132px"});
+			}
 		}
 	});
 	$('input[type=submit]').click(function(event) {
