@@ -13,10 +13,18 @@ $(document).ready(function() {
 		if((largura > 120) && ($('input#atuacao0').is( ":checked" )))
 		{
 			$('#form_curso').css({"height" : largura + "px"});
+			if($.browser.mozilla)
+			{
+				$('#fieldset_modalidade').css({"min-width" : "243px"});
+			}
 		}
 		else
 		{
 			$('#form_curso').css({"height": "116px"});
+			if($.browser.mozilla)
+			{
+				$('#fieldset_modalidade').css({"min-width" : "132px"});
+			}
 		}
 	});
 	$('input[type=reset]').click(function() {

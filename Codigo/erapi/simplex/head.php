@@ -18,5 +18,6 @@
 <!-- JQUERY -->
 <script src="js/jquery-latest.js"></script>
 <script src="js/scriptRelatorios.js"></script>
+<script src="js/jquery-migrate-1.2.1.js"></script>
 
 <!-- Fim do Head da Página - Metas, CSS, Scripts, Google -->

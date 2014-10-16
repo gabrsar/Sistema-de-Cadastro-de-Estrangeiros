@@ -380,13 +380,15 @@ td.tr_center, .center
 
 #formulario_superior
 {
-	display: inline-flex;
+	display: flex;
 	width: 100%;
+	flex-flow: row nowrap;
+	align-items: stretch;
 }
 
 #formulario_meio
 {
-	display: inline-block;
+	display: flex;
 	width: 100%;
 	margin-top: -20px;
 	margin-bottom: -25px;
@@ -396,6 +398,7 @@ td.tr_center, .center
 {
 	display: inline-flex;
 	width: 100%;
+	margin-top: 10px;
 }
 
 .check-select-multiple 
@@ -424,23 +427,56 @@ td.tr_center, .center
 	max-width: 215px;
 }
 
-#fildset_curso, #fildset_dep
+#fieldset_curso, #fieldset_dep
 {
 	padding-right: 10px !important;
 }
 
-#fildset_dep
+#fieldset_dep
 {
 	max-width: 718px;
 }
 
-#fildset_periodo
+#fieldset_periodo
 {
 	text-align: end;
 	height: 149px;
 }
 
+html[data-useragent*='Firefox/'] #fieldset_modalidade 
+{
+    min-width: 132px;
+}
+
+html[data-useragent*='Firefox/'] #fieldset_periodo
+{
+	min-width: 129px;
+}
+
+#atuacao7
+{
+	max-width: 229px;
+}
+
 #periodo_first_child
 {
 	margin-top: 14px;
+}
+
+html[data-useragent*='Firefox/'] #legend_curso
+{
+	position: relative;
+	left: 41%;
+}
+
+html[data-useragent*='Firefox/'] #legend_departamento
+{
+	position: relative;
+	left: 37%;
+}
+
+html[data-useragent*='Firefox/'] #legend_periodo
+{
+	position: relative;
+	left: 14%;
 }
