@@ -7,11 +7,42 @@
  	 */
 ?>
 <script>
-    var b = document.documentElement;
-      b.setAttribute('data-useragent',  navigator.userAgent);
-      b.setAttribute('data-platform', navigator.platform );
-      b.className += ((!!('ontouchstart' in window) || !!('onmsgesturechange' in window))?' touch':'');
+	var b = document.documentElement;
+	b.setAttribute('data-useragent',  navigator.userAgent);
+	b.setAttribute('data-platform', navigator.platform );
+	b.className += ((!!('ontouchstart' in window) || !!('onmsgesturechange' in window))?' touch':'');
 </script>
+<script>
+	$(function() {
+		$( "#inicio" ).datepicker({
+			dateFormat: 'dd/mm/yy',
+			autoSize: true,	
+			changeMonth: true,
+			changeYear: true,
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+			dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+			dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+			monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+			monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+		});
+		$( "#fim" ).datepicker({
+			dateFormat: 'dd/mm/yy',
+			autoSize: true,	
+			changeMonth: true,
+			changeYear: true,
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+			dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+			dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+			monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+			monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+		});
+	});
+</script>
+
 <div id="titulo">
 	<a href="index.php?page=inicio" class="voltar">&lt&lt</a>
 	<p class="titulo">Relatórios</p>
@@ -61,8 +92,8 @@
 			</fieldset>
 			<fieldset id="fieldset_periodo">
 				<legend id="legend_periodo"><h2>Período </h2></legend>
-				<p id="periodo_first_child">Início: <input type="text" name="ano" id="inicio" size="4" maxlength="4"></p>
-				<p id="periodo_second_child">Fim: <input type="text" name="ano" id="fim" size="4" maxlength="4"></p>
+				<p id="periodo_first_child">Início: <input type="text" name="ano" id="inicio" size="10" maxlength="10"></p>
+				<p id="periodo_second_child">Fim: <input type="text" name="ano" id="fim" size="10" maxlength="10"></p>
 			</fieldset>
 		</div>
 		<div id="formulario_inferior">

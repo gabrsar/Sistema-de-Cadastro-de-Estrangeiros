@@ -441,6 +441,7 @@ td.tr_center, .center
 {
 	text-align: end;
 	height: 149px;
+	min-width: 158px;
 }
 
 html[data-useragent*='Firefox/'] #fieldset_modalidade 

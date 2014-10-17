@@ -15,8 +15,14 @@
 	$sql_final = '';
 	$atuacao_alone = $_POST['atuacao_alone'];
 	$atuacao_outros = $_POST['atuacao_outros'];
-	$ano_inicio = (int) $_POST['inicio'];
-	$ano_fim = (int) $_POST['fim'];
+	$ano_inicio = $_POST['inicio'];
+	$ano_fim =  $_POST['fim'];
+	if($ano_inicio != '')
+		$ano_inicio = preg_replace("/([0-9]{2})\/([0-9]{2})\/([0-9]{4})/", "$3-$2-$1", $ano_inicio);
+	if($ano_fim != '')
+	{
+		$ano_fim = preg_replace("/([0-9]{2})\/([0-9]{2})\/([0-9]{4})/", "$3-$2-$1", $ano_fim);
+	}
 	if($_POST['atuacao'] != '')
 		$sql_atuacao .= '(';
 	$sql_atuacao .= preg_replace("/(atuacao=[0-5])(&)/", "$1 OR ", $_POST['atuacao']);
@@ -65,12 +71,10 @@
 		else
 			$sql_final .= " AND $sql_dep";
 	}
-	
-	if(($ano_inicio != 0) || ($ano_fim != 0))
-	{
+	if(($ano_inicio != '') || ($ano_fim != ''))
 		$sql_ano .= '(';
-	}
-	if(($ano_inicio > 0) && ($ano_fim > 0))
+		
+	if(($ano_inicio != '') && ($ano_fim != ''))
 	{
 		if($ano_inicio == $ano_fim)
 			$sql_ano .= "data_chegada = '$ano_inicio'";
@@ -79,11 +83,11 @@
 	}
 	else
 	{	
-		if($ano_inicio > 0)
+		if($ano_inicio != '')
 			$sql_ano .= "data_chegada >= '$ano_inicio'";
 		else
 		{
-			if($ano_fim > 0)
+			if($ano_fim != '')
 				$sql_ano .= "data_chegada <= '$ano_fim'";
 		}
 	}
