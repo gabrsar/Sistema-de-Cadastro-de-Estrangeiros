@@ -480,3 +480,8 @@ html[data-useragent*='Firefox/'] #legend_periodo
 	position: relative;
 	left: 14%;
 }
+
+html
+{
+	height: 100%;
+}

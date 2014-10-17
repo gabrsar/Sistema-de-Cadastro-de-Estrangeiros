@@ -40,6 +40,7 @@ $(document).ready(function() {
 	});
 	$('input[type=submit]').click(function(event) {
 		event.preventDefault();
+		$('#corpo').css({"height" : "auto"});
 		var atuacao = $('#formulario_relatorios input[name=atuacao]').serialize();
 		var atuacao_alone = $('#atuacao0').prop("checked");
 		var atuacao_outros = $('#atuacao7').prop("value");
