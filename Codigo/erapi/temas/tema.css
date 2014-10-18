@@ -451,7 +451,7 @@ html[data-useragent*='Firefox/'] #fieldset_modalidade
 
 html[data-useragent*='Firefox/'] #fieldset_periodo
 {
-	min-width: 129px;
+	min-width: 190px;
 }
 
 #atuacao7
