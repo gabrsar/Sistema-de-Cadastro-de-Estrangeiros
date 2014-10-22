@@ -1,6 +1,8 @@
 <?php
 
-	/* Autor: Gabriel Henrique Martinez Saraiva
+	/* Autores: Gabriel Henrique Martinez Saraiva
+	 *			Victor Hugo Cândido de Oliveira
+	 *			Carlos Henrique Severino (Caik)
  	 * Arquivo com funções genéricas
  	 */
 
@@ -38,5 +40,22 @@
 			return NULL;
 		}
 	}
-
+				
+	function dtPadrao($data) 
+	{
+		$data = trim($data);
+		if (strlen($data) < 10)
+		{
+			$rs = "";
+		}
+		else
+		{
+			$arr_data = explode(" ",$data);
+			$data_db = $arr_data[0];
+			$arr_data = explode("-",$data_db);
+			$data_form = $arr_data[2]."/".$arr_data[1]."/".$arr_data[0];
+			$rs = $data_form;
+		}
+		return $rs;
+	}
 ?>

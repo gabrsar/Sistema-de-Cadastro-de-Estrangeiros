@@ -4,6 +4,8 @@
  	 * quando selecionado seu nome na página de relatórios
  	 * 
  	 */
+	require("simplex/utils.php");
+
 	$id=-1;
 	if(isset($_GET['id']))
 	{	
@@ -20,23 +22,7 @@
 		4 => "Doutorado",
 		5 => "Pós-Doutorado"
 	);
-	function dtPadrao($data) 
-	{
-		$data = trim($data);
-		if (strlen($data) < 10)
-		{
-			$rs = "";
-		}
-		else
-		{
-			$arr_data = explode(" ",$data);
-			$data_db = $arr_data[0];
-			$arr_data = explode("-",$data_db);
-			$data_form = $arr_data[2]."/".$arr_data[1]."/".$arr_data[0];
-			$rs = $data_form;
-		}
-		return $rs;
-	}
+
 	$value = R::load('estrangeiro', "$id");
 	$foto = $value->foto;
 	$nome = $value->nome;
