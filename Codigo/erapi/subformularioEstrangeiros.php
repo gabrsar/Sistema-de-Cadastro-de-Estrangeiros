@@ -13,16 +13,11 @@
 	 * Se não for, adiciona restrições necessárias relacionadas à validação do cadastro
 	 */
 	function mostrarTabelaEstrangeiros($validado = NULL){
-				echo("
-				<table>
-					<thead>
-						<tr><td>Data</td><td>Nome</td><td>Curso</td><td>Docente</td><td>País</td></tr>
-					</thead>
-					<tbody>");
-
+				$colunaValidado=false;
 				if(!isset($validado)){
 					$validadoSQL = "";
 					$validadoCont = R::count('estrangeiro');
+					$colunaValidado = true;
 				}
 				else if($validado){
 					$validadoSQL = " AND validado=1";
@@ -31,6 +26,36 @@
 				else{
 					$validadoSQL = " AND validado=0";
 					$validadoCont = R::count('estrangeiro','validado=0');
+				}
+
+				if($colunaValidado) {
+					echo("
+						<table>
+							<thead>
+								<tr>
+									<td>Validado</td>
+									<td>Data</td>
+									<td>Nome</td>
+									<td>Curso</td>
+									<td>Docente</td>
+									<td>País</td>
+								</tr>
+							</thead>
+							<tbody>");
+				}
+				else {
+					echo("
+						<table>
+							<thead>
+								<tr>
+									<td>Data</td>
+									<td>Nome</td>
+									<td>Curso</td>
+									<td>Docente</td>
+									<td>País</td>
+								</tr>
+							</thead>
+							<tbody>");
 				}
 
 				$sql="
@@ -42,11 +67,15 @@
 			    $estrangeiros = R::convertToBeans( 'estrangeiro', $rows );
 				
 				foreach($estrangeiros as $e) {
-					$link="index.php?page=manipularEstrangeiro&id=->id";
+					$link="index.php?page=manipularEstrangeiro&id=$e->id";
 					$a=<<<EOT
 					<a href="$link">$e->nome</a>
 EOT;
 					echo("<tr>");
+					if($colunaValidado) {
+						$textoValidado = ($e->validado==1 ? "Validado" : "Não validado");
+						echo("<td><p>$textoValidado</p></td>");
+					}
 					echo("<td>");
 					echo("<p>...</p>");
 					echo("</td>");
@@ -62,13 +91,15 @@ EOT;
 					echo("<td>");
 					echo("<p>$e->pais</p>");
 					echo("</td>");
+					echo("</tr>");
 				}
-				echo("</tbody>
-						<tfoot>
-							<tr><td colspan='5'>Foram encontrados 
-								echo ".$validadoCont."
-							registros</td></tr>
-						</tfoot>
-					</table>");
+				echo("
+					</tbody>
+					<tfoot>
+						<tr><td colspan='6'>Foram encontrados 
+							$validadoCont
+						registros</td></tr>
+					</tfoot>
+				</table>");
 	}
 ?>

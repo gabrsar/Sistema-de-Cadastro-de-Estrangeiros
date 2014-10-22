@@ -24,7 +24,7 @@
 	{
 		$painel = <<<EOT
 			<div class="painel">
-				<p> Opções: </p>
+				<p>Opções:</p>
 				<a href="index.php?page=manipularEstrangeiro">Cadastrar novo estrangeiro</a>
 			</div>
 EOT;

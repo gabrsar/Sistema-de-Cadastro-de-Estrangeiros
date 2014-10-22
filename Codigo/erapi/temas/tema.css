@@ -24,6 +24,15 @@ a:hover{
 	text-decoration: underline;
 }
 
+#wrapper{
+	width:100%;
+	margin:0px auto;
+}
+
+#wrapper label {
+	min-width: 10%;
+}
+
 input[type="text"]:hover,input[type="password"]:hover,select:hover,textarea:hover{
 	border:#49D 1px solid;
 	
@@ -168,7 +177,7 @@ highlight{
 	
 }
 
-input[type="text"], input[type="password"],select
+input[type="text"], input[type="password"],select,textarea
 {
 	margin:5px;
 	font-size:100%;
