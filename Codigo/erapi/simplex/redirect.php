@@ -52,7 +52,10 @@ function obterPagina() {
 
 		// Estrangeiros
 		"scriptManipularEstrangeiro"		=>		"scriptManipularEstrangeiro.php",
-		"manipularEstrangeiro"				=>		"formularioManipularEstrangeiro.php"
+		"manipularEstrangeiro"				=>		"formularioManipularEstrangeiro.php",
+
+		// Upload de imagem
+		"uploadFoto"						=>		"scriptUploadFoto.php"
 	);
 
 	$pagina="inicio.php";

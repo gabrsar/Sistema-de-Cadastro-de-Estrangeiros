@@ -177,7 +177,7 @@ highlight{
 	
 }
 
-input[type="text"], input[type="password"],input[type="email"],select,textarea
+input[type="text"], input[type="password"],input[type="email"],input[type="file"],select,textarea
 {
 	margin:5px;
 	font-size:100%;
