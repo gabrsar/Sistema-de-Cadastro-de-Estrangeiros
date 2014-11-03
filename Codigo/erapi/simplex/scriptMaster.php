@@ -18,7 +18,7 @@
 	/* Faz a validação se o usuário está logado ou não */
 	if (!isset($_SESSION['usuarioLogado']))
 	{
-		$_SESSION['erroDeLogn']="Por favor, faça login para continuar.";
+		$_SESSION['erroDeLogin']="Por favor, faça login para continuar.";
 		header("location:login.php");
 	}
 			
