@@ -4,7 +4,7 @@
  	 * quando selecionado seu nome na página de relatórios
  	 * 
  	 */
-	require("simplex/utils.php");
+	require_once("simplex/utils.php");
 
 	$id=-1;
 	if(isset($_GET['id']))
