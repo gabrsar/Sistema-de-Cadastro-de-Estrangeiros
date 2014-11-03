@@ -16,11 +16,11 @@
 </div>
 
 <?php
-	$usuario = getUsuarioLogado();
-	$admin 	 = $usuario->permissao == Permissao::getIDPermissao("Administrador");
-	$usuario = $usuario->permissao == Permissao::getIDPermissao("Usuário");
+	$usuario 	= getUsuarioLogado();
+	$isAdmin	= $usuario->permissao == Permissao::getIDPermissao("Administrador");
+	$isUsuario 	= $usuario->permissao == Permissao::getIDPermissao("Usuário");
 
-	if($admin || $usuario)
+	if($isAdmin || $isUsuario)
 	{
 		$painel = <<<EOT
 			<div class="painel">
