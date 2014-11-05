@@ -42,14 +42,16 @@
 	if($foto == "") $foto = "imagens/default.png";
 
 	// -------------------------------------------------------------------------
-	// Analisa permissão, monta o action e monta combobox para seleção de atuação/departamento
+	// Analisa permissão, monta o action e monta combobox para seleção de atuação/departamento/curso
 
 	$action="";
 	$action="index.php?page=scriptManipularEstrangeiro&";
 
 	$comboAtuacao = "";
 	$comboDepartamento = "";
+	$comboCurso = "";
 	$departamentos = R::findAll('departamento', 'excluido=0'); //find departamento id=0
+	$cursos = R::findAll('curso', 'excluido=0'); //find curso id=0
 
 	if($id == 0) {
 		$titulo = "Cadastrar novo estrangeiro";
@@ -68,9 +70,14 @@
 			$comboAtuacao .= "<option id=\"opcao_atuacao_$tipo[0]\" value=\"$tipo[0]\">$tipo[1]</option>";
 		}
 		// Monta combobox de departamento para cadastro
-		$comboDepartamento .= "<option value=\"\" selected></option>";
+		$comboDepartamento .= "<option id=\"opcao_departamento\" value=\"\" selected></option>";
 		foreach($departamentos as $departamento) {
-			$comboDepartamento .= "<option value=\"$departamento->id\">$departamento->nome</option>";
+			$comboDepartamento .= "<option id=\"opcao_departamento_$departamento->id\" value=\"$departamento->id\">$departamento->nome</option>";
+		}
+		// Monta combobox de curso para cadastro
+		$comboCurso .= "<option id=\"opcao_curso\" value=\"\" selected></option>";
+		foreach($cursos as $curso) {
+			$comboCurso .= "<option id=\"opcao_curso_$curso->id\" value=\"$curso->id\">$curso->nome</option>";
 		}
 	}
 	else {
@@ -90,7 +97,12 @@
 		// Monta combobox de departamento para edição/exclusão/visualização
 		foreach($departamentos as $departamento) {
 			$selected = $estrangeiro->departamento != $departamento->id ? "" : "selected";
-			$comboDepartamento .= "<option value=\"$departamento->id\" $selected>$departamento->nome</option>";
+			$comboDepartamento .= "<option id=\"opcao_departamento_$departamento->id\" value=\"$departamento->id\" $selected>$departamento->nome</option>";
+		}
+		// Monta combobox de curso para edição/exclusão/visualização
+		foreach($cursos as $curso) {
+			$selected = $estrangeiro->curso != $curso->id ? "" : "selected";
+			$comboCurso .= "<option id=\"opcao_curso_$curso->id\" value=\"$curso->id\" $selected>$curso->nome</option>";
 		}
 	}
 ?>
@@ -172,6 +184,14 @@ $(function() {
 			</select>
 		</p>
 	<!--TODO OPERAÇÃO AO SELECIONAR "OUTROS"////OLHAR RELATORIO DO CAIK -->
+		<p>
+			<label for="curso">Curso</label>
+			<select name="curso">
+				<?php
+					echo($comboCurso);
+				?>
+			</select>
+		</p>
 		<p>
 			<label for="pais">País de origem*</label>
 			<input type="text" name="pais" value="<?php echo($estrangeiro->pais);?>" size="64" required>
