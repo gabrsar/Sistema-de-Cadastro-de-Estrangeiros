@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `erapi`.`estrangeiro` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(256) NOT NULL,
   `email` VARCHAR(64) NOT NULL,
-  `passaport` VARCHAR(16) NOT NULL,
+  `passaporte` VARCHAR(16) NOT NULL,
   `rne` VARCHAR(64) NULL COMMENT 'Descobrir o que é o RNE e como armazenar',
   `atuacao` INT NOT NULL,
   `atuacao_outros` VARCHAR(256) NULL,

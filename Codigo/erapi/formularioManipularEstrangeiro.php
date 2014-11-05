@@ -172,7 +172,7 @@ $(function() {
 		</p>
 		<p><!--VERIFICAR TYPO PASSAPORT-->
 			<label for="passaporte">Passaporte*</label>
-			<input type="text" name="passaporte" value="<?php echo ($estrangeiro->passaport); ?>" size="64" required>
+			<input type="text" name="passaporte" value="<?php echo ($estrangeiro->passaporte); ?>" size="64" required>
 		</p>
 		<p>
 			<label for="rne">RNE</label>
