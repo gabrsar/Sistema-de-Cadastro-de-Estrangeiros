@@ -12,6 +12,8 @@
 	 * Se for passado, lista todos os estrangeiros
 	 * Se não for, adiciona restrições necessárias relacionadas à validação do cadastro
 	 */
+	require_once("simplex/utils.php");
+
 	function mostrarTabelaEstrangeiros($validado = NULL){
 				$colunaValidado=false;
 				if(!isset($validado)){
@@ -34,7 +36,7 @@
 							<thead>
 								<tr>
 									<td>Validado</td>
-									<td>Data</td>
+									<td>Data de cadastro</td>
 									<td>Nome</td>
 									<td>Curso</td>
 									<td>Docente</td>
@@ -48,7 +50,7 @@
 						<table>
 							<thead>
 								<tr>
-									<td>Data</td>
+									<td>Data de cadastro</td>
 									<td>Nome</td>
 									<td>Curso</td>
 									<td>Docente</td>
@@ -67,27 +69,30 @@
 			    $estrangeiros = R::convertToBeans( 'estrangeiro', $rows );
 				
 				foreach($estrangeiros as $e) {
-					$link="index.php?page=manipularEstrangeiro&id=$e->id";
-					$a=<<<EOT
-					<a href="$link">$e->nome</a>
-EOT;
+					$link = "index.php?page=manipularEstrangeiro&id=$e->id";
+					$a = "<a href=\"$link\">$e->nome</a>";
+
 					echo("<tr>");
 					if($colunaValidado) {
 						$textoValidado = ($e->validado==1 ? "Validado" : "Não validado");
 						echo("<td><p>$textoValidado</p></td>");
 					}
 					echo("<td>");
-					echo("<p>...</p>");
+					echo("<p>".dtPadrao($e->data_cadastro)."</p>");
 					echo("</td>");
+
 					echo("<td>");
 					echo("<p>$a</p>");
 					echo("</td>");
+					
 					echo("<td>");
 					echo("<p>$e->nome_curso</p>");
 					echo("</td>");
+					
 					echo("<td>");
 					echo("<p>$e->docente</p>");
 					echo("</td>");
+					
 					echo("<td>");
 					echo("<p>$e->pais</p>");
 					echo("</td>");
