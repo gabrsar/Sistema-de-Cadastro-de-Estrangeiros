@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `erapi`.`departamento` (
   `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `nome_UNIQUE` (`nome` ASC))
-ENGINE = InnoDB;
+ENGINE = MyISAM;
 
 
 -- -----------------------------------------------------
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `erapi`.`curso` (
   `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `nome_UNIQUE` (`nome` ASC))
-ENGINE = InnoDB;
+ENGINE = MyISAM;
 
 
 -- -----------------------------------------------------
