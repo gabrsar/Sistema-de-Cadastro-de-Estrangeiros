@@ -17,6 +17,7 @@
 
 	require_once("curso.php");
 	require_once("permissao.php");
+	require_once("simplex/utils.php");
 
 	// -------------------------------------------------------------------------
 	// Monta variável para verificação de permissão
@@ -230,12 +231,12 @@ $(function() {
 
 		<p>
 			<label>Data de chegada*</label>
-			<input ondrop="return false;" type="text" name="ano" id="inicio" size="10" maxlength="10" value="<?php echo($estrangeiro->data_chegada); ?>" required readonly>
+			<input ondrop="return false;" type="text" name="ano" id="inicio" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_chegada)); ?>" required readonly>
 		</p>
 
 		<p>
 			<label>Data de saída*</label>
-			<input ondrop="return false;" type="text" name="ano" id="fim" size="10" maxlength="10" value="<?php echo($estrangeiro->data_saida); ?>" required readonly>
+			<input ondrop="return false;" type="text" name="ano" id="fim" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_saida)); ?>" required readonly>
 		</p>
 
 		<div class="barraBotoes">
@@ -264,8 +265,8 @@ $(function() {
 	var frmvalidator  = new Validator("register-form");
 	frmvalidator.EnableOnPageErrorDisplay();
 	frmvalidator.EnableMsgsTogether();
-	frmvalidator.addValidation("email","email","Digite um email válido");
 
+	frmvalidator.addValidation("email","email","Digite um email válido");
 	frmvalidator.addValidation("email_docente","email","Digite um email válido");
 </script>
 <script type="text/javascript" src="js/scriptValidaImagem.js"></script>
