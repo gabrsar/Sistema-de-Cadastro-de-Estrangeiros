@@ -39,7 +39,9 @@
 
 	$estrangeiro = R::load('estrangeiro', $id);
 	$foto = $estrangeiro->foto;
-	if($foto == "") $foto = "imagens/default.png";
+	if(!file_exists($foto)) {
+		$foto = "imagens/default.png";
+	}
 
 	// -------------------------------------------------------------------------
 	// Analisa permissão, monta o action e monta combobox para seleção de atuação/departamento/curso
