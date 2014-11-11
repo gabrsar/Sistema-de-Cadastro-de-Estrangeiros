@@ -4,7 +4,7 @@
  	 * Fornece acesso a todo o sistema.
  	 */
 
-	require("subformularioEstrangeiros.php");
+	require_once("subformularioEstrangeiros.php");
 ?>
 <div id="menu_principal" class="painelHorizontal">
 	<ul>
@@ -17,6 +17,7 @@
 <div class="listagem">
 	<p class="titulo"> Lista de cadastros pendentes </p>
 	<?php
+		// Estrangeiros não validados
 		mostrarTabelaEstrangeiros(false);	
 	?>
 </div>
@@ -24,6 +25,7 @@
 <div class="listagem">
 	<p class="titulo"> Lista dos últimos cadastros confirmados </p>
 	<?php
+		// Estrangeiros validados
 		mostrarTabelaEstrangeiros(true);	
 	?>
 </div>
