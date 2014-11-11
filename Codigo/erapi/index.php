@@ -21,6 +21,10 @@ require_once ("./simplex/redirect.php");
 // Nome do arquivo a ser exibido pela index.
 $pagina = obterPagina();
 
+// Verifica se a página requisitada é a página pública
+if($pagina != "formularioManipularEstrangeiro_publico.php") {
+	validaSession();
+}
 
 ?>
 <html lang="pt_BR">
@@ -32,7 +36,7 @@ $pagina = obterPagina();
 		
 	</head>
 	<body>
-   	<div id="pagina">
+   		<div id="pagina">
 			<?php
 				include ("simplex/topo.php");
 			?>

@@ -19,16 +19,14 @@
 		<script src="js/jquery-latest.js"></script>
 	</head>
 	<body>
-   		<div id="pagina">
+		<div id="pagina">
 			<?php
 				include ("simplex/topo.php");
 			?>
 			<div id="corpo">
 				<div id="login">
 					<form action="scriptLogin.php" method="post">
-
 						<?php
-
 							session_start();
 							
 							if(isset($_SESSION['erroDeLogin']))
@@ -42,6 +40,10 @@
 						<p><label>Senha</label><input type="password" name="senha"></p>
 						<div class="botoesLogin">
 							<button>Entrar</button>
+							<button onclick='window.location="index.php?page=publico"; return false;'>Ir para a página pública</button>
+						</div>
+						<div>
+							<a href="index.php?page=publico">Ir para a página pública</a>
 						</div>
 					</form>
 				</div>

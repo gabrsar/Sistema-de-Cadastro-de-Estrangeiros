@@ -15,11 +15,13 @@
 	
 	session_start();
 
-	/* Faz a validação se o usuário está logado ou não */
-	if (!isset($_SESSION['usuarioLogado']))
-	{
-		$_SESSION['erroDeLogin']="Por favor, faça login para continuar.";
-		header("location:login.php");
+	function validaSession() {
+		/* Faz a validação se o usuário está logado ou não */
+		if (!isset($_SESSION['usuarioLogado']))
+		{
+			$_SESSION['erroDeLogin']="Por favor, faça login para continuar.";
+			header("location:login.php");
+		}
 	}
 			
 
