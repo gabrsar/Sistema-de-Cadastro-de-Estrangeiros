@@ -170,7 +170,7 @@ $(function() {
 			<input type="email" name="email" value="<?php echo ($estrangeiro->email); ?>" size="64" required>
 			<span id='register-form_email_errorloc' class='erro_validacao'></span>
 		</p>
-		<p><!--VERIFICAR TYPO PASSAPORT-->
+		<p>
 			<label for="passaporte">Passaporte*</label>
 			<input type="text" name="passaporte" value="<?php echo ($estrangeiro->passaporte); ?>" size="64" required>
 		</p>
