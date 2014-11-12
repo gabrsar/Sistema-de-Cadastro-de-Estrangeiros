@@ -201,7 +201,6 @@ table{
 	border-collapse: collapse;
 	width:100%;
 	border:1px solid #AAA;
-
 	padding:0;
 }
 
@@ -218,10 +217,9 @@ thead,tfoot{
 	font-weight: 900;
 	color:#FFF;
 	text-shadow: #666 0 1px 1px;
-	
 }
 
-td{
+td,th{
 	padding:5px 15px;
 }
 
@@ -494,4 +492,26 @@ html[data-useragent*='Firefox/'] #legend_periodo
 html
 {
 	height: 100%;
+}
+
+/* Table Sorter */
+table.tablesorter {
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	width: 100%;
+	text-align: left;
+}
+
+table.tablesorter thead tr .header {
+	background-image: url(table_sorter/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(table_sorter/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(table_sorter/desc.gif);
 }

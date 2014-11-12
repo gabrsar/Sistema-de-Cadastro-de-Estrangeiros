@@ -32,9 +32,9 @@ EOT;
 
 <div class="listagem">
 	<p class="titulo"> Lista dos usuários cadastrados </p>
-	<table>
+	<table class="tablesorter tabela">
 		<thead>
-			<tr><td>Nome</td><td>Nível</td></tr>
+			<tr><th>Nome</th><th>Nível</th></tr>
 		</thead>
 		<tbody>           
 			<?php
