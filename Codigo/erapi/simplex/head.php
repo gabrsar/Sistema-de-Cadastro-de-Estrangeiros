@@ -22,8 +22,14 @@
 <script src="js/jquery-latest.js"></script>
 <script src="js/scriptRelatorios.js"></script>
 <script src="js/jquery-migrate-1.2.1.js"></script>
+<script src="js/jquery.tablesorter.js"></script>
 <script src="js/scriptRodape.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/gen_validatorv4.js"></script>
+<script> 
+	$(document).ready(function() { 
+		$(".tabela").tablesorter();
+	} ); 
+</script>
 
 <!-- Fim do Head da Página - Metas, CSS, Scripts, Google -->

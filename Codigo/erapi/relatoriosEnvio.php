@@ -102,9 +102,9 @@
 			$sql_final .= " AND $sql_ano";
 	}
 ?>
-<table>
+<table class="tablesorter tabela">
 	<thead>
-		<tr><td>Nome</td><td>País de origem</td><td>Modalidade</td><td>Curso</td><td>Status</td><td colspan="3">Período</td></tr>
+		<tr><th>Nome</th><th>País de origem</th><th>Modalidade</th><th>Curso</th><th>Status</th><th colspan="3">Período</th></tr>
 	</thead>
 	<tbody class="tbody_alternada">
 		<?php

@@ -32,29 +32,29 @@
 
 				if($colunaValidado) {
 					echo("
-						<table>
+						<table class=\"tablesorter tabela\">
 							<thead>
 								<tr>
-									<td>Validado</td>
-									<td>Data de cadastro</td>
-									<td>Nome</td>
-									<td>Curso</td>
-									<td>Docente</td>
-									<td>País</td>
+									<th>Validado</th>
+									<th>Data de cadastro</th>
+									<th>Nome</th>
+									<th>Curso</th>
+									<th>Docente</th>
+									<th>País</th>
 								</tr>
 							</thead>
 							<tbody class=\"tbody_alternada\">");
 				}
 				else {
 					echo("
-						<table>
+						<table class=\"tablesorter tabela\">
 							<thead>
 								<tr>
-									<td>Data de cadastro</td>
-									<td>Nome</td>
-									<td>Curso</td>
-									<td>Docente</td>
-									<td>País</td>
+									<th>Data de cadastro</th>
+									<th>Nome</th>
+									<th>Curso</th>
+									<th>Docente</th>
+									<th>País</th>
 								</tr>
 							</thead>
 							<tbody class=\"tbody_alternada\">");

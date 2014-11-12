@@ -50,7 +50,9 @@ $(document).ready(function() {
 		var fim = $('#fim').prop("value");
 		$.post('relatoriosEnvio.php', {atuacao:atuacao, atuacao_alone:atuacao_alone, atuacao_outros:atuacao_outros, curso:curso, dep:dep, inicio:inicio, fim:fim}, function callback(data){
 			$("#container_relatorios").html(data);
+			$(".tabela").tablesorter();
 		});
 		$('html, body').animate({scrollTop: $("#container_relatorios").offset().top}, 1500);
+		
 	});
 });
