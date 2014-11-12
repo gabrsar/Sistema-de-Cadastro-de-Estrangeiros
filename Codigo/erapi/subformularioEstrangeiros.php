@@ -43,7 +43,7 @@
 									<td>País</td>
 								</tr>
 							</thead>
-							<tbody>");
+							<tbody class=\"tbody_alternada\">");
 				}
 				else {
 					echo("
@@ -57,7 +57,7 @@
 									<td>País</td>
 								</tr>
 							</thead>
-							<tbody>");
+							<tbody class=\"tbody_alternada\">");
 				}
 
 				$sql="

@@ -11,7 +11,7 @@
 	font-family: 'Oxygen', sans-serif;
 }
 
-p,label{
+p,label,input[type="file"]{
 	color:#666;
 	font-weight:900;
 }
@@ -33,11 +33,11 @@ a:hover{
 	min-width: 10%;
 }
 
-input[type="text"]:hover,input[type="password"]:hover,select:hover,textarea:hover{
+input[type="text"]:hover,input[type="password"]:hover,input[type="file"]:hover,input[type="email"]:hover,select:hover,textarea:hover{
 	border:#49D 1px solid;
 	
 }
-input[type="text"]:active,input[type="password"]:active,select:active,textarea:active{
+input[type="text"]:active,input[type="password"]:active,input[type="file"]:active,input[type="email"]:active,select:active,textarea:active{
 	background-color: #4C9ED9;
 	border:#88F 1px solid;
 	color:#FFF;
@@ -225,21 +225,18 @@ td{
 	padding:5px 15px;
 }
 
-tbody tr:nth-child(odd){
+.tbody_alternada tr:nth-child(odd){
 	background-color: #FFF;
 }
-tbody tr:nth-child(even){
+.tbody_alternada tr:nth-child(even){
 	background-color: #DDD;
 }
 
-tbody tr:hover *{
+.tbody_alternada tr:hover *{
 	background-color: #4C9ED9;
 	color:#FFF;
-	text-shadow: none;
-	
-	
+	text-shadow: none;	
 }
-
 
 .barraBotoes{
 	margin: 20px 0px 0px 0px;
@@ -265,8 +262,7 @@ button,button a, input[type=submit], input[type=reset]{
 
 button:hover,button:hover a, input[type=submit]:hover, input[type=reset]:hover{
 	text-decoration: none;
-	background-color:#05D;	
-	
+	background-color:#05D;
 }
 
 
@@ -494,4 +490,8 @@ html[data-useragent*='Firefox/'] #legend_periodo
 html
 {
 	height: 100%;
+}
+
+#body_publico {
+	background-color: #FFF;
 }

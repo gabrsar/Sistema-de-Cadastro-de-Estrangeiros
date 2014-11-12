@@ -35,7 +35,7 @@ EOT;
 		<thead>
 			<tr><td>Nome</td><td>Nível</td></tr>
 		</thead>
-		<tbody>           
+		<tbody class="tbody_alternada">           
 			<?php
 
 			require("curso.php");

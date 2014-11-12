@@ -64,7 +64,7 @@
 
 <div id="container_formulario_estrangeiro">
 	<table>
-		<tbody>
+		<tbody class="tbody_alternada">
 			<tr><td rowspan="5" class="coluna_1" id="foto_form_estrangeiro"><img ondragstart="return false" src="<?php echo $foto;?>" alt="" title=""/></td><td><b>Nome: </b></td><td><?php echo $nome;?></td></tr>
 			<tr><td class="coluna_1"><b>E-mail: </b></td><td><?php echo $email;?></td></tr>
 			<tr><td class="coluna_1"><b>País: </b></td><td><?php echo $pais;?></td></tr>

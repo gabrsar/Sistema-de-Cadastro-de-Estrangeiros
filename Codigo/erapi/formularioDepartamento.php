@@ -36,7 +36,7 @@ EOT;
 		<thead>
 			<tr><td>Nome</td></tr>
 		</thead>
-		<tbody>
+		<tbody class="tbody_alternada">
 			<?php
 
 			$departamentos = R::find('departamento','excluido=0');

@@ -106,7 +106,7 @@
 	<thead>
 		<tr><td>Nome</td><td>País de origem</td><td>Modalidade</td><td>Curso</td><td>Status</td><td colspan="3">Período</td></tr>
 	</thead>
-	<tbody>
+	<tbody class="tbody_alternada">
 		<?php
 		$tipos = array(
 			1 => "Graduação",
