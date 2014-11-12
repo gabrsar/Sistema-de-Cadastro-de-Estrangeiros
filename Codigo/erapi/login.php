@@ -40,10 +40,10 @@
 						<p><label>Senha</label><input type="password" name="senha"></p>
 						<div class="botoesLogin">
 							<button>Entrar</button>
-							<button onclick='window.location="index.php?page=publico"; return false;'>Ir para a página pública</button>
+							
 						</div>
 						<div>
-							<a href="index.php?page=publico">Ir para a página pública</a>
+							
 						</div>
 					</form>
 				</div>
