@@ -53,7 +53,6 @@ function obterPagina() {
 		// Estrangeiros
 		"scriptManipularEstrangeiro"		=>		"scriptManipularEstrangeiro.php",
 		"manipularEstrangeiro"				=>		"formularioManipularEstrangeiro.php",
-		"publico"							=>		"formularioManipularEstrangeiro_publico.php"
 	);
 
 	$pagina="inicio.php";
