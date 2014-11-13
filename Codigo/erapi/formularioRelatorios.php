@@ -92,8 +92,8 @@
 			</fieldset>
 			<fieldset id="fieldset_periodo">
 				<legend id="legend_periodo"><h2>Período </h2></legend>
-				<p id="periodo_first_child">Início: <input type="text" name="ano" id="inicio" size="10" maxlength="10"></p>
-				<p id="periodo_second_child">Fim: <input type="text" name="ano" id="fim" size="10" maxlength="10"></p>
+				<p id="periodo_first_child">Início: <input ondrop="return false;" required="" readonly="" type="text" name="ano" id="inicio" size="10" maxlength="10"></p>
+				<p id="periodo_second_child">Fim: <input ondrop="return false;" required="" readonly="" type="text" name="ano" id="fim" size="10" maxlength="10"></p>
 			</fieldset>
 		</div>
 		<div id="formulario_inferior">
