@@ -11,7 +11,7 @@
 	font-family: 'Oxygen', sans-serif;
 }
 
-p,label,input[type="file"]{
+p,label,input[type="file"],input[type="checkbox"]{
 	color:#666;
 	font-weight:900;
 }
@@ -37,7 +37,7 @@ input[type="text"]:hover,input[type="password"]:hover,input[type="file"]:hover,i
 	border:#49D 1px solid;
 	
 }
-input[type="text"]:active,input[type="password"]:active,input[type="file"]:active,input[type="email"]:active,select:active,textarea:active{
+input[type="text"]:active,input[type="password"]:active,input[type="email"]:active,select:active,textarea:active{
 	background-color: #4C9ED9;
 	border:#88F 1px solid;
 	color:#FFF;
@@ -234,6 +234,10 @@ td,th{
 	background-color: #4C9ED9;
 	color:#FFF;
 	text-shadow: none;	
+}
+
+.tbody_estrangeiro td:nth-child(odd){
+	text-align: right;
 }
 
 .barraBotoes{

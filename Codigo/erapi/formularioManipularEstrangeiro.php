@@ -153,112 +153,178 @@ $(function() {
 
 <div id="wrapper">
 	<form action="<?php echo($action);?>" method="post" id="register-form" enctype="multipart/form-data">
-		<p>
-			<img src="<?php echo($foto);?>"  height="192" width="192">
-		</p>
-		<p>
-			<label for="foto">Alterar foto</label>
-			<input id="foto" name="foto" type="file">
-			<span id='register-form_foto_errorloc' class='erro_validacao'></span>
-		</p>
-		<p>
-			<label for="nome">Nome completo*</label>
-			<input type="text" name="nome" value="<?php echo ($estrangeiro->nome); ?>" size="64" required>
-		</p>
-		<p>
-			<label for="email">E-mail*</label>
-			<input type="email" name="email" value="<?php echo ($estrangeiro->email); ?>" size="64" required>
-			<span id='register-form_email_errorloc' class='erro_validacao'></span>
-		</p>
-		<p>
-			<label for="passaporte">Passaporte*</label>
-			<input type="text" name="passaporte" value="<?php echo ($estrangeiro->passaporte); ?>" size="64" required>
-		</p>
-		<p>
-			<label for="rne">RNE</label>
-			<input type="text" name="rne" value="<?php echo ($estrangeiro->rne); ?>" size="64">
-		</p>
-		<p>
-			<label for="curso">Atuação*</label>
-			<select name="curso" required>
-				<?php
-					echo($comboAtuacao);
-				?>
-			</select>
-		</p>
-	<!--TODO OPERAÇÃO AO SELECIONAR "OUTROS"////OLHAR RELATORIO DO CAIK -->
-		<p>
-			<label for="curso">Curso</label>
-			<select name="curso">
-				<?php
-					echo($comboCurso);
-				?>
-			</select>
-		</p>
-		<p>
-			<label for="pais">País de origem*</label>
-			<input type="text" name="pais" value="<?php echo($estrangeiro->pais);?>" size="64" required>
-		</p>
+		<table>
+			<tbody class="tbody_estrangeiro">
+				<tr>
+					<td>
+						<img src="<?php echo($foto);?>"  height="192" width="192">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="foto">Alterar foto</label>
+					</td>
+					<td>
+						<input id="foto" name="foto" type="file">
+						<span id='register-form_foto_errorloc' class='erro_validacao'></span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="nome">Nome completo*</label>
+					</td>
+					<td>
+						<input type="text" name="nome" value="<?php echo ($estrangeiro->nome); ?>" size="64" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="email">E-mail*</label>
+					</td>
+					<td>
+						<input type="email" name="email" value="<?php echo ($estrangeiro->email); ?>" size="64" required>
+						<span id='register-form_email_errorloc' class='erro_validacao'></span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="passaporte">Passaporte*</label>
+					</td>
+					<td>
+						<input type="text" name="passaporte" value="<?php echo ($estrangeiro->passaporte); ?>" size="64" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="rne">RNE</label>
+					</td>
+					<td>
+						<input type="text" name="rne" value="<?php echo ($estrangeiro->rne); ?>" size="64">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="curso">Atuação*</label>
+					</td>
+					<td>
+						<select name="curso" required>
+							<?php
+								echo($comboAtuacao);
+							?>
+						</select>
+					</td>
+				</tr>
+			<!--TODO OPERAÇÃO AO SELECIONAR "OUTROS"////OLHAR RELATORIO DO CAIK -->
+				<tr>
+					<td>
+						<label for="curso">Curso</label>
+					</td>
+					<td>
+						<select name="curso">
+							<?php
+								echo($comboCurso);
+							?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pais">País de origem*</label>
+					</td>
+					<td>
+						<input type="text" name="pais" value="<?php echo($estrangeiro->pais);?>" size="64" required>
+					</td>
+				</tr>
 
-		<p>
-			<label for="instituicao">Instituição de origem*</label>
-			<input type="text" name="instituicao" value="<?php echo($estrangeiro->instituicao);?>" size="64" required>
-		</p>
+				<tr>
+					<td>
+						<label for="instituicao">Instituição de origem*</label>
+					</td>
+					<td>
+						<input type="text" name="instituicao" value="<?php echo($estrangeiro->instituicao);?>" size="64" required>
+					</td>
+				</tr>
 
-		<p>
-			<label for="docente">Docente responsável no IBILCE*</label>
-			<input type="text" name="docente" value="<?php echo($estrangeiro->docente);?>" size="64" required>
-		</p>
+				<tr>
+					<td>
+						<label for="docente">Docente responsável no IBILCE*</label>
+					</td>
+					<td>
+						<input type="text" name="docente" value="<?php echo($estrangeiro->docente);?>" size="64" required>
+					</td>
+				</tr>
 
-		<p>
-			<label for="email_docente">E-mail do docente responsável no IBILCE*</label>
-			<input type="email" name="email_docente" value="<?php echo($estrangeiro->email_docente);?>" size="64" required>
-			<span id='register-form_docente_errorloc' class='erro_validacao'></span>
-		</p>
+				<tr>
+					<td>
+						<label for="email_docente">E-mail do docente responsável no IBILCE*</label>
+					</td>
+					<td>
+						<input type="email" name="email_docente" value="<?php echo($estrangeiro->email_docente);?>" size="64" required>
+						<span id='register-form_docente_errorloc' class='erro_validacao'></span>
+					</td>
+				</tr>
 
-		<p>
-			<label for="departamento">Departamento do docente*</label>
-			<select name="departamento" required>
-				<?php
-					echo($comboDepartamento);
-				?>
-			</select>
-		</p>
-		<p>
-			<label for="atividade">Atividade a ser desenvolvida*</label>
-			<textarea name="atividade"  rows="7" cols="60" required><?php echo($estrangeiro->atividade);?></textarea>
-		</p>
+				<tr>
+					<td>
+						<label for="departamento">Departamento do docente*</label>
+					</td>
+					<td>
+						<select name="departamento" required>
+							<?php
+								echo($comboDepartamento);
+							?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="atividade">Atividade a ser desenvolvida*</label>
+					</td>
+					<td>
+						<textarea name="atividade"  rows="7" cols="60" required><?php echo($estrangeiro->atividade);?></textarea>
+					</td>
+				</tr>
 
-		<p>
-			<label>Data de chegada*</label>
-			<input ondrop="return false;" type="text" name="ano" id="inicio" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_chegada)); ?>" required readonly>
-		</p>
+				<tr>
+					<td>
+						<label>Data de chegada*</label>
+					</td>
+					<td>
+						<input ondrop="return false;" type="text" name="ano" id="inicio" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_chegada)); ?>" required readonly>
+					</td>
+				</tr>
 
-		<p>
-			<label>Data de saída*</label>
-			<input ondrop="return false;" type="text" name="ano" id="fim" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_saida)); ?>" required readonly>
-		</p>
+				<tr>
+					<td>
+						<label>Data de saída*</label>
+					</td>
+					<td>
+						<input ondrop="return false;" type="text" name="ano" id="fim" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_saida)); ?>" required readonly>
+					</td>
+				</tr>
 
-		<div class="barraBotoes">
-			<?php
-			$checkboxValidado = "";
-			$botaoSalvar = "<button id=\"btn_salvar\">Salvar</button>";
-			$botaoExcluir = "";
+				<div class="barraBotoes">
+					<?php
+					$checkboxValidado = "";
+					$botoes="";
+					$botaoSalvar = "<td><button id=\"btn_salvar\">Salvar</button></td>";
+					$botaoExcluir = "";
 
-			if($isUsuario || $isAdmin){
-				$validado = $estrangeiro->validado==1 ? "checked" : "";
-				$checkboxValidado = "<p><input type=\"checkbox\" id=\"validado\ name=\"validado\" $validado>Validado</input></p>";
+					if($isUsuario || $isAdmin){
+						$validado = $estrangeiro->validado==1 ? "checked" : "";
+						$checkboxValidado = "<tr><td><label for=\"validado\">Validado</label></td><td><input type=\"checkbox\" id=\"validado\ name=\"validado\" $validado></input></td></tr>";
 
-				if($id > 0 ) {
-					$botaoExcluir = "<button id=\"btn_excluir\" onclick='window.location=\"index.php?page=scriptManipularEstrangeiro&modo=excluir&id=$id\"; return false;'>Excluir</button>";
-				}
-			}
+						if($id > 0 ) {
+							$botaoExcluir = "<td><button id=\"btn_excluir\" onclick='window.location=\"index.php?page=scriptManipularEstrangeiro&modo=excluir&id=$id\"; return false;'>Excluir</button></td>";
+						}
+					}
 
-			echo $checkboxValidado;
-			echo $botaoSalvar;
-			echo $botaoExcluir;
-			?>
-		</div>
+					echo $checkboxValidado;
+					echo("<tr>".$botaoSalvar.$botaoExcluir."</tr>");
+					?>
+				</div>
+			</tbody>
+		</table>
 	</form>
 </div>
 <script type='text/javascript'>
