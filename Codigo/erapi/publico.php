@@ -233,7 +233,7 @@
 								<label>Data de chegada*</label>
 							</td>
 							<td>
-								<input ondrop="return false;" type="text" name="ano" id="inicio" size="10" maxlength="10" required readonly>
+								<input ondrop="return false;" type="text" name="data_chegada" id="inicio" size="10" maxlength="10" required readonly>
 							</td>
 						</tr>
 
@@ -242,7 +242,7 @@
 								<label>Data de saída*</label>
 							</td>
 							<td>
-								<input ondrop="return false;" type="text" name="ano" id="fim" size="10" maxlength="10" required readonly>
+								<input ondrop="return false;" type="text" name="data_saida" id="fim" size="10" maxlength="10" required readonly>
 							</td>
 						</tr>
 						<tr>
