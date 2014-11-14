@@ -18,16 +18,13 @@
 				$colunaValidado=false;
 				if(!isset($validado)){
 					$validadoSQL = "";
-					$validadoCont = R::count('estrangeiro');
 					$colunaValidado = true;
 				}
 				else if($validado){
 					$validadoSQL = " AND validado=1";
-					$validadoCont = R::count('estrangeiro','validado=1');
 				}
 				else{
 					$validadoSQL = " AND validado=0";
-					$validadoCont = R::count('estrangeiro','validado=0');
 				}
 
 				if($colunaValidado) {
@@ -62,11 +59,12 @@
 
 				$sql="
 					SELECT e.*, c.nome as nome_curso FROM estrangeiro e
-			        INNER JOIN curso c
-			        ON e.curso=c.id AND c.excluido=0".$validadoSQL."
-			        ORDER BY e.id"; // FIXME Ordenar por data de cadastro
-			    $rows = R::getAll( $sql );
-			    $estrangeiros = R::convertToBeans( 'estrangeiro', $rows );
+					INNER JOIN curso c
+					ON e.curso=c.id AND e.excluido=0 AND c.excluido=0".$validadoSQL."
+					ORDER BY e.id";
+				$rows = R::getAll( $sql );
+				$validadoCont = count($rows);
+				$estrangeiros = R::convertToBeans( 'estrangeiro', $rows );
 				
 				foreach($estrangeiros as $e) {
 					$link = "index.php?page=manipularEstrangeiro&id=$e->id";
