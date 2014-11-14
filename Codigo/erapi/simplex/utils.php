@@ -58,4 +58,17 @@
 		}
 		return $rs;
 	}
+
+	function dtBanco($data) {
+		$data = trim($data);
+		if(strlen($data) < 10) {
+			$rs = "";
+		}
+		else {
+			$arr_data = explode('/', $data);
+			$data_banco = $arr_data[2].'-'.$arr_data[1].'-'.$arr_data[0];
+			$rs = $data_banco;
+		}
+		return $rs;
+	}
 ?>

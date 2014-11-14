@@ -519,3 +519,12 @@ table.tablesorter thead tr .headerSortUp {
 table.tablesorter thead tr .headerSortDown {
 	background-image: url(table_sorter/desc.gif);
 }
+
+.img_estrangeiro {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	box-shadow: 1px 2px 4px rgba(0,0,0,.5);
+	padding: 5px;
+	background: white;
+}

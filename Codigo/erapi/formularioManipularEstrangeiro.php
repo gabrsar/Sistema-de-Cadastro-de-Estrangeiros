@@ -157,12 +157,7 @@ $(function() {
 			<tbody class="tbody_estrangeiro">
 				<tr>
 					<td>
-						<img src="<?php echo($foto);?>"  height="192" width="192">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="foto">Alterar foto</label>
+						<img class='img_estrangeiro' src="<?php echo($foto);?>">
 					</td>
 					<td>
 						<input id="foto" name="foto" type="file">
@@ -204,10 +199,10 @@ $(function() {
 				</tr>
 				<tr>
 					<td>
-						<label for="curso">Atuação*</label>
+						<label for="atuacao">Atuação*</label>
 					</td>
 					<td>
-						<select name="curso" required>
+						<select name="atuacao" required>
 							<?php
 								echo($comboAtuacao);
 							?>
@@ -290,7 +285,7 @@ $(function() {
 						<label>Data de chegada*</label>
 					</td>
 					<td>
-						<input ondrop="return false;" type="text" name="ano" id="inicio" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_chegada)); ?>" required readonly>
+						<input ondrop="return false;" type="text" name="data_chegada" id="inicio" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_chegada)); ?>" required readonly>
 					</td>
 				</tr>
 
@@ -299,7 +294,7 @@ $(function() {
 						<label>Data de saída*</label>
 					</td>
 					<td>
-						<input ondrop="return false;" type="text" name="ano" id="fim" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_saida)); ?>" required readonly>
+						<input ondrop="return false;" type="text" name="data_saida" id="fim" size="10" maxlength="10" value="<?php echo(dtPadrao($estrangeiro->data_saida)); ?>" required readonly>
 					</td>
 				</tr>
 
@@ -312,7 +307,7 @@ $(function() {
 
 					if($isUsuario || $isAdmin){
 						$validado = $estrangeiro->validado==1 ? "checked" : "";
-						$checkboxValidado = "<tr><td><label for=\"validado\">Validado</label></td><td><input type=\"checkbox\" id=\"validado\ name=\"validado\" $validado></input></td></tr>";
+						$checkboxValidado = "<tr><td><label for=\"validado\">Validado</label></td><td><input type='checkbox' id='validado' name='validado' $validado></input></td></tr>";
 
 						if($id > 0 ) {
 							$botaoExcluir = "<td><button id=\"btn_excluir\" onclick='window.location=\"index.php?page=scriptManipularEstrangeiro&modo=excluir&id=$id\"; return false;'>Excluir</button></td>";

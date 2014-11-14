@@ -105,7 +105,7 @@
 					<tbody class="tbody_estrangeiro">
 						<tr>
 							<td>
-								<img src="imagens/default.png"  height="192" width="192">
+								<img class='img_estrangeiro' src="imagens/default.png">
 							</td>
 							<td>
 								<input id="foto" name="foto" type="file">
