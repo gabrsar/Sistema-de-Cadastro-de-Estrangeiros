@@ -29,9 +29,8 @@ CREATE TABLE IF NOT EXISTS `erapi`.`departamento` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(256) NOT NULL,
   `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC))
-ENGINE = MyISAM;
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -42,9 +41,8 @@ CREATE TABLE IF NOT EXISTS `erapi`.`curso` (
   `nome` VARCHAR(256) NOT NULL,
   `tipo` INT NOT NULL,
   `excluido` TINYINT(1) NOT NULL DEFAULT FALSE,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC))
-ENGINE = MyISAM;
+  PRIMARY KEY (`id`))
+ENGINE = InnoDb;
 
 
 -- -----------------------------------------------------
@@ -74,19 +72,19 @@ CREATE TABLE IF NOT EXISTS `erapi`.`estrangeiro` (
   `data_validacao` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_estrangeiro_usuario_idx` (`usuario_validador` ASC),
-  INDEX `fk_estrangeiro_departamento1_idx` (`departamento` ASC),
-  INDEX `fk_estrangeiro_curso1_idx` (`curso` ASC),
+  INDEX `fk_estrangeiro_departamento_idx` (`departamento` ASC),
+  INDEX `fk_estrangeiro_curso_idx` (`curso` ASC),
   CONSTRAINT `fk_estrangeiro_usuario`
     FOREIGN KEY (`usuario_validador`)
     REFERENCES `erapi`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_estrangeiro_departamento1`
+  CONSTRAINT `fk_estrangeiro_departamento`
     FOREIGN KEY (`departamento`)
     REFERENCES `erapi`.`departamento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_estrangeiro_curso1`
+  CONSTRAINT `fk_estrangeiro_curso`
     FOREIGN KEY (`curso`)
     REFERENCES `erapi`.`curso` (`id`)
     ON DELETE NO ACTION
