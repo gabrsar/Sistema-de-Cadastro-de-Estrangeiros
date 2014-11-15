@@ -18,6 +18,7 @@
 
 require("permissao.php");
 
+
 // Detecta o modo de execução
 switch (sanitizeString($_GET['modo'])) {
 
@@ -34,6 +35,13 @@ switch (sanitizeString($_GET['modo'])) {
 function montarUsuarioPOST()
 {
 
+
+	if(!$_POST)
+	{
+		erro("Conteúdo não definido!","index.php");
+	}
+
+	
 	$usuario = R::dispense("usuario");
 
 	$paginaRetorno="index.php?page=configuracoesUsuarios";
@@ -42,13 +50,15 @@ function montarUsuarioPOST()
 	if(!$usuario->nome || strlen(trim($usuario->nome)) < 1)
 	{
 		erro("Nenhum nome foi definido para o usuário!",$paginaRetorno);
+
 	}
 
 
 	$usuario->login = sanitizeString($_POST['login']);
 	if(!$usuario->login || strlen(trim($usuario->login)) < 1)
 	{
-		erro("Nenhum login foi definido para o usuário!",$paginaRetorno);;	
+		erro("Nenhum login foi definido para o usuário!",$paginaRetorno);
+
 	}
 
 
@@ -56,6 +66,7 @@ function montarUsuarioPOST()
 	if(!$usuario->email || strlen(trim($usuario->email)) < 1)
 	{
 		erro("Nenhum email foi definido para o usuário!",$paginaRetorno);
+
 	}
 
 	$TAMANHO_MINIMO_SENHA = 6;
@@ -65,7 +76,8 @@ function montarUsuarioPOST()
 	
 	if(strlen($senha) < $TAMANHO_MINIMO_SENHA)
 	{
-		erro("Senha muito fraca. Utilize uma senha com pelo menos 6 caracteres",$paginaRetorno);
+		erro("Senha muito fraca. Utilize uma senha com pelo menos $TAMANHO_MINIMO_SENHA caracteres",$paginaRetorno);
+
 	}
 
 	if($senha != $usuario->senha_hash)
@@ -77,6 +89,7 @@ function montarUsuarioPOST()
 	if(!Permissao::getNomePermissao($usuario->permissao))
 	{
 		erro("Erro ao definir permissão do usuário!",$paginaRetorno);
+
 	}
 	
 	// TODO: ALTERAR ESSA FLAG. RECEBER DE UM ELEMENTO HIDDEN NO FORM.
@@ -84,6 +97,8 @@ function montarUsuarioPOST()
 	$usuario->excluido=False;
 
 	return $usuario;
+
+	
 }
 
 
@@ -102,18 +117,25 @@ function cadastrarUsuario()
 
 function editarUsuario()
 {
+
+	echo "AAAAAAAAAAAAAAAA";
+
+	
+
 	$paginaRetorno="index.php?page=configuracoesUsuarios";
 
 	$id = sanitizeInt($_GET['id']);
 	
-	if(!$id || $id < 0)
+	if(!$id || $id < 1)
 	{
 		erro("Parâmetros incorretos!",$paginaRetorno);
+		return False;
 	}
 
 	if(!Permissao::usuarioPodeAcessarID($id))
 	{
 		erro("Você não tem permissão acessar esses dados!",$paginaRetorno);
+		return False;
 	}
 
 	$usuarioArmazenado = R::load('usuario',$id);
@@ -131,11 +153,7 @@ function editarUsuario()
 	}
 
 	$usuarioArmazenado->senha_hash = $usuarioMontado->senha_hash;
-
 	
-	
-	
-
 	R::store($usuarioArmazenado);
 
 	sucesso("O usuário $usuarioArmazenado->nome foi atualizado com sucesso!",$paginaRetorno);	
@@ -149,6 +167,7 @@ function excluirUsuario()
 	if(!$id || $id < 0)
 	{	
 		erro("Parâmetros incorretos!",$paginaRetorno);
+		return False;
 	}
 
 	$usuario = R::load("usuario",$id);

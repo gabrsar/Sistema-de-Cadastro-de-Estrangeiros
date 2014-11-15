@@ -22,10 +22,17 @@ require_once ("./simplex/redirect.php");
 $pagina = obterPagina();
 
 // Verifica se a página requisitada é a página pública
-if($pagina != "formularioManipularEstrangeiro_publico.php") {
+
+// XGH BEGINS HERE
+
+$euPosso=array("erro.php","sucesso.php","formularioManipularEstrangeiro_publico.php");
+
+if(!in_array($pagina, $euPosso))
+{
 	validaSession();
 }
 
+// XGH ENDS HERE!
 ?>
 <html lang="pt_BR">
 	<head>

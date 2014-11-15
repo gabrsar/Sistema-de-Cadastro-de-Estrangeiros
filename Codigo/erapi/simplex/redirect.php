@@ -15,8 +15,6 @@
 function obterPagina() {
 
 	$LINKS = array(
-		"login"								=>		"login.php",
-		"scriptLogin"						=>		"scriptLogin.php",
 		"scriptSair"						=>		"scriptSair.php",
 		
 		"inicio" 							=> 		"inicio.php",

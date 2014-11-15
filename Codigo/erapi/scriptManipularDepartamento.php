@@ -24,6 +24,7 @@ if($usuario->permissao != Permissao::getIDPermissao("Administrador"))
 {
 	erro("Você não tem permissão para executar essa ação!",
 		"index.php?page=configuracoesDepartamentos");
+
 }
 else
 {
@@ -43,6 +44,12 @@ else
  /* Função que preenche um objeto R::departamento apartir de um $_POST */
 function montarDepartamentoPOST($departamento)
 {
+	if(!$_POST)
+	{
+		erro("Conteúdo não definido!","index.php");
+
+	}
+
 	$departamento->nome=sanitizeString($_POST['nome']);
 	$departamento->excluido=0;
 
@@ -50,6 +57,7 @@ function montarDepartamentoPOST($departamento)
 	if(!$departamento->nome && trim($departamento->nome) < 1)
 	{
 		erro("Nenhum nome foi fornecido para o departamento!", $paginaRetorno);
+
 	}
 
 	return $departamento;
@@ -74,6 +82,7 @@ function editarDepartamento()
 	if(!$id)
 	{
 		erro("Parâmetros incorretos!",$paginaRetorno);
+
 	}
 	
 	$departamento = R::load('departamento',$id);
@@ -94,6 +103,7 @@ function excluirDepartamento()
 	if(!$id || ((int) $id) < 0)
 	{	
 		erro("Parâmetros incorretos!",$paginaRetorno);
+
 	}
 
 	$curso = R::load("departamento",$id);

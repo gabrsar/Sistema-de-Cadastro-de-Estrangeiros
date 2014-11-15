@@ -20,21 +20,36 @@ require("curso.php");
 
 // Detecta o modo de execução
 
-
-switch (sanitizeString($_GET['modo'])) {
-
-	// Modos aceitos =====
-	case 'cadastrar': 	cadastrarCurso();			break;
-	case 'editar': 		editarCurso();				break;
-	case 'excluir': 	excluirCurso();				break;
-	// ====================
-	default:			erro("Erro de endereço!", $paginaRetorno);	break;
+if($usuario->permissao != Permissao::getIDPermissao("Administrador"))
+{
+	erro("Você não tem permissão para executar essa ação!",
+		"index.php?page=configuracoesDepartamentos");
+	
 }
+else
+{
+	switch (sanitizeString($_GET['modo'])) {
 
+		// Modos aceitos =====
+		case 'cadastrar': 	cadastrarCurso();			break;
+		case 'editar': 		editarCurso();				break;
+		case 'excluir': 	excluirCurso();				break;
+		// ====================
+		default:			erro("Erro de endereço!", $paginaRetorno);	break;
+	}
+}
 
 /* Função que preenche um objeto R::curso apartir de um $_POST */
 function montarCursoPOST($curso)
 {
+
+	if(!$_POST)
+	{
+		erro("Conteúdo não definido!","index.php");
+	
+	}
+
+
 	$curso->nome=sanitizeString($_POST['nome']);
 	$curso->tipo=sanitizeInt($_POST['tipo']);
 	$curso->excluido=0;
@@ -44,11 +59,13 @@ function montarCursoPOST($curso)
 	if(!$curso->nome && trim($curso->nome) < 1)
 	{
 		erro("Nenhum nome foi fornecido para o curso!", $paginaRetorno);
+		
 	}
 
 	if(!$curso->tipo)
 	{
 		erro("Tipo de curso não está definido!", $paginaRetorno);
+		
 	}
 
 	return $curso;
@@ -75,6 +92,7 @@ function editarCurso()
 	if(!$id)
 	{
 		erro("Parâmetros incorretos!",$paginaRetorno);
+		
 	}
 	$curso = R::load('curso',$id);
 	$cursoMontado = montarCursoPOST($curso);
@@ -94,6 +112,7 @@ function excluirCurso()
 	if(!$id || ((int) $id) < 0)
 	{	
 		erro("Parâmetros incorretos!",$paginaRetorno);
+	
 	}
 
 	$curso = R::load("curso",$id);

@@ -13,6 +13,8 @@
 		$_SESSION['erroGoto']=$encaminhar;
 
 		header("location:index.php?page=erro");
+		exit();
+		
 	}
 
 	function sucesso($mensagem,$encaminhar)
@@ -22,6 +24,8 @@
 		$_SESSION['sucessoGoto']=$encaminhar;
 		
 		header("location:index.php?page=sucesso");
+		exit();
+		
 	}
 
 	function getUsuarioLogado()
