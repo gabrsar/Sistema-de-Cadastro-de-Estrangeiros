@@ -60,7 +60,7 @@
 				$sql="
 					SELECT e.*, c.nome as nome_curso FROM estrangeiro e
 					INNER JOIN curso c
-					ON e.curso=c.id AND e.excluido=0 AND c.excluido=0".$validadoSQL."
+					ON e.curso=c.id AND c.excluido=0".$validadoSQL."
 					ORDER BY e.id";
 				$rows = R::getAll( $sql );
 				$validadoCont = count($rows);
