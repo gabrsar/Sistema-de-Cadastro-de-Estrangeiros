@@ -8,10 +8,10 @@
 	 * 
 	 */
 
-	require("rb/db.php");
-	require("simplex/utils.php");
-	require("simplex/sanitize.php");
-	require("curso.php");
+	require_once("rb/db.php");
+	require_once("simplex/utils.php");
+	require_once("simplex/sanitize.php");
+	require_once("curso.php");
 
 	// Configura e inicia o RedBean
 	rbSetup();
@@ -47,6 +47,8 @@
 <html lang="pt_BR">
 
 	<head>
+		<title>Sistema de Controle de Estrangeiros</title>
+
 		<!-- Meta tags -->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -63,7 +65,7 @@
 		<script src="js/gen_validatorv4.js"></script>
 	</head>
 
-	<body id="body_publico">
+	<body>
 		<script>
 		$(function() {
 			$( "#inicio" ).datepicker({
@@ -95,166 +97,172 @@
 		});
 		</script>
 
-		<div id="titulo">
-			<p class="titulo">Cadastrar novo estrangeiro</p>
+		<div id="topo">
+			<a href="publico.php"><h1>Sistema de Controle de Estrangeiros</h1></a>
 		</div>
 
-		<div id="wrapper">
-			<form action="index.php?page=scriptManipularEstrangeiro&modo=cadastrar" method="post" id="register-form" enctype="multipart/form-data">
-				<table>
-					<tbody class="tbody_estrangeiro">
-						<tr>
-							<td>
-								<img class='img_estrangeiro' src="imagens/default.png">
-							</td>
-							<td>
-								<input id="foto" name="foto" type="file">
-								<span id='register-form_foto_errorloc' class='erro_validacao'></span>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="nome">Nome completo*</label>
-							</td>
-							<td>
-								<input type="text" name="nome" size="64" required>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="email">E-mail*</label>
-							</td>
-							<td>
-								<input type="email" name="email" size="64" required>
-								<span id='register-form_email_errorloc' class='erro_validacao'></span>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="passaporte">Passaporte*</label>
-							</td>
-							<td>
-								<input type="text" name="passaporte" size="64" required>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="rne">RNE</label>
-							</td>
-							<td>
-								<input type="text" name="rne" size="64">
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="curso">Atuação*</label>
-							</td>
-							<td>
-								<select name="curso" required>
-									<?php
-										echo($comboAtuacao);
-									?>
-								</select>
-							</td>
-						</tr>
-					<!--TODO OPERAÇÃO AO SELECIONAR "OUTROS"////OLHAR RELATORIO DO CAIK -->
-						<tr>
-							<td>
-								<label for="curso">Curso</label>
-							</td>
-							<td>
-								<select name="curso">
-									<?php
-										echo($comboCurso);
-									?>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="pais">País de origem*</label>
-							</td>
-							<td>
-								<input type="text" name="pais" size="64" required>
-							</td>
-						</tr>
+		<div id="corpo">
+			<div id="titulo">
+				<p class="titulo">Cadastrar novo estrangeiro</p>
+			</div>
 
-						<tr>
-							<td>
-								<label for="instituicao">Instituição de origem*</label>
-							</td>
-							<td>
-								<input type="text" name="instituicao" size="64" required>
-							</td>
-						</tr>
+			<div id="wrapper">
+				<form action="index.php?page=scriptManipularEstrangeiro&modo=cadastrar" method="post" id="register-form" enctype="multipart/form-data">
+					<table>
+						<tbody class="tbody_estrangeiro">
+							<tr>
+								<td>
+									<img class='img_estrangeiro' src="imagens/default.png">
+								</td>
+								<td>
+									<input id="foto" name="foto" type="file">
+									<span id='register-form_foto_errorloc' class='erro_validacao'></span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="nome">Nome completo*</label>
+								</td>
+								<td>
+									<input type="text" name="nome" size="64" required>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="email">E-mail*</label>
+								</td>
+								<td>
+									<input type="email" name="email" size="64" required>
+									<span id='register-form_email_errorloc' class='erro_validacao'></span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="passaporte">Passaporte*</label>
+								</td>
+								<td>
+									<input type="text" name="passaporte" size="64" required>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="rne">RNE</label>
+								</td>
+								<td>
+									<input type="text" name="rne" size="64">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="curso">Atuação*</label>
+								</td>
+								<td>
+									<select name="curso" required>
+										<?php
+											echo($comboAtuacao);
+										?>
+									</select>
+								</td>
+							</tr>
+						<!--TODO OPERAÇÃO AO SELECIONAR "OUTROS"////OLHAR RELATORIO DO CAIK -->
+							<tr>
+								<td>
+									<label for="curso">Curso</label>
+								</td>
+								<td>
+									<select name="curso">
+										<?php
+											echo($comboCurso);
+										?>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="pais">País de origem*</label>
+								</td>
+								<td>
+									<input type="text" name="pais" size="64" required>
+								</td>
+							</tr>
 
-						<tr>
-							<td>
-								<label for="docente">Docente responsável no IBILCE*</label>
-							</td>
-							<td>
-								<input type="text" name="docente" size="64" required>
-							</td>
-						</tr>
+							<tr>
+								<td>
+									<label for="instituicao">Instituição de origem*</label>
+								</td>
+								<td>
+									<input type="text" name="instituicao" size="64" required>
+								</td>
+							</tr>
 
-						<tr>
-							<td>
-								<label for="email_docente">E-mail do docente responsável no IBILCE*</label>
-							</td>
-							<td>
-								<input type="email" name="email_docente" size="64" required>
-								<span id='register-form_docente_errorloc' class='erro_validacao'></span>
-							</td>
-						</tr>
+							<tr>
+								<td>
+									<label for="docente">Docente responsável no IBILCE*</label>
+								</td>
+								<td>
+									<input type="text" name="docente" size="64" required>
+								</td>
+							</tr>
 
-						<tr>
-							<td>
-								<label for="departamento">Departamento do docente*</label>
-							</td>
-							<td>
-								<select name="departamento" required>
-									<?php
-										echo($comboDepartamento);
-									?>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="atividade">Atividade a ser desenvolvida*</label>
-							</td>
-							<td>
-								<textarea name="atividade"  rows="7" cols="60" required></textarea>
-							</td>
-						</tr>
+							<tr>
+								<td>
+									<label for="email_docente">E-mail do docente responsável no IBILCE*</label>
+								</td>
+								<td>
+									<input type="email" name="email_docente" size="64" required>
+									<span id='register-form_docente_errorloc' class='erro_validacao'></span>
+								</td>
+							</tr>
 
-						<tr>
-							<td>
-								<label>Data de chegada*</label>
-							</td>
-							<td>
-								<input ondrop="return false;" type="text" name="data_chegada" id="inicio" size="10" maxlength="10" required readonly>
-							</td>
-						</tr>
+							<tr>
+								<td>
+									<label for="departamento">Departamento do docente*</label>
+								</td>
+								<td>
+									<select name="departamento" required>
+										<?php
+											echo($comboDepartamento);
+										?>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="atividade">Atividade a ser desenvolvida*</label>
+								</td>
+								<td>
+									<textarea name="atividade"  rows="7" cols="60" required></textarea>
+								</td>
+							</tr>
 
-						<tr>
-							<td>
-								<label>Data de saída*</label>
-							</td>
-							<td>
-								<input ondrop="return false;" type="text" name="data_saida" id="fim" size="10" maxlength="10" required readonly>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="barraBotoes">
-									<button id="btn_salvar">Enviar cadastro</button>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</form>
+							<tr>
+								<td>
+									<label>Data de chegada*</label>
+								</td>
+								<td>
+									<input ondrop="return false;" type="text" name="data_chegada" id="inicio" size="10" maxlength="10" required readonly>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label>Data de saída*</label>
+								</td>
+								<td>
+									<input ondrop="return false;" type="text" name="data_saida" id="fim" size="10" maxlength="10" required readonly>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="barraBotoes">
+										<button id="btn_salvar">Enviar cadastro</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
 		</div>
 		<script type='text/javascript'>
 			var frmvalidator  = new Validator("register-form");
@@ -265,5 +273,9 @@
 			frmvalidator.addValidation("email_docente","email","Digite um email válido");
 		</script>
 		<script type="text/javascript" src="js/scriptValidaImagem.js"></script>
+
+		<div id="rodape">
+			<p> Sistema de Controle de Estrangeiros - ERAPI - STAEPE </p>
+		</div>
 	</body>
 </html>
