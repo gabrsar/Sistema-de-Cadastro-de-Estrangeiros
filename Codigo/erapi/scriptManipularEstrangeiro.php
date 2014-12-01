@@ -1,4 +1,4 @@
-<?php // TODO VERIFICAR ENDEREÇAMENTO, CONSIGO ACESSAR A PÁGINA SEM PARAMETROS
+<?php
 	/* Autor: Victor Hugo Cândido de Oliveira
 	 * Script para manipular os estrangeiros.
 	 * Esse script faz:
@@ -22,15 +22,13 @@
 
 	// -------------------------------------------------------------------------
 	// Monta variável para verificação de permissão
-	header('Content-Type: text/html; charset=utf-8');
 
-	$usuario	= getUsuarioLogado();
-	$isAdmin	= $usuario->permissao == Permissao::getIDPermissao("Administrador");
-	$isUsuario	= $usuario->permissao == Permissao::getIDPermissao("Usuário");
+	/*$usuario = getUsuarioLogado();
+	$isAboveUsuario	= $usuario->permissao <= Permissao::getIDPermissao("Usuário");
 
 	if(validaOperacao()) {
 		$modo = sanitizeString($_GET['modo']);
-		if($isAdmin || $isUsuario) {
+		if($isAboveUsuario) {
 			switch ($modo) {
 				case 'cadastrar':
 					cadastrarEstrangeiro();
@@ -62,25 +60,56 @@
 	else {
 		erro("Erro de endereço!", "index.php?page=estrangeiros");
 	}
-
-	function validaOperacao() {
-		$valido = false;
+*/
+	//function validaOperacao() {
+		//if(isset($_GET['modo'])) {
+	$usuario = getUsuarioLogado();
+	if($usuario != null) {
 
 		if(isset($_GET['modo'])) {
+
 			$modo = sanitizeString($_GET['modo']);
 			switch($modo) {
 				case 'cadastrar':
-					$valido = true;
+					cadastrarEstrangeiro();
 					break;
 
 				case 'excluir': case 'editar':
-					$valido = isset($_GET['id']) && sanitizeInt($_GET['id']) > 0;
+					if(isset($_GET['id']) && sanitizeInt($_GET['id']) > 0) {
+
+						$isAboveUsuario	= $usuario->permissao <= Permissao::getIDPermissao("Usuário");
+						if($isAboveUsuario) {
+							//$modo == 'editar' ? editarEstrangeiro() : excluirEstrangeiro();
+						}
+						else {
+							//erro("Você não tem permissão para executar essa ação!",
+							//	"index.php?page=estrangeiros");
+						}
+					}
 					break;
+
+				default:
+					//erro("Erro de endereço!", "index.php?page=estrangeiros");
 			}
 		}
 		
-		return $valido;
 	}
+	else {
+		cadastrarEstrangeiroPublico();
+	}
+			
+		//}
+	//}
+
+
+/*start of debugging
+ob_start();
+var_dump(implode('<br>', explode(',',$usuario))); //quero ver o que tem no usuario quando acessado da página publica
+$result = ob_get_clean();
+echo '<script type="text/javascript">alert("' . $result . '");</script>';
+var_dump(implode('<br>', explode(',',$usuario)));
+//end of debugging
+*/
 
 	// Função que preenche um objeto R::estrangeiro apartir de um $_POST 
 	function montarEstrangeiroPOST($estrangeiro)
@@ -103,7 +132,6 @@
 		$estrangeiro->atividade = $_POST['atividade'];
 		$estrangeiro->data_chegada = dtBanco(sanitizeString($_POST['data_chegada']));
 		$estrangeiro->data_saida = dtBanco(sanitizeString($_POST['data_saida']));
-		$estrangeiro->excluido=0;
 
 		if(isset($_POST['validado']) && $_POST['validado']=='on') {
 			if($estrangeiro->validado != 1) {
@@ -118,7 +146,20 @@
 		return $estrangeiro;
 	}
 
+	function cadastrarEstrangeiroPublico() {
+		$paginaRetorno='http://www.ibilce.unesp.br/#!/administracao/staepe/erapi/'; //DIRECIONAR PARA TABELA PUBLICA
 
+		if($_POST != null ){
+			$estrangeiro = montarEstrangeiroPOST(R::dispense('estrangeiro'));
+
+			R::store($estrangeiro);
+
+			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso!<br>Aguarde contato.", $paginaRetorno);
+		}
+		else {
+			erro("Sem dados para cadastro", $paginaRetorno);
+		}
+	}
 
 	function cadastrarEstrangeiro()
 	{
@@ -132,7 +173,7 @@
 			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso!", $paginaRetorno);
 		}
 		else {
-			erro("Endereço inválido!", $paginaRetorno);
+			erro("Sem dados para cadastro", $paginaRetorno);
 		}
 	}
 
@@ -150,16 +191,9 @@
 			R::store($estrangeiroMontado);
 
 			sucesso("O estrangeiro $estrangeiroMontado->nome foi atualizado com sucesso!",$paginaRetorno);
-
-			/*
-			TODO RETIRAR ESSE COMENTARIO
-			foreach ($estrangeiroMontado as $e) {
-				echo($e."<br>");
-			}
-			var_dump(implode('<br>', explode(',',$estrangeiroMontado)));*/
 		}
 		else {
-			erro("Endereço inválido!", $paginaRetorno);
+			erro("Sem dados para a edição", $paginaRetorno);
 		}
 	}
 
@@ -169,9 +203,8 @@
 		$id=sanitizeInt((int)$_GET['id']);
 
 		$estrangeiro = R::load("estrangeiro",$id);
-		$estrangeiro->excluido=true;
 
-		R::store($estrangeiro);
+		R::trash($estrangeiro);
 
 		sucesso("Estrangeiro excluido com sucesso!", $paginaRetorno);
 	}
