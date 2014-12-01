@@ -50,7 +50,7 @@ function obterPagina() {
 
 		// Estrangeiros
 		"scriptManipularEstrangeiro"		=>		"scriptManipularEstrangeiro.php",
-		"manipularEstrangeiro"				=>		"formularioManipularEstrangeiro.php",
+		"manipularEstrangeiro"				=>		"formularioManipularEstrangeiro.php"
 	);
 
 	$pagina="inicio.php";
