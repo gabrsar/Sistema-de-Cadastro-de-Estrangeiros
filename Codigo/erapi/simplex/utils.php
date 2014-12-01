@@ -40,7 +40,6 @@
 		}
 		else
 		{
-			erro("SEM USUÁRIO LOGADO","index.php");
 			return NULL;
 		}
 	}
