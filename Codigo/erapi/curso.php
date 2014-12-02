@@ -9,12 +9,12 @@
 class TipoDeCurso{
 	
 	static $tipos = array(
-		array(0,"Outros"),
-		array(1,"Graduação"),
-		array(2,"Mestrado"),
-		array(3,"Especialização"),
-		array(4,"Doutorado"),
-		array(5,"Pós-Doutorado")		
+		array(0,"Graduação"),
+		array(1,"Mestrado"),
+		array(2,"Especialização"),
+		array(3,"Doutorado"),
+		array(4,"Pós-Doutorado"),
+		array(5,"Outros")
 	);
 
 	static public function getListaTipoCursos()
