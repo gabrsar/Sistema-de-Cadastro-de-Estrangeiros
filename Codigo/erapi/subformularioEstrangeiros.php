@@ -15,6 +15,10 @@
 	require_once("simplex/utils.php");
 
 	function mostrarTabelaEstrangeiros($validado = NULL){
+
+				// Flag para verificar se requisição foi feita de uma página sem usuário logado (pública)
+				$publica = getUsuarioLogado() == NULL;
+
 				$colunaValidado=false;
 				if(!isset($validado)){
 					$validadoSQL = "";
@@ -68,7 +72,7 @@
 				
 				foreach($estrangeiros as $e) {
 					$link = "index.php?page=manipularEstrangeiro&id=$e->id";
-					$a = "<a href=\"$link\">$e->nome</a>";
+					$a = "<a href=\"" . ($publica ? "" : "$link") . "\">$e->nome</a>";
 
 					echo("<tr>");
 					if($colunaValidado) {
