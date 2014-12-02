@@ -115,6 +115,7 @@ var_dump(implode('<br>', explode(',',$usuario)));
 			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso!<br>Aguarde contato.", $paginaRetorno);
 		}
 		else {
+			// TODO VERIFICAR PQ NÃO REDIRECIONA PARA O LUGAR CERTO
 			session_start();
 			erro("Sem dados para cadastro", $paginaRetorno);
 		}
