@@ -22,85 +22,43 @@
 
 	// -------------------------------------------------------------------------
 	// Monta variável para verificação de permissão
-
-	/*$usuario = getUsuarioLogado();
-	$isAboveUsuario	= $usuario->permissao <= Permissao::getIDPermissao("Usuário");
-
-	if(validaOperacao()) {
-		$modo = sanitizeString($_GET['modo']);
-		if($isAboveUsuario) {
-			switch ($modo) {
-				case 'cadastrar':
-					cadastrarEstrangeiro();
-					break;
-
-				case 'editar':
-					editarEstrangeiro();
-					break;
-
-				case 'excluir':
-					excluirEstrangeiro();
-					break;
-
-				default:
-					erro("Você não tem permissão para executar essa ação!",
-					"index.php?page=estrangeiros");
-			}
-		}
-		else {
-			if($modo == 'cadastrar') {
-				cadastrarEstrangeiro();
-			}
-			else {
-				erro("Você não tem permissão para executar essa ação!",
-					"index.php?page=estrangeiros");
-			}
-		}
-	}
-	else {
-		erro("Erro de endereço!", "index.php?page=estrangeiros");
-	}
-*/
-	//function validaOperacao() {
-		//if(isset($_GET['modo'])) {
 	$usuario = getUsuarioLogado();
+
+	// Monta variável com o modo da operação
+	$modo = isset($_GET['modo']) ? sanitizeString($_GET['modo']) : null;
+
+	// Verifica se possui id
+	$idOk = isset($_GET['id']) && sanitizeInt($_GET['id']) > 0;
+
 	if($usuario != null) {
+		$isAboveUsuario	= ($usuario->permissao <= Permissao::getIDPermissao("Usuário"));
+		if($isAboveUsuario) {
 
-		if(isset($_GET['modo'])) {
-
-			$modo = sanitizeString($_GET['modo']);
 			switch($modo) {
 				case 'cadastrar':
 					cadastrarEstrangeiro();
 					break;
 
-				case 'excluir': case 'editar':
-					if(isset($_GET['id']) && sanitizeInt($_GET['id']) > 0) {
+				case 'editar':
+					$idOk ? editarEstrangeiro() : erro("Erro ao encontrar estrangeiro!", "index.php?page=estrangeiros");
+					break;
 
-						$isAboveUsuario	= $usuario->permissao <= Permissao::getIDPermissao("Usuário");
-						if($isAboveUsuario) {
-							//$modo == 'editar' ? editarEstrangeiro() : excluirEstrangeiro();
-						}
-						else {
-							//erro("Você não tem permissão para executar essa ação!",
-							//	"index.php?page=estrangeiros");
-						}
-					}
+				case 'excluir':
+					$idOk ? excluirEstrangeiro() : erro("Erro ao encontrar estrangeiro", "index.php?page=estrangeiros");
 					break;
 
 				default:
-					//erro("Erro de endereço!", "index.php?page=estrangeiros");
+					erro("Erro de endereço!", "index.php?page=estrangeiros");
 			}
+		} // if($isAboveUsuario)
+		else {
+			erro("Você não tem permissão para executar essa ação!",
+					"index.php?page=estrangeiros");
 		}
-		
-	}
+	} // if($usuario != null)
 	else {
 		cadastrarEstrangeiroPublico();
 	}
-			
-		//}
-	//}
-
 
 /*start of debugging
 ob_start();
@@ -157,6 +115,7 @@ var_dump(implode('<br>', explode(',',$usuario)));
 			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso!<br>Aguarde contato.", $paginaRetorno);
 		}
 		else {
+			session_start();
 			erro("Sem dados para cadastro", $paginaRetorno);
 		}
 	}
