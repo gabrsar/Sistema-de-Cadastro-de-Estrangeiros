@@ -98,7 +98,7 @@
 		</script>
 
 		<div id="topo">
-			<a href="publico.php"><h1>Sistema de Controle de Estrangeiros</h1></a>
+			<a href=""><h1>Sistema de Controle de Estrangeiros</h1></a>
 		</div>
 
 		<div id="corpo">
