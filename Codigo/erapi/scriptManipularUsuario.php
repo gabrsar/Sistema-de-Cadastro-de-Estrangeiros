@@ -38,58 +38,50 @@ function montarUsuarioPOST()
 	{
 		erro("Conteúdo não definido!","index.php");
 	}
-	
+
+	// Cria novo objeto usuário e preenche com valores do post	
 	$usuario = R::dispense("usuario");
 
-	$paginaRetorno="index.php?page=configuracoesUsuarios";
+	// endereço de retorno em caso de erro
+	$paginaRetorno="index.php?page=configuracoesUsuarios";  
+
 
 	$usuario->nome = sanitizeString($_POST['nome']);
 	if(!$usuario->nome || strlen(trim($usuario->nome)) < 1)
 	{
 		erro("Nenhum nome foi definido para o usuário!",$paginaRetorno);
-
 	}
-
 
 	$usuario->login = sanitizeString($_POST['login']);
 	if(!$usuario->login || strlen(trim($usuario->login)) < 1)
 	{
 		erro("Nenhum login foi definido para o usuário!",$paginaRetorno);
-
 	}
-
 
 	$usuario->email = sanitizeString($_POST['email']);
 	if(!$usuario->email || strlen(trim($usuario->email)) < 1)
 	{
 		erro("Nenhum email foi definido para o usuário!",$paginaRetorno);
-
 	}
 
 	$TAMANHO_MINIMO_SENHA = 6;
 
 	$senha = $_POST['senha'];
-	$senha_hash = md5($senha);
 	
 	if(strlen($senha) < $TAMANHO_MINIMO_SENHA)
 	{
 		erro("Senha muito fraca. Utilize uma senha com pelo menos $TAMANHO_MINIMO_SENHA caracteres",$paginaRetorno);
 	}
 
-	if($senha != $usuario->senha_hash)
-	{
-		$usuario->senha_hash = $senha_hash;
-	}
+	$usuario->senha_hash = $senha;
 
 	$usuario->permissao = sanitizeInt($_POST['permissao']);
-	if(!Permissao::getNomePermissao($usuario->permissao))
+
+	if($usuario->permissao != Permissao::getIDPermissao("Administrador"))
 	{
 		erro("Erro ao definir permissão do usuário!",$paginaRetorno);
-
 	}
-	
-	// TODO: ALTERAR ESSA FLAG. RECEBER DE UM ELEMENTO HIDDEN NO FORM.
-	// APLICAR ISSO AS DEMAIS PÁGINAS
+		
 	$usuario->excluido=False;
 
 	return $usuario;
@@ -104,7 +96,14 @@ function cadastrarUsuario()
 
 	$paginaRetorno="index.php?page=configuracoesUsuarios";
 
-	$usuario = montarUsuarioPOST(R::dispense('usuario'));
+	$usuario = montarUsuarioPOST();
+
+	// Cifra a senha do usuário usando md5
+	// Isso não é muito seguro, mas é o que da tempo de fazer.
+	// Como os usuários vão fazer a gentileza de usar senhas como 123 
+	// isso não vai fazer muita diferença.
+
+	$usuario->senha_hash = md5($usuario->$senha);
 
 	try {
 		R::store($usuario); 
@@ -149,8 +148,11 @@ function editarUsuario()
 		$usuarioArmazenado->permissao = $usuarioMontado->permissao;
 	}
 
-	$usuarioArmazenado->senha_hash = $usuarioMontado->senha_hash;
-	
+	if($usuario->senha_hash != $usuarioArmazenado->senha_hash)
+	{
+		$usuario->senha_hash = md5($usuario->senha_hash);
+	}
+
 	try {
 		R::store($usuarioArmazenado);
 	} catch (Exception $e) {
@@ -173,7 +175,10 @@ function excluirUsuario()
 	}
 
 	$usuario = R::load("usuario",$id);
+	
 	$usuario->excluido=true;
+	$usuario->senha_hash = rtrim(base64_encode(md5(microtime())),"=");
+
 
 	try {
 		R::store($usuario);

@@ -16,8 +16,6 @@
 	 */
 
 	require("permissao.php");
-
-
 	
 
 	$id="";
@@ -47,6 +45,10 @@
 	else
 	{
 		$usuario = R::load('usuario',$id);
+		if($usuario->excluido == true)
+		{
+			erro("Esse usuário foi excluido!","index.php?page=configuracoesUsuarios");
+		}
 	}
 ?>
 
@@ -138,7 +140,6 @@ EOT;
 			$botaoExcluir = <<< EOT
 			<button onclick='window.location="index.php?page=scriptManipularUsuario&modo=excluir&id=$id"; return false;'>Excluir</button>
 EOT;
-	
 			if($id != -1 )
 			{
 				echo $botaoExcluir;

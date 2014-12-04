@@ -17,7 +17,7 @@
 
 		if($usuario)
 		{
-			if($usuario->senha_hash == $hash)
+			if($usuario->senha_hash == $hash && $usuario->excluido == false)
 			{
 				return true;
 			}
