@@ -18,7 +18,7 @@
 	require("permissao.php");
 
 
-	// COMEÇO DO SCRIPT	
+	
 
 	$id="";
 	if(isset($_GET['id']))
@@ -133,9 +133,9 @@ EOT;
 	
 		echo $botaoSalvar;
 
-		if($usuario->permissao == Permissao::getIDPermissao("Administrador")){
+		if(getUsuarioLogado()->permissao == Permissao::getIDPermissao("Administrador")){
 	
-			$botaoExcluir =<<<EOT
+			$botaoExcluir = <<< EOT
 			<button onclick='window.location="index.php?page=scriptManipularUsuario&modo=excluir&id=$id"; return false;'>Excluir</button>
 EOT;
 	
