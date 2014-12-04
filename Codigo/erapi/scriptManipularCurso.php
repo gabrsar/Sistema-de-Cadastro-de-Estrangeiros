@@ -17,10 +17,11 @@
  */
 
 require("curso.php");
+require("permissao.php");
 
 // Detecta o modo de execução
 
-if($usuario->permissao != Permissao::getIDPermissao("Administrador"))
+if(getUsuarioLogado()->permissao != Permissao::getIDPermissao("Administrador"))
 {
 	erro("Você não tem permissão para executar essa ação!",
 		"index.php?page=configuracoesDepartamentos");
@@ -49,7 +50,6 @@ function montarCursoPOST($curso)
 	
 	}
 
-
 	$curso->nome=sanitizeString($_POST['nome']);
 	$curso->tipo=sanitizeInt($_POST['tipo']);
 	$curso->excluido=0;
@@ -62,10 +62,14 @@ function montarCursoPOST($curso)
 		
 	}
 
-	if(!$curso->tipo)
+	$lista = TipoDeCurso::getListaTipoCursos();
+
+	$tipos = count($lista);
+
+
+	if($curso->tipo < 0 || $curso->tipo > $tipos)
 	{
 		erro("Tipo de curso não está definido!", $paginaRetorno);
-		
 	}
 
 	return $curso;

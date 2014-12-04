@@ -51,6 +51,10 @@
 	else
 	{
 		$curso = R::load('curso',$id);
+		if($curso->excluido == true)
+		{
+			erro("Esse curso foi excluído!","index.php?page=configuracoesCursos");
+		}
 	}
 
 ?>
