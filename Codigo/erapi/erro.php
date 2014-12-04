@@ -14,19 +14,21 @@
  *			Página que o link "Continuar" irá levar o usuário
  */
 ?>
-
 <div id="erro">
 	<p class="mensagem">
 		<?php echo $_SESSION['erroMensagem'];?>
 	</p>
 
-	<form>
-		<button onclick='window.location="<?php echo($_SESSION['erroGoto']);?>"'>Continuar</button>
-	</form>
+<button 
+	onclick='
+		window.location="<?php echo($_SESSION['erroGoto']);?>";
+		return false;
+	'
+>Continuar</button>
+
+
 </div>
 
 <?php
 	die();
 ?>
-
-
