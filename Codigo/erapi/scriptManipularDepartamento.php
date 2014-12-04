@@ -74,7 +74,6 @@ function cadastrarDepartamento()
 	sucesso("Departamento $departamento->nome foi cadastrado com sucesso!", $paginaRetorno);
 }
 
-
 function editarDepartamento()
 {
     $paginaRetorno="index.php?page=configuracoesDepartamentos";
@@ -94,6 +93,7 @@ function editarDepartamento()
 
 }
 
+
 function excluirDepartamento()
 {
     $paginaRetorno="index.php?page=configuracoesDepartamentos";
@@ -111,9 +111,7 @@ function excluirDepartamento()
 
 	R::store($curso);
 
-	sucesso("Departamento excluido com sucesso!", $paginaRetorno);
-	
+	sucesso("Departamento excluido com sucesso!", $paginaRetorno);	
 }                                                        
-
 
 ?>

@@ -51,6 +51,10 @@
 	else
 	{
 		$departamento = R::load('departamento',$id);
+		if($departamento->excluido == true)
+		{
+			erro("Esse departamento foi excluido!","index.php?page=configuracoesDepartamentos");
+		}
 	}
 
 ?>
