@@ -34,13 +34,10 @@ switch (sanitizeString($_GET['modo'])) {
 
 function montarUsuarioPOST()
 {
-
-
 	if(!$_POST)
 	{
 		erro("Conteúdo não definido!","index.php");
 	}
-
 	
 	$usuario = R::dispense("usuario");
 
@@ -77,7 +74,6 @@ function montarUsuarioPOST()
 	if(strlen($senha) < $TAMANHO_MINIMO_SENHA)
 	{
 		erro("Senha muito fraca. Utilize uma senha com pelo menos $TAMANHO_MINIMO_SENHA caracteres",$paginaRetorno);
-
 	}
 
 	if($senha != $usuario->senha_hash)
@@ -110,17 +106,18 @@ function cadastrarUsuario()
 
 	$usuario = montarUsuarioPOST(R::dispense('usuario'));
 
-	R::store($usuario);
+	try {
+		R::store($usuario); 
+	} catch (Exception $e) {
+		erro("Não foi possivel cadastrar o usuário.",$paginaRetorno);
+	}
+
 	sucesso("Usuario $usuario->nome foi cadastrado com sucesso!", $paginaRetorno);
 }
 
 
 function editarUsuario()
 {
-
-	echo "AAAAAAAAAAAAAAAA";
-
-	
 
 	$paginaRetorno="index.php?page=configuracoesUsuarios";
 
@@ -154,7 +151,12 @@ function editarUsuario()
 
 	$usuarioArmazenado->senha_hash = $usuarioMontado->senha_hash;
 	
-	R::store($usuarioArmazenado);
+	try {
+		R::store($usuarioArmazenado);
+	} catch (Exception $e) {
+		erro("Não foi possivel editar o usuário.",$paginaRetorno);
+	}
+	
 
 	sucesso("O usuário $usuarioArmazenado->nome foi atualizado com sucesso!",$paginaRetorno);	
 }
@@ -173,8 +175,11 @@ function excluirUsuario()
 	$usuario = R::load("usuario",$id);
 	$usuario->excluido=true;
 
-	R::store($usuario);
-
+	try {
+		R::store($usuario);
+	} catch (Exception $e) {
+		erro("Não foi possivel excluir o usuário.",$paginaRetorno);
+	}
 	sucesso("Usuario excluido com sucesso!", $paginaRetorno);	
 }
 
