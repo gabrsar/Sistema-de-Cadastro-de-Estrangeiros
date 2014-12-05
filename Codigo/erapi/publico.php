@@ -12,6 +12,7 @@
 	require_once("simplex/utils.php");
 	require_once("simplex/sanitize.php");
 	require_once("curso.php");
+	require_once("atuacao.php");
 
 	// Configura e inicia o RedBean
 	rbSetup();
@@ -27,7 +28,7 @@
 
 	// Monta combobox de atuação para cadastro
 	$comboAtuacao .= "<option id=\"opcao_atuacao\" value=\"\" selected></option>";
-	foreach(TipoDeCurso::getListaTipoCursos() as $tipo) {
+	foreach(Atuacao::getListaAtuacoes() as $tipo) {
 		$comboAtuacao .= "<option id=\"opcao_atuacao_$tipo[0]\" value=\"$tipo[0]\">$tipo[1]</option>";
 	}
 	// Monta combobox de departamento para cadastro
@@ -157,7 +158,7 @@
 									<label for="curso">Atuação*</label>
 								</td>
 								<td>
-									<select name="curso" required>
+									<select name="atuacao" required>
 										<?php
 											echo($comboAtuacao);
 										?>
@@ -170,7 +171,7 @@
 									<label for="curso">Curso</label>
 								</td>
 								<td>
-									<select name="curso">
+									<select name="curso" required>
 										<?php
 											echo($comboCurso);
 										?>

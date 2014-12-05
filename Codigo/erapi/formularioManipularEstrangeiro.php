@@ -16,6 +16,7 @@
 	 */
 
 	require_once("curso.php");
+	require_once("atuacao.php");
 	require_once("permissao.php");
 	require_once("simplex/utils.php");
 
@@ -69,7 +70,7 @@
 
 		// Monta combobox de atuação para cadastro
 		$comboAtuacao .= "<option id=\"opcao_atuacao\" value=\"\" selected></option>";
-		foreach(TipoDeCurso::getListaTipoCursos() as $tipo) {
+		foreach(Atuacao::getListaAtuacoes() as $tipo) {
 			$comboAtuacao .= "<option id=\"opcao_atuacao_$tipo[0]\" value=\"$tipo[0]\">$tipo[1]</option>";
 		}
 		// Monta combobox de departamento para cadastro
@@ -93,7 +94,7 @@
 		}
 
 		// Monta combobox de atuação para edição/exclusão/visualização
-		foreach(TipoDeCurso::getListaTipoCursos() as $tipo) {
+		foreach(Atuacao::getListaAtuacoes() as $tipo) {
 			$selected = $estrangeiro->atuacao != $tipo[0] ? "" : "selected";
 			$comboAtuacao .= "<option id=\"opcao_atuacao_$tipo[0]\" value=\"$tipo[0]\" $selected>$tipo[1]</option>";
 		}
@@ -215,7 +216,7 @@ $(function() {
 						<label for="curso">Curso</label>
 					</td>
 					<td>
-						<select name="curso">
+						<select name="curso" required>
 							<?php
 								echo($comboCurso);
 							?>

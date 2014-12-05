@@ -112,7 +112,7 @@ var_dump(implode('<br>', explode(',',$usuario)));
 
 			R::store($estrangeiro);
 
-			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso!<br>Aguarde contato.", $paginaRetorno);
+			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso!<br>Aguarde validação.", $paginaRetorno);
 		}
 		else {
 			// TODO VERIFICAR PQ NÃO REDIRECIONA PARA O LUGAR CERTO
@@ -144,7 +144,7 @@ var_dump(implode('<br>', explode(',',$usuario)));
 
 		if($_POST != null ){
 			$id = sanitizeInt($_GET['id']);
-
+			
 			$estrangeiro = R::load('estrangeiro',$id);
 			$estrangeiroMontado = montarEstrangeiroPOST($estrangeiro);
 
