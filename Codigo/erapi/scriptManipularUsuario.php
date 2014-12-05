@@ -148,9 +148,9 @@ function editarUsuario()
 		$usuarioArmazenado->permissao = $usuarioMontado->permissao;
 	}
 
-	if($usuario->senha_hash != $usuarioArmazenado->senha_hash)
+	if($usuarioMontado->senha_hash != $usuarioArmazenado->senha_hash)
 	{
-		$usuario->senha_hash = md5($usuario->senha_hash);
+		$usuarioArmazenado->senha_hash = md5($usuarioMontado->senha_hash);
 	}
 
 	try {
@@ -159,7 +159,6 @@ function editarUsuario()
 		erro("Não foi possivel editar o usuário.",$paginaRetorno);
 	}
 	
-
 	sucesso("O usuário $usuarioArmazenado->nome foi atualizado com sucesso!",$paginaRetorno);	
 }
 
