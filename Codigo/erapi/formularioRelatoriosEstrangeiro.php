@@ -23,7 +23,7 @@
 	$passaporte = $value->passaporte;
 	$rne = $value->rne;
 	if($value->atuacao != 7)
-		$modalidade = Atuacao::getNomeAtuacao($id);
+		$modalidade = Atuacao::getNomeAtuacao($value->atuacao);
 	else
 		$modalidade = $value->atuacao_outros;
 	$pais = $value->pais;
