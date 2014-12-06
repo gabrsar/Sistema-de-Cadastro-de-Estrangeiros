@@ -27,7 +27,7 @@ $(window).resize(function(){
 		var corpo = parseInt($("#corpo").css("height"));
 		if((corpo +98) < altura)
 		{
-			altura -= 173;
+			altura -= 143;
 			$('#corpo').css({"height" : altura + "px"});
 		}
 	}
@@ -55,7 +55,7 @@ $(window).ready(function(){
 		var corpo = parseInt($("#corpo").css("height"));
 		if((corpo + 98) < altura)
 		{
-			altura -= 173;
+			altura -= 143;
 			$('#corpo').css({"height" : altura + "px"});
 		}
 	}

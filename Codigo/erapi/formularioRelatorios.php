@@ -5,6 +5,9 @@
  	 * por meio de uma requisição AJAX
  	 * 
  	 */
+ 	 
+ 	 
+ 	require_once("atuacao.php");
 ?>
 <script>
 	var b = document.documentElement;
@@ -54,13 +57,15 @@
 			<fieldset id="fieldset_modalidade">
 				<legend><h2>Modalidade </h2></legend>
 				<div id="form_modalidade">
-					<p><input type="checkbox" name="atuacao" id="atuacao1" value="1"> Graduação</p>
-					<p><input type="checkbox" name="atuacao" id="atuacao2" value="2"> Mestrado</p>
-					<p><input type="checkbox" name="atuacao" id="atuacao3" value="3"> Especialização</p>
-					<p><input type="checkbox" name="atuacao" id="atuacao4" value="4"> Doutorado</p>
-					<p><input type="checkbox" name="atuacao" id="atuacao5" value="5"> Pós-Doutorado</p>
-					<p><input type="checkbox" name="atuacao0" id="atuacao0" value="0"> Outro</p>
-					<p><input type="text" name="atuacao_outros" id="atuacao7" size="30" class="invisivel"></p>
+					<?php 
+						$i = 0;
+						foreach(Atuacao::getListaAtuacoes() as $tipo)
+						{
+							echo "<p><input type=\"checkbox\" name=\"atuacao\" id=\"atuacao$tipo[0]\" value=\"$tipo[0]\"> $tipo[1]</p>";
+							$i++;
+						}
+					?>
+					<p><input type="text" name="atuacao_outros" id="atuacao<?php echo $i?>" size="30" class="invisivel"></p>
 				</div>
 			</fieldset>
 			<fieldset id="fieldset_curso">

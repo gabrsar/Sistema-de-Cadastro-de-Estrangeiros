@@ -5,6 +5,7 @@
  	 * 
  	 */
 	require_once("simplex/utils.php");
+	require_once("atuacao.php");
 
 	$id=-1;
 	if(isset($_GET['id']))
@@ -15,22 +16,14 @@
 			erro("Parâmetro inválido!","index.php?page=relatorios");
 		}
 	}
-	$tipos = array(
-		1 => "Graduação",
-		2 => "Mestrado",
-		3 => "Especialização",
-		4 => "Doutorado",
-		5 => "Pós-Doutorado"
-	);
-
 	$value = R::load('estrangeiro', "$id");
 	$foto = $value->foto;
 	$nome = $value->nome;
 	$email = $value->email;
-	$passaporte = $value->passaport;
+	$passaporte = $value->passaporte;
 	$rne = $value->rne;
-	if($value->atuacao != 0)
-		$modalidade = $tipos[$value->atuacao];
+	if($value->atuacao != 7)
+		$modalidade = Atuacao::getNomeAtuacao($id);
 	else
 		$modalidade = $value->atuacao_outros;
 	$pais = $value->pais;
@@ -57,8 +50,6 @@
 ?>
 
 <div id="titulo" class="center">
-	<!-- Vou deixar comentado aqui, vai que mudo de idéia depois, sei lá, mas por enquanto vai ficar sem botão de volta-->
-	<!--<a href="index.php?page=relatorios" class="voltar" id="back_button">&lt&lt</a>-->
 	<p class="titulo">Dados: <?php echo "<tag class=\"titulo_estrangeiro\">$value->nome</tag>"?></p>
 </div>
 

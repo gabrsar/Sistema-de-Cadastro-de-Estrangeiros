@@ -461,7 +461,7 @@ html[data-useragent*='Firefox/'] #fieldset_periodo
 	min-width: 190px;
 }
 
-#atuacao7
+#atuacao8
 {
 	max-width: 229px;
 }
@@ -496,6 +496,15 @@ html[data-useragent*='Firefox/'] #legend_periodo
 html
 {
 	height: 100%;
+}
+
+#form_curso 
+{
+	height: 156px;
+}
+html[data-useragent*='Firefox/'] #form_curso
+{
+	height: 164px;
 }
 
 /* Table Sorter */

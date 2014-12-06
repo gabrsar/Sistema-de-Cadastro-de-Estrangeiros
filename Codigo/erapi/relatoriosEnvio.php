@@ -8,6 +8,7 @@
 	date_default_timezone_set('America/Sao_Paulo');
 	require("rb/db.php");
 	require("simplex/utils.php");
+	require_once("atuacao.php");
 	rbSetup();
 	$sql_atuacao = '';
 	$sql_curso = '';
@@ -26,20 +27,20 @@
 	}
 	if($_POST['atuacao'] != '')
 		$sql_atuacao .= '(';
-	$sql_atuacao .= preg_replace("/(atuacao=[0-5])(&)/", "$1 OR ", $_POST['atuacao']);
+	$sql_atuacao .= preg_replace("/(atuacao=[0-9])(&)/", "$1 OR ", $_POST['atuacao']);
 	if($atuacao_alone == 'true')
 	{
 		if($atuacao_outros != '')
 		{
 			if($sql_atuacao != '')
-				$sql_atuacao .= ' OR ';
+				$sql_atuacao .= ' AND ';
 			$sql_atuacao .= "atuacao_outros LIKE '%" . $atuacao_outros . "%' OR atuacao_outros LIKE '%" . strtolower($atuacao_outros) . "%'";
 		}
 		else
 		{
 			if($sql_atuacao != '')
 				$sql_atuacao .= ' OR ';
-			$sql_atuacao .= "atuacao=0";
+			$sql_atuacao .= "atuacao=7";
 		}
 	}
 	if($sql_atuacao != '')
@@ -108,22 +109,14 @@
 	</thead>
 	<tbody class="tbody_alternada">
 		<?php
-		$tipos = array(
-			1 => "Graduação",
-			2 => "Mestrado",
-			3 => "Especialização",
-			4 => "Doutorado",
-			5 => "Pós-Doutorado"
-		);
-
 		$estrangeiros = R::find('estrangeiro',"$sql_final");
 		foreach ($estrangeiros as $estrangeiro) 
 		{
 			$id = $estrangeiro->id;
 			$nome = $estrangeiro->nome;
 			$pais = $estrangeiro->pais;
-			if($estrangeiro->atuacao != 0)
-				$modalidade = $tipos[$estrangeiro->atuacao];
+			if($estrangeiro->atuacao != 7)
+				$modalidade = Atuacao::getNomeAtuacao($estrangeiro->atuacao);
 			else
 				$modalidade = $estrangeiro->atuacao_outros;
 			$curso = R::load( 'curso', "$estrangeiro->curso");
