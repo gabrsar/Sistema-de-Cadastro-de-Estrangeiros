@@ -200,7 +200,6 @@ input[type="text"], input[type="password"],input[type="email"],input[type="file"
 table{
 	border-collapse: collapse;
 	width:100%;
-	border:1px solid #AAA;
 	padding:0;
 }
 
@@ -510,6 +509,7 @@ html[data-useragent*='Firefox/'] #form_curso
 /* Table Sorter */
 table.tablesorter {
 	background-color: #CDCDCD;
+	border:1px solid #AAA;
 	margin:10px 0pt 15px;
 	width: 100%;
 	text-align: left;
