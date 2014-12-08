@@ -19,6 +19,7 @@
 	require_once("scriptUploadFoto.php");
 	require_once("permissao.php");
 	require_once("simplex/utils.php");
+	require_once("atuacao.php");
 
 	// -------------------------------------------------------------------------
 	// Monta variável para verificação de permissão
@@ -81,6 +82,12 @@ var_dump(implode('<br>', explode(',',$usuario)));
 		$estrangeiro->passaporte = sanitizeString($_POST['passaporte']);
 		$estrangeiro->rne = sanitizeString($_POST['rne']);
 		$estrangeiro->atuacao = sanitizeInt($_POST['atuacao']);
+		if(Atuacao::getNomeAtuacao($estrangeiro->atuacao) == "Outro") {
+			$estrangeiro->atuacao_outros = sanitizeString($_POST['atuacao_outro']);
+		}
+		else {
+			$estrangeiro->atuacao_outros = "";
+		}
 		$estrangeiro->curso = sanitizeInt($_POST['curso']);
 		$estrangeiro->pais = sanitizeString($_POST['pais']);
 		$estrangeiro->instituicao = sanitizeString($_POST['instituicao']);
@@ -105,17 +112,16 @@ var_dump(implode('<br>', explode(',',$usuario)));
 	}
 
 	function cadastrarEstrangeiroPublico() {
-		$paginaRetorno='http://www.ibilce.unesp.br/#!/administracao/staepe/erapi/'; //DIRECIONAR PARA TABELA PUBLICA
+		$paginaRetorno='http://www.ibilce.unesp.br/#!/administracao/staepe/erapi/';
 
 		if($_POST != null ){
 			$estrangeiro = montarEstrangeiroPOST(R::dispense('estrangeiro'));
 
 			R::store($estrangeiro);
 
-			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso!<br>Aguarde validação.", $paginaRetorno);
+			sucesso("Estrangeiro $estrangeiro->nome foi cadastrado com sucesso! Aguarde a validação do cadastro.<br>Você já pode fechar a janela ou clicar em \"Continuar\" para acessar nossa página.", $paginaRetorno);
 		}
 		else {
-			// TODO VERIFICAR PQ NÃO REDIRECIONA PARA O LUGAR CERTO
 			session_start();
 			erro("Sem dados para cadastro", $paginaRetorno);
 		}

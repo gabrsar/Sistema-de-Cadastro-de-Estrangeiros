@@ -2,6 +2,8 @@
 
 /* Autor: Victor Hugo Cândido de Oliveira
  * Esse arquivo armazena as atuações
+ *
+ * Caso haja alguma mudança atualizar referência no scriptSelectOutros.js
  */
 
 class Atuacao{
@@ -14,7 +16,7 @@ class Atuacao{
 		array(4,"Pós-Doutorado"),
 		array(5,"Prof. visitante"),
 		array(6,"Palestrante"),
-		array(7,"Outros")
+		array(7,"Outro")
 	);
 
 	static public function getListaAtuacoes()
