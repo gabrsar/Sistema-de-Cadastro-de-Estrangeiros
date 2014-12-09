@@ -7,10 +7,22 @@
 
 
 $(document).ready(function() {
-	$('input#atuacao0').click(function() {
-		$('input#atuacao7').fadeToggle( "swing", "linear" );
+	$('input#atuacao7').click(function() {
+		var corpo = parseInt($("#corpo").css("height"));
+		$('input#atuacao8').fadeToggle( "swing", "linear", function() {
+			if(!($('input#atuacao7').is( ":checked" )))
+			{
+				corpo -= 30;
+				$('#corpo').css({"height" : corpo + "px"});
+			}
+		});
 		var largura = parseInt($('#form_modalidade').css("height"));
-		if((largura > 120) && ($('input#atuacao0').is( ":checked" )))
+		if($('input#atuacao7').is( ":checked" ))
+		{
+			corpo += 30;
+			$('#corpo').css({"height" : corpo + "px"});
+		}
+		if((largura > 120) && ($('input#atuacao7').is( ":checked" )))
 		{
 			$('#form_curso').css({"height" : largura + "px"});
 			if($.browser.mozilla)
@@ -20,20 +32,29 @@ $(document).ready(function() {
 		}
 		else
 		{
-			$('#form_curso').css({"height": "116px"});
+			$('#form_curso').css({"height": "156px"});
 			if($.browser.mozilla)
 			{
+				$('#form_curso').css({"height": "164px"});
 				$('#fieldset_modalidade').css({"min-width" : "132px"});
 			}
 		}
 	});
 	$('input[type=reset]').click(function() {
-		if ($('input#atuacao0').is( ":checked" ))
+		var corpo = parseInt($("#corpo").css("height"));
+		if ($('input#atuacao7').is( ":checked" ))
 		{
-			$('input#atuacao7').fadeToggle( "swing", "linear" );
-			$('#form_curso').css({"height": "116px"});
+			$('input#atuacao8').fadeToggle( "swing", "linear", function() {
+				if(!($('input#atuacao7').is( ":checked" )))
+				{
+					corpo -= 30;
+					$('#corpo').css({"height" : corpo + "px"});
+				}
+			});
+			$('#form_curso').css({"height": "156px"});
 			if($.browser.mozilla)
 			{
+				$('#form_curso').css({"height": "164px"});
 				$('#fieldset_modalidade').css({"min-width" : "132px"});
 			}
 		}
@@ -42,8 +63,8 @@ $(document).ready(function() {
 		event.preventDefault();
 		$('#corpo').css({"height" : "auto"});
 		var atuacao = $('#formulario_relatorios input[name=atuacao]').serialize();
-		var atuacao_alone = $('#atuacao0').prop("checked");
-		var atuacao_outros = $('#atuacao7').prop("value");
+		var atuacao_alone = $('#atuacao7').prop("checked");
+		var atuacao_outros = $('#atuacao8').prop("value");
 		var curso = $('#formulario_relatorios input[name=curso]').serialize();
 		var dep = $('#formulario_relatorios input[name=departamento]').serialize();
 		var inicio = $('#inicio').prop("value");

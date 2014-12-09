@@ -67,6 +67,6 @@ function bytesToSize(bytes) {
 }
 
 function getMaxSize() {
-	var maxSize = 1048576;
+	var maxSize = 5242880;
 	return maxSize;
 }

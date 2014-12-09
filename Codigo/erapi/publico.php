@@ -12,6 +12,7 @@
 	require_once("simplex/utils.php");
 	require_once("simplex/sanitize.php");
 	require_once("curso.php");
+	require_once("atuacao.php");
 
 	// Configura e inicia o RedBean
 	rbSetup();
@@ -26,17 +27,17 @@
 	$cursos = R::findAll('curso', 'excluido=0'); //find curso id=0
 
 	// Monta combobox de atuação para cadastro
-	$comboAtuacao .= "<option id=\"opcao_atuacao\" value=\"\" selected></option>";
-	foreach(TipoDeCurso::getListaTipoCursos() as $tipo) {
+	$comboAtuacao .= "<option id=\"opcao_atuacao\" selected></option>";
+	foreach(Atuacao::getListaAtuacoes() as $tipo) {
 		$comboAtuacao .= "<option id=\"opcao_atuacao_$tipo[0]\" value=\"$tipo[0]\">$tipo[1]</option>";
 	}
 	// Monta combobox de departamento para cadastro
-	$comboDepartamento .= "<option id=\"opcao_departamento\" value=\"\" selected></option>";
+	$comboDepartamento .= "<option id=\"opcao_departamento\" selected></option>";
 	foreach($departamentos as $departamento) {
 		$comboDepartamento .= "<option id=\"opcao_departamento_$departamento->id\" value=\"$departamento->id\">$departamento->nome</option>";
 	}
 	// Monta combobox de curso para cadastro
-	$comboCurso .= "<option id=\"opcao_curso\" value=\"\" selected></option>";
+	$comboCurso .= "<option id=\"opcao_curso\" selected></option>";
 	foreach($cursos as $curso) {
 		$comboCurso .= "<option id=\"opcao_curso_$curso->id\" value=\"$curso->id\">$curso->nome</option>";
 	}
@@ -68,7 +69,7 @@
 	<body>
 		<script>
 		$(function() {
-			$( "#inicio" ).datepicker({
+			var dp = {
 				dateFormat: 'dd/mm/yy',
 				autoSize: true,	
 				changeMonth: true,
@@ -80,23 +81,11 @@
 				dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
 				monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
 				monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-			});
-			$( "#fim" ).datepicker({
-				dateFormat: 'dd/mm/yy',
-				autoSize: true,	
-				changeMonth: true,
-				changeYear: true,
-				showOtherMonths: true,
-				selectOtherMonths: true,
-				dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-				dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-				dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-				monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-				monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-			});
+			};
+			$( "#chegada" ).datepicker(dp);
+			$( "#saida" ).datepicker(dp);
 		});
 		</script>
-
 		<div id="topo">
 			<a href=""><h1>Sistema de Controle de Estrangeiros</h1></a>
 		</div>
@@ -108,6 +97,7 @@
 
 			<div id="wrapper">
 				<form action="index.php?page=scriptManipularEstrangeiro&modo=cadastrar" method="post" id="register-form" enctype="multipart/form-data">
+
 					<table>
 						<tbody class="tbody_estrangeiro">
 							<tr>
@@ -116,7 +106,6 @@
 								</td>
 								<td>
 									<input id="foto" name="foto" type="file">
-									<span id='register-form_foto_errorloc' class='erro_validacao'></span>
 								</td>
 							</tr>
 							<tr>
@@ -133,7 +122,7 @@
 								</td>
 								<td>
 									<input type="email" name="email" size="64" required>
-									<span id='register-form_email_errorloc' class='erro_validacao'></span>
+									<div id='register-form_email_errorloc' class='erro_validacao'></div>
 								</td>
 							</tr>
 							<tr>
@@ -154,23 +143,26 @@
 							</tr>
 							<tr>
 								<td>
-									<label for="curso">Atuação*</label>
+									<label for="atuacao">Atuação*</label>
 								</td>
 								<td>
-									<select name="curso" required>
+									<select id="atuacao" name="atuacao" required>
 										<?php
 											echo($comboAtuacao);
 										?>
 									</select>
+									<div id="atuacao_outro">										
+										<input type="text" name="atuacao_outro" size="30"></input>
+										<div id='register-form_atuacao_outro_errorloc' class='erro_validacao'></div>
+									</div>
 								</td>
 							</tr>
-						<!--TODO OPERAÇÃO AO SELECIONAR "OUTROS"////OLHAR RELATORIO DO CAIK -->
 							<tr>
 								<td>
-									<label for="curso">Curso</label>
+									<label for="curso">Curso*</label>
 								</td>
 								<td>
-									<select name="curso">
+									<select name="curso" required>
 										<?php
 											echo($comboCurso);
 										?>
@@ -210,7 +202,7 @@
 								</td>
 								<td>
 									<input type="email" name="email_docente" size="64" required>
-									<span id='register-form_docente_errorloc' class='erro_validacao'></span>
+									<div id='register-form_email_docente_errorloc' class='erro_validacao'></div>
 								</td>
 							</tr>
 
@@ -237,19 +229,21 @@
 
 							<tr>
 								<td>
-									<label>Data de chegada*</label>
+									<label for="data_chegada">Data de chegada*</label>
 								</td>
 								<td>
-									<input ondrop="return false;" type="text" name="data_chegada" id="inicio" size="10" maxlength="10" required readonly>
+									<input ondrop="return false;" type="text" name="data_chegada" id="chegada" size="10" maxlength="10" required readonly>
+									<div id='register-form_data_chegada_errorloc' class='erro_validacao'></div>
 								</td>
 							</tr>
 
 							<tr>
 								<td>
-									<label>Data de saída*</label>
+									<label for="data_saida">Data de saída*</label>
 								</td>
 								<td>
-									<input ondrop="return false;" type="text" name="data_saida" id="fim" size="10" maxlength="10" required readonly>
+									<input ondrop="return false;" type="text" name="data_saida" id="saida" size="10" maxlength="10" required readonly>
+									<div id='register-form_data_saida_errorloc' class='erro_validacao'></div>
 								</td>
 							</tr>
 							<tr>
@@ -258,6 +252,7 @@
 										<button id="btn_salvar">Enviar cadastro</button>
 									</div>
 								</td>
+								<td id='register-form_errorloc' class='error_strings'></td>
 							</tr>
 						</tbody>
 					</table>
@@ -268,10 +263,17 @@
 			var frmvalidator  = new Validator("register-form");
 			frmvalidator.EnableOnPageErrorDisplay();
 			frmvalidator.EnableMsgsTogether();
+			
+			frmvalidator.addValidation("data_saida","req","Digite uma data de saída");
+			frmvalidator.addValidation("data_chegada","req","Digite uma data de chegada");
+
+			frmvalidator.addValidation("email_docente","email","Digite um email válido");
+
+			frmvalidator.addValidation("atuacao_outro", "req", "Digite a atuação", "VWZ_IsListItemSelected(document.forms['register-form'].elements['atuacao'],'7')");
 
 			frmvalidator.addValidation("email","email","Digite um email válido");
-			frmvalidator.addValidation("email_docente","email","Digite um email válido");
 		</script>
+		<script type="text/javascript" src="js/scriptSelectOutro.js"></script>
 		<script type="text/javascript" src="js/scriptValidaImagem.js"></script>
 
 		<div id="rodape">
