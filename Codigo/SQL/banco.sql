@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `erapi`.`usuario` (
   UNIQUE INDEX `login_UNIQUE` (`login` ASC))
 ENGINE = InnoDB;
 
-INSERT INTO `erapi`.`usuario` VALUES( null, 'Administrador','admin','029b90d7056d130df2830a3be0030a95','put your mail here',0,0,null);
+INSERT INTO `erapi`.`usuario` VALUES( null, 'Administrador','admin','eb399bcaca686f8609137153307eecf1','put your mail here',0,0,null);
 
 
 
