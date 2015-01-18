@@ -8,6 +8,8 @@
 	 * login, não tendo que tratar esse caso que o usuário ainda não está logado
 	 * .
  	 */
+
+header('Content-Type: text/html; charset=utf-8');
 ?>
 
 <!DOCTYPE html>

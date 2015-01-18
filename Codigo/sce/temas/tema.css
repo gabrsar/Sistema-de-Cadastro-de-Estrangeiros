@@ -501,6 +501,17 @@ html
 {
 	height: 156px;
 }
+
+#form_dep
+{
+	min-width: 612px;
+}
+
+html[data-useragent*='Firefox/'] #form_dep
+{
+	min-width: 580px !important;
+}
+
 html[data-useragent*='Firefox/'] #form_curso
 {
 	height: 164px;

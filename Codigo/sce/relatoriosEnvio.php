@@ -4,7 +4,9 @@
  	 * e geração do HTML que será mostrado como resultado na página de relatórios
  	 * 
  	 */
-
+	
+	header('Content-Type: text/html; charset=utf-8');
+	
 	date_default_timezone_set('America/Sao_Paulo');
 	require("rb/db.php");
 	require("simplex/utils.php");

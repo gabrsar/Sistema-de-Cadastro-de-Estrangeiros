@@ -1,0 +1,112 @@
++-----------------------------------------------------------------------------+
+|	DOCUMENTO DE REFERÊNCIA DO " SISTEMA DE CONTROLE DE ESTRANGEIROS "        |
+|	Versão do sistema: 1.1 - 13/01/2014                                       |
++-----------------------------------------------------------------------------+
+
+	Universidade Estadual Paulista - "Júlio de Mesquita Filho" - UNESP
+	Instituto de Biociências, Letras e Ciências Exatas - IBILCE
+	
+	Coordenação:
+		ERAPI - Escritório Regional de Apoio à Pesquisa e Internacionalização
+			Eliane Cristina Gonçalves do Nascimento
+			André Luís Domingues
+
+		DTI - Diretoria Técnica de Informática
+			Professor Dr. Luiz Carlos Baida
+			Guilherme Dworak
+
+	Desenvolvimento:
+		 Carlos Henrique Severino
+		 Gabriel Henrique Martinez Saraiva
+		 Victor Hugo Cândido
+
++-----------------------------------------------------------------------------+
+|	UTILIZAÇÃO DO SISTEMA                                                     |
++-----------------------------------------------------------------------------+
+	
+	• Após o sistema instalado e funcionando (ver proxima sessão) é necessário
+	  cadastrar usuários, cursos e departamentos no sistema. O sistema vem sem 
+	  esses dados pois foi solicitado que seja compativel com outras unidades 
+	  da UNESP.
+
+	  Para cadastrar esses dados faça login utilizando a conta de Administrador
+	  (para saber a senha padrão a proxima sessão, ou consulte o técnico 
+	  que fez a instalação do sistema);
+
+	  Após entrar no sistema com uma conta de administrador, acesse a guia
+	  CONFIGURAÇÕES.
+
+	  Cadastre os usuários, departamentos e os cursos necessários.
+
+	  Após isso o sistema deve estar pronto para uso geral.
+
++-----------------------------------------------------------------------------+
+|	INSTALAÇÃO DO SISTEMA                                                     |
++-----------------------------------------------------------------------------+
+
+	• Para instalar esse sistema é necessário um servidor com os seguintes 
+	softwares:
+
+		- Apache 2.4.10 (Versões anteriores não foram testadas)
+		- PHP 5.6.3 	(Versões anteriores não foram testadas)
+		- MariaDB 10.0.14 (Ou SGDB compativel. Ex: MySQL)
+		- phpMyAdmin 4.3.6 (Versões anteriores não foram testadas)
+
+	• Configurações Necessárias:
+
+		- É necessário criar o banco de dados para que a aplicação possa ser
+		  executada. O script para criar o banco de dados se encontra na pasta
+		  SQL com o nome 'banco.sql'. Esse script irá criar no sistema uma 
+		  conta com login e senha 'admin' e 'change' respectivamente.
+
+		- O banco de dados criado pelo script tem o nome 'erapi'
+
+		- Após criar o banco de dados é necessário fornecer ao sistema o acesso
+		  a este. Para isso é necessário editar o arquivo sce/rb/db.php
+
+		  Dentro do arquivo é necessário definir o endereço do servidor,
+		  nome do banco de dados, usuário e senha. Conforme exemplo:
+
+			$host="ENDEREÇO";
+			$db="erapi";
+			$user="USUARIO";
+			$password="SENHA";
+
+		  Para fazer a importação do banco de dados pode ser utilizado a 
+		  ferramenta phpMyAdmin. Que é com a qual o sistema foi testado.
+
+		- Também é necessário habilitar as extensões para PDO com MYSQL no PHP.
+		  Para isso edite o php.ini. Segue lista de extenções utilizadas pelo 
+		  sistema:
+
+		  	extension=pdo_mysql.so
+			extension=pdo_odbc.so
+			extension=mysqli.so
+			extension=mysql.so 
+			extension=mcrypt.so
+			extension=gettext.so
+			extension=curl.so
+
+		- Após isso o sistema deve funcionar corretamente.
+
+		- Acesse o sistema utilizando o usuário 'admin' com a senha 'change' 
+		e mude a senha do usuário administrador.
+
++-----------------------------------------------------------------------------+
+|	CONSIDERAÇÕES FINAIS                                                      |
++-----------------------------------------------------------------------------+
+
+	Esse sistema foi desenvolvido utilizando software livre.
+
+	Por favor, respeite as licenças desses softwares.
+
+	Para acesso as licenças desses softwares, acesse:
+
+	http://php.net/license/
+	http://httpd.apache.org/docs/2.4/license.html
+	https://github.com/gabordemooij/redbean/blob/master/RedBeanPHP/license.txt
+	https://mariadb.com/kb/en/mariadb/faq/questions-about-licensing-mariadb-plugins-etc/mariadb-license/
+	http://www.phpmyadmin.net/home_page/license.php
+
+
+

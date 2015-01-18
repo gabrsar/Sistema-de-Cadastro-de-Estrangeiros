@@ -13,7 +13,9 @@
 	function validarLogin($login,$senha)
 	{
 		$hash = md5($senha);
-		$usuario = R::findOne('usuario','login = ?',[$login]);
+
+		$arr = array($login);
+		$usuario = R::findOne('usuario','login = ?',$arr);
 
 		if($usuario)
 		{
@@ -51,7 +53,8 @@
 
 	if(validarLogin($login,$senha))
 	{
-		$usuarioLogado = R::findOne('usuario','login = ?',[$login]);
+		$arr = array($login);
+		$usuarioLogado = R::findOne('usuario','login = ?',$arr);
 		$_SESSION['usuarioLogado'] = $usuarioLogado;
 		
 		header("location:index.php?page=inicio");

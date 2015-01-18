@@ -51,7 +51,8 @@ EOT;
 			}
 			else
 			{
-				$usuario = R::findOne('usuario','login = ?',[$usuarioLogado->login]);
+				$arr = array($usuarioLogado->login);
+				$usuario = R::findOne('usuario','login = ?',[$arr]);
 				$usuarios = array($usuario);
 			}
 			

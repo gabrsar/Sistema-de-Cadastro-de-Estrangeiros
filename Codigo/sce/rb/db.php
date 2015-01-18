@@ -5,11 +5,6 @@
  * Essa página é importada na scriptMaster.php, assim não necessita ser 
  * importada em todas as páginas.
  *
- *
- * !!! Enquanto estivermos em produção recomendo que utilizemos os mesmos 
- * usuários para simplificar o acesso ao banco de dados.
- *
- *
  */
 
 function rbSetup()
@@ -18,8 +13,8 @@ function rbSetup()
 
 	$host="localhost";
 	$db="erapi";
-	$user="sce";
-	$password="sce";
+	$user="erapi";
+	$password="erapi";
 	
 	R::setup("mysql:host=$host;dbname=$db",$user,$password);
 }

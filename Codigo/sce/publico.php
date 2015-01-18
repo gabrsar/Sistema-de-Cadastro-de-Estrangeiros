@@ -8,6 +8,7 @@
 	 * 
 	 */
 
+	header('Content-Type: text/html; charset=utf-8');
 	require_once("rb/db.php");
 	require_once("simplex/utils.php");
 	require_once("simplex/sanitize.php");

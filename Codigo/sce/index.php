@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+	
+
 
 	/* Autor: Gabriel Henrique Martinez Saraiva
  	 *
@@ -14,6 +16,7 @@
  	 */
 
 // Chamada principal ao script que carrega o RB e outros módulos importantes
+header('Content-Type: text/html; charset=utf-8');
 require("simplex/scriptMaster.php");
 
 // Carrega o redirecionador
